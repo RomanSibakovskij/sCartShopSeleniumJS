@@ -1,0 +1,21 @@
+"use strict"
+
+const BaseTest = require("./base.test");
+
+
+class TestMethods extends BaseTest{
+
+    constructor(driver) {
+        super();
+        this.driver = driver;
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+}
+module.exports = TestMethods;
