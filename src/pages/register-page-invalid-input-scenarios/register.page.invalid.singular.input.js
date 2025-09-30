@@ -29,6 +29,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._noLastName = "";
         this._noEmail = "";
         this._noPhone = "";
+        this._noAddressOne = "";
 
     }
 
@@ -56,6 +57,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const noPhone = this._noPhone;
         Logger.info("No register user phone number: ", noPhone);
         await phoneInputField.sendKeys(noPhone);
+    }
+    async inputNoAddressOneIntoAddressOneInputField(){
+        const addressOneInputField = await this.driver.findElement(this._registerPageAddressOneInputField);
+        const noAddressOne = this._noAddressOne;
+        Logger.info("No register user address one: ", noAddressOne);
+        await addressOneInputField.sendKeys(noAddressOne);
     }
 
 }
