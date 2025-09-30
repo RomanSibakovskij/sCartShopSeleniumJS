@@ -128,6 +128,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooShortPhoneTest();
         });
 
+        //Test 002m -> invalid user account creation test - too short address one (3 chars) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Too Short Address One", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too short address one (3 chars)
+            await testMethods.invalidUserAccountCreationTooShortAddressOneTest();
+        });
+
     });
 
 
