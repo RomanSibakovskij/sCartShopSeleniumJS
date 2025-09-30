@@ -6,13 +6,16 @@ const BasePage = require("../../pages/utilities/base.page.js");
 const { GeneralPage } = require("../../pages/general.page.js");
 const { HomePage } = require("../../pages/home.page.js");
 const { LoginPage } = require("../../pages/login.page.js");
+const { RegisterPage } = require("../../pages/register.page.js");
 
 const GeneralPageTextElementAsserts = require("../text-element-asserts/general.page.text.element.asserts.js");
 const HomePageTextElementAssert = require("../text-element-asserts/home.page.text.element.assert.js");
-//const LoginPageTextElementAssert = require("../test-text-element-asserts/login.page.text.element.assert.js");
+//const LoginPageTextElementAssert = require("../text-element-asserts/login.page.text.element.assert.js");
+const RegisterPageTextElementAssert = require("../text-element-asserts/register.page.text.element.assert.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 
+const assert = require("node:assert");
 const {captureScreenshot} = require("./screenshot.class");
 
 class TestMethods extends BaseTest{
@@ -74,6 +77,66 @@ class TestMethods extends BaseTest{
         await loginPage.clickAccountRegisterLink();
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Navigate To Register Page Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user account creation test
+
+    //valid user account creation test method
+    async validUserAccountCreationTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const registerPage = new RegisterPage(this.driver);
+        const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //register page web element assert
+        await registerPage.isRegisterPageWebElementDisplayed();
+        //register page text element assert
+        await registerPageTextElementAssert.isRegisterPageTextElementAsExpected();
+        //capture screenshot of the register page display before data input
+        await captureScreenshot(this.driver, "Register Page Display Before Data Input");
+        //input valid first name into first name input field
+        await registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        await registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        await registerPage.inputEmailIntoEmailInputField();
+        //input valid phone into phone input field
+        await registerPage.inputPhoneIntoPhoneInputField();
+        //input valid address one into address one input field
+        await registerPage.inputAddressOneIntoAddressOneInputField();
+        //input valid address two into address two input field
+        await registerPage.inputAddressTwoIntoAddressTwoInputField();
+        //click "Country" dropdown menu
+        await registerPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await registerPage.selectUSCountryOption();
+        //input valid password into password input field
+        await registerPage.inputPasswordIntoPasswordInputField();
+        //input valid matching confirm password into confirm password input field
+        await registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the register page display after valid data input
+        await captureScreenshot(this.driver, "Register Page Display After Valid Data Input");
+        //click "Sign up" button
+        await registerPage.clickSignUpButton();
+        //assert the user gets an expected success message
+        const registerPageSuccessMsg = await registerPage.getRegisterPageSignUpSuccessMessage();
+        assert.strictEqual(registerPageSuccessMsg, "×\nSuccessful register", "The valid user account creation message doesn't match expectations or the user account creation process has failed.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid User Account Creation Test Result");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
