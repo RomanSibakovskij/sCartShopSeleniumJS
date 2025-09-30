@@ -38,6 +38,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooShortFirstName = "F";// 1 char
         this._tooShortLastName = "G";// 1 char
         this._tooShortEmail = testDataGenerator.generateRandomTooShortEmailAddress(1);//1 char -> name, domain
+        this._tooShortPhone = "0123456";// 7 chars
 
     }
 
@@ -109,6 +110,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooShortEmail = this._tooShortEmail;
         Logger.info("Too short register user email: ", tooShortEmail);
         await emailInputField.sendKeys(tooShortEmail);
+    }
+    async inputTooShortPhoneIntoPhoneInputField(){
+        const phoneInputField = await this.driver.findElement(this._registerPagePhoneInputField);
+        const tooShortPhone = this._tooShortPhone;
+        Logger.info("Too short register user phone number: ", tooShortPhone);
+        await phoneInputField.sendKeys(tooShortPhone);
     }
 
 }

@@ -120,6 +120,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooShortEmailTest();
         });
 
+        //Test 002l -> invalid user account creation test - too short phone (7 chars)
+        test("Invalid User Account Creation Test - Too Short Phone", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too short phone (7 chars)
+            await testMethods.invalidUserAccountCreationTooShortPhoneTest();
+        });
+
     });
 
 
