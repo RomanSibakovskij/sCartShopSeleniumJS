@@ -84,6 +84,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationNoCountryTest();
         });
 
+        //Test 002h -> invalid user account creation test - no password / confirm password
+        test("Invalid User Account Creation Test - No Password / Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - no password / confirm password
+            await testMethods.invalidUserAccountCreationNoPasswordTest();
+        });
+
     });
 
 

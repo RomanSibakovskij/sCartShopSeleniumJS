@@ -31,6 +31,8 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._noPhone = "";
         this._noAddressOne = "";
         this._noAddressTwo = "";
+        this._noPassword = "";
+        this._noConfirmPassword = "";
 
     }
 
@@ -70,6 +72,18 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const noAddressTwo = this._noAddressTwo;
         Logger.info("No register user address two: ", noAddressTwo);
         await addressTwoInputField.sendKeys(noAddressTwo);
+    }
+    async inputNoPasswordIntoPasswordInputField(){
+        const passwordInputField = await this.driver.findElement(this._registerPagePasswordInputField);
+        const noPassword = this._noPassword;
+        Logger.info("No user register password: ", noPassword);
+        await passwordInputField.sendKeys(noPassword);
+    }
+    async inputNoConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._registerPageConfirmPasswordInputField);
+        const noConfirmPassword = this._noConfirmPassword;
+        Logger.info("No user register confirm password: ", noConfirmPassword);
+        await confirmPasswordInputField.sendKeys(noConfirmPassword);
     }
 
 }
