@@ -24,6 +24,12 @@ class LoginPage extends BasePage{
 
     }
 
+    //click "Account register" link method
+    async clickAccountRegisterLink(){
+        const accountRegisterLink = await this.driver.findElement(this._loginPageAccountRegisterLink);
+        await accountRegisterLink.click();
+    }
+
     //login page text element getters
     async getLoginPageTitle(){
         const loginPageTitle = await this.driver.findElement(this._loginPageTitle);

@@ -49,6 +49,19 @@ class GeneralPage extends BasePage{
 
     }
 
+    //click set navbar link method
+    async clickSetNavBarLink(index){
+        const setNavBarLink = await this.driver.findElements(this._headerNavLinkElements);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: setNavBarLink[index] }).click().perform();
+    }
+
+    //click set account dropdown menu option method
+    async clickSetAccountDropdownMenuOption(index){
+        const setAccountDropdownMenuOption = await this.driver.findElements(this._headerNavLinkAccountDropdownMenuElements);
+        await setAccountDropdownMenuOption[index].click();
+    }
+
     //general page text element getters
     //header
     async getHeaderNavLinkElements() {
