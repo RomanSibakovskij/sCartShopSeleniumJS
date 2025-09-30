@@ -76,6 +76,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationNoAddressTwoTest();
         });
 
+        //Test 002g -> invalid user account creation test - no country
+        test("Invalid User Account Creation Test - No Country", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - no country
+            await testMethods.invalidUserAccountCreationNoCountryTest();
+        });
+
     });
 
 
