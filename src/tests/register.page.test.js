@@ -144,6 +144,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooShortAddressTwoTest();
         });
 
+        //Test 002o -> invalid user account creation test - too short password / confirm password (5 chars)
+        test("Invalid User Account Creation Test - Too Short Password / Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too short password / confirm password (5 chars)
+            await testMethods.invalidUserAccountCreationTooShortPasswordTest();
+        });
+
     });
 
 

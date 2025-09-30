@@ -41,6 +41,8 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooShortPhone = "0123456";// 7 chars
         this._tooShortAddressOne = "4 K";// 3 chars
         this._tooShortAddressTwo = "Str";// 3 chars
+        this._tooShortPassword = "T&t@s"; // 5 chars
+        this._tooShortConfirmPassword = "T&t@s"; // 5 chars
 
     }
 
@@ -130,6 +132,18 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooShortAddressTwo = this._tooShortAddressTwo;
         Logger.info("Too short register user address two: ", tooShortAddressTwo);
         await addressTwoInputField.sendKeys(tooShortAddressTwo);
+    }
+    async inputTooShortPasswordIntoPasswordInputField(){
+        const passwordInputField = await this.driver.findElement(this._registerPagePasswordInputField);
+        const tooShortPassword = this._tooShortPassword;
+        Logger.info("Too short user register password: ", tooShortPassword);
+        await passwordInputField.sendKeys(tooShortPassword);
+    }
+    async inputTooShortConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._registerPageConfirmPasswordInputField);
+        const tooShortConfirmPassword = this._tooShortConfirmPassword;
+        Logger.info("Too short user register matching confirm password: ", tooShortConfirmPassword);
+        await confirmPasswordInputField.sendKeys(tooShortConfirmPassword);
     }
 
 }
