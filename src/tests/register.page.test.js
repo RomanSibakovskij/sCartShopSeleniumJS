@@ -52,6 +52,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationNoEmailTest();
         });
 
+        //Test 002d -> invalid user account creation test - no phone
+        test("Invalid User Account Creation Test - No Phone", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - no phone
+            await testMethods.invalidUserAccountCreationNoPhoneTest();
+        });
+
     });
 
 
