@@ -29,6 +29,8 @@ class RegisterPage extends BasePage{
         this._registerPageSignUpButton = By.xpath("//button[@id='gp247-button-process']");
         //register success message
         this._registerPageSignUpSuccessMessage = By.xpath("//div[@role='alert']");
+        //singular input error message
+        this._registerPageInvalidSingularInputError = By.xpath("//span[@class='help-block']");
 
         const testDataGenerator = new TestDataGenerator(this.driver);
 
@@ -119,6 +121,12 @@ class RegisterPage extends BasePage{
         const registerPageTitle = await this.driver.findElement(this._registerPageTitle);
         return await registerPageTitle.getText();
     }
+
+    //private data getters
+    async getFirstName(){return this._firstName;}
+    async getLastName(){return this._lastName;}
+    async getEmail(){return this._email;}
+    async getPassword(){return this._password;}
 
     //register page sign up success message getter
     async getRegisterPageSignUpSuccessMessage(){

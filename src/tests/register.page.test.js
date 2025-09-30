@@ -26,6 +26,19 @@ describe('Register Page Tests', () => {
 
     });
 
+    describe("Invalid User Account Creation Tests - No Singular Input", () => {
+
+        //Test 002a -> invalid user account creation test - no first name
+        test("Invalid User Account Creation Test - No First Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - no first name
+            await testMethods.invalidUserAccountCreationNoFirstNameTest();
+        });
+
+    });
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

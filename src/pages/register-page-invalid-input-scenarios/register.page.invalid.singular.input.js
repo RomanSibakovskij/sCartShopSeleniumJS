@@ -4,6 +4,9 @@ const {By} = require("selenium-webdriver");
 
 const BasePage = require("../utilities/base.page.js");
 
+const TestDataGenerator = require("../utilities/test.data.generator.js");
+const Logger = require("../utilities/logger");
+
 class RegisterPageInvalidSingularInput extends BasePage{
 
     constructor(driver) {
@@ -19,8 +22,20 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._registerPagePasswordInputField = By.xpath("//div[@id='collapseExample']/div[8]/input");
         this._registerPageConfirmPasswordInputField = By.xpath("//div[@id='collapseExample']/div[9]/input");
 
+        const testDataGenerator = new TestDataGenerator(this.driver);
+
+        //invalid singular input data - no singular input
+        this._noFirstName = "";
+
     }
 
+    //invalid user register data input methods - no singular input
+    async inputNoFirstNameIntoFirstNameInputField(){
+        const firstNameInputField = await this.driver.findElement(this._registerPageFirstNameInputField);
+        const noFirstName = this._noFirstName;
+        Logger.info("No register user first name: ", noFirstName);
+        await firstNameInputField.sendKeys(noFirstName);
+    }
 
 }
-module.exports = { RegisterPageInvalidSingularInput };
+module.exports = RegisterPageInvalidSingularInput;

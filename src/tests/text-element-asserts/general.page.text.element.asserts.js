@@ -21,6 +21,8 @@ class GeneralPageTextElementAssert extends BaseTest {
         //assert the general page header navbar link texts are as expected
         const expectedHeaderNavbarLinkTexts = ["NEWS", "ALL PRODUCTS", "ABOUT", "GP247",  "ACCOUNT", "USD DOLA"];
         const actualHeaderNavbarLinkTexts = await generalPage.getHeaderNavLinkElements();
+        //log the misspelling issue
+        (expectedHeaderNavbarLinkTexts.includes("USD DOLLAR")) ? Logger.info("The (guest) header navbar dropdown menu is spelled correctly.") : Logger.error(`The (guest) header navbar dropdown menu isn't spelled correctly. Expected: "US DOLLAR", actual: ${expectedHeaderNavbarLinkTexts[5]}`);
         assert.deepStrictEqual(actualHeaderNavbarLinkTexts, expectedHeaderNavbarLinkTexts, "The general page header navbar link texts don't match expectations.");
     }
 
@@ -31,6 +33,8 @@ class GeneralPageTextElementAssert extends BaseTest {
         //assert the general page header navbar link texts are as expected
         const expectedHeaderNavbarLinkTexts = ["NEWS", "ALL PRODUCTS", "ABOUT", "GP247",  "MY PROFILE", "USD DOLA"];
         const actualHeaderNavbarLinkTexts = await generalPage.getHeaderNavLinkElements();
+        //log the misspelling issue
+        (expectedHeaderNavbarLinkTexts.includes("USD DOLLAR")) ? Logger.info("The (reg. user) header navbar dropdown menu is spelled correctly.") : Logger.error(`The (reg. user) header navbar dropdown menu isn't spelled correctly. Expected: "US DOLLAR", actual: ${expectedHeaderNavbarLinkTexts[5]}`);
         assert.deepStrictEqual(actualHeaderNavbarLinkTexts, expectedHeaderNavbarLinkTexts, "The general page header navbar link texts (registered user) don't match expectations.");
     }
 
