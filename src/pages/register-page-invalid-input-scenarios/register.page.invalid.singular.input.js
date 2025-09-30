@@ -27,6 +27,8 @@ class RegisterPageInvalidSingularInput extends BasePage{
         //invalid singular input data - no singular input
         this._noFirstName = "";
         this._noLastName = "";
+        this._noEmail = "";
+        
 
     }
 
@@ -42,6 +44,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const noLastName = this._noLastName;
         Logger.info("No register user last name: ", noLastName);
         await lastNameInputField.sendKeys(noLastName);
+    }
+    async inputNoEmailIntoEmailInputField(){
+        const emailInputField = await this.driver.findElement(this._registerPageEmailInputField);
+        const noEmail = this._noEmail;
+        Logger.info("No register user email: ", noEmail);
+        await emailInputField.sendKeys(noEmail);
     }
 
 }
