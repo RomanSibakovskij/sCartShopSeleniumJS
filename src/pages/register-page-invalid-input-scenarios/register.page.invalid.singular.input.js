@@ -40,6 +40,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooShortEmail = testDataGenerator.generateRandomTooShortEmailAddress(1);//1 char -> name, domain
         this._tooShortPhone = "0123456";// 7 chars
         this._tooShortAddressOne = "4 K";// 3 chars
+        this._tooShortAddressTwo = "Str";// 3 chars
 
     }
 
@@ -123,6 +124,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooShortAddressOne = this._tooShortAddressOne;
         Logger.info("Too short register user address one: ", tooShortAddressOne);
         await addressOneInputField.sendKeys(tooShortAddressOne);
+    }
+    async inputTooShortAddressTwoIntoAddressTwoInputField(){
+        const addressTwoInputField = await this.driver.findElement(this._registerPageAddressTwoInputField);
+        const tooShortAddressTwo = this._tooShortAddressTwo;
+        Logger.info("Too short register user address two: ", tooShortAddressTwo);
+        await addressTwoInputField.sendKeys(tooShortAddressTwo);
     }
 
 }
