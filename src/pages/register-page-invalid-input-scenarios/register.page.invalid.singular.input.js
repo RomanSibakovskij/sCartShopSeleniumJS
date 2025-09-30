@@ -36,6 +36,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
 
         //invalid singular input data - too short singular input
         this._tooShortFirstName = "F";// 1 char
+        this._tooShortLastName = "G";// 1 char
 
     }
 
@@ -95,6 +96,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooShortFirstName = this._tooShortFirstName;
         Logger.info("Too short register user first name: ", tooShortFirstName);
         await firstNameInputField.sendKeys(tooShortFirstName);
+    }
+    async inputTooShortLastNameIntoLastNameInputField(){
+        const lastNameInputField = await this.driver.findElement(this._registerPageLastNameInputField);
+        const tooShortLastName = this._tooShortLastName;
+        Logger.info("Too short register user last name: ", tooShortLastName);
+        await lastNameInputField.sendKeys(tooShortLastName);
     }
 
 }

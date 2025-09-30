@@ -104,6 +104,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooShortFirstNameTest();
         });
 
+        //Test 002j -> invalid user account creation test - too short last name (1 char) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Too Short Last Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too short last name (1 char)
+            await testMethods.invalidUserAccountCreationTooShortLastNameTest();
+        });
+
     });
 
 
