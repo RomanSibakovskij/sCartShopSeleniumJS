@@ -58,6 +58,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._invalidFirstNameFormat = "@#$@#$%$";// special symbols only
         this._invalidLastNameFormat = "@$#%^%^*";// special symbols only
         this._invalidEmailFormat = "fgfhgfakemail.com";// missing '@'
+        this._existingEmail = "m3@example.com"; //used beforehand in manual testing
 
     }
 
@@ -229,6 +230,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const invalidEmailFormat = this._invalidEmailFormat;
         Logger.info("Invalid register user email format: ", invalidEmailFormat);
         await emailInputField.sendKeys(invalidEmailFormat);
+    }
+    async inputExistingEmailIntoEmailInputField(){
+        const emailInputField = await this.driver.findElement(this._registerPageEmailInputField);
+        const existingEmail = this._existingEmail;
+        Logger.info("Existing register user email: ", existingEmail);
+        await emailInputField.sendKeys(existingEmail);
     }
 
 }

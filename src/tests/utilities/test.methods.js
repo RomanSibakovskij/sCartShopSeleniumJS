@@ -1656,6 +1656,68 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Invalid Email Format");
     }
 
+    //invalid user account creation test method - existing email (used beforehand in manual testing)
+    async invalidUserAccountCreationExistingEmailTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const registerPage = new RegisterPage(this.driver);
+        const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
+        const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //register page web element assert
+        await registerPage.isRegisterPageWebElementDisplayed();
+        //register page text element assert
+        await registerPageTextElementAssert.isRegisterPageTextElementAsExpected();
+        //capture screenshot of the register page display before data input
+        await captureScreenshot(this.driver, "Register Page Display Before Data Input");
+        //input valid first name into first name input field
+        await registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        await registerPage.inputLastNameIntoLastNameInputField();
+        //input existing email into email input field (used beforehand in manual testing)
+        await registerPageInvalidSingularInput.inputExistingEmailIntoEmailInputField();
+        //input valid phone into phone input field
+        await registerPage.inputPhoneIntoPhoneInputField();
+        //input valid address one into address one input field
+        await registerPage.inputAddressOneIntoAddressOneInputField();
+        //input valid address two into address two input field
+        await registerPage.inputAddressTwoIntoAddressTwoInputField();
+        //click "Country" dropdown menu
+        await registerPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await registerPage.selectUSCountryOption();
+        //input valid password into password input field
+        await registerPage.inputPasswordIntoPasswordInputField();
+        //input valid matching confirm password into confirm password input field
+        await registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the register page display after invalid data input - existing email
+        await captureScreenshot(this.driver, "Register Page Display After Invalid Data Input - Existing Email");
+        //click "Sign up" button
+        await registerPage.clickSignUpButton();
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            const registerPageExistingEmailInputErrorMsg = await registerPage.getRegisterPageSingularInputErrorMessage();
+            assert.strictEqual(registerPageExistingEmailInputErrorMsg, "The email has already been taken.", "The existing register email input error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Existing Email");
+            throw new Error("The existing register email input format error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Existing Email");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
