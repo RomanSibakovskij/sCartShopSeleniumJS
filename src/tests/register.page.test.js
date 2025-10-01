@@ -172,6 +172,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooLongLastNameTest();
         });
 
+        //Test 002r -> invalid user account creation test - too long email (100 chars -> name, domain)
+        test("Invalid User Account Creation Test - Too Long Email", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too long email (100 chars -> name, domain)
+            await testMethods.invalidUserAccountCreationTooLongEmailTest();
+        });
+
     });
 
 
