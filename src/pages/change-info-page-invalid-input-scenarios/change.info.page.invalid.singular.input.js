@@ -45,6 +45,7 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         //invalid singular input data - invalid singular input format
         this._invalidFirstNameFormat = "!@#@#$#$%";// special symbols only
         this._invalidLastNameFormat = "@!$@#$%$#";// special symbols only
+        this._invalidPhoneFormat = "!@#$@#$"; // special symbols only
 
     }
 
@@ -173,6 +174,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const invalidEditedLastName = this._invalidLastNameFormat;
         Logger.info("Invalid edited user last name format: ", invalidEditedLastName);
         await editedLastNameInputField.sendKeys(invalidEditedLastName);
+    }
+    async inputInvalidEditedPhoneFormatIntoEditedPhoneInputField(){
+        const editedPhoneInputField = await this.driver.findElement(this._changeInfoPhoneInputField);
+        await editedPhoneInputField.clear();
+        const invalidEditedPhoneFormat = this._invalidPhoneFormat;
+        Logger.info("Invalid edited user phone number format: ", invalidEditedPhoneFormat);
+        await editedPhoneInputField.sendKeys(invalidEditedPhoneFormat);
     }
 
 }

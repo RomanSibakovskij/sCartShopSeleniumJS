@@ -222,6 +222,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationInvalidLastNameFormatTest();
         });
 
+        //Test 003s -> invalid edit user account information test - invalid edited phone format (special symbols only)
+        test("Invalid Edit User Account Information Test - Invalid Edited Phone Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - invalid edited phone
+            await testMethods.invalidEditAccountInformationInvalidPhoneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
