@@ -34,6 +34,8 @@ class ChangeInformationPage extends BasePage{
         this._changeInfoUpdateInfoBtn = By.xpath("//button[@class='button button-secondary']");
         //update information success message
         this._changeInfoPageUpdateSuccessMessage = By.xpath("//div[@role='alert']");
+        //invalid singular input
+        this._changeInfoPageInvalidSingularInputErrorMessage = By.xpath("//span[@class='help-block']");
 
         const testDataGenerator = new TestDataGenerator(this.driver);
 
@@ -41,7 +43,6 @@ class ChangeInformationPage extends BasePage{
         const { editedFirstName, editedLastName } = testDataGenerator.getRandomEditedName();
         this._editedFirstName = editedFirstName;
         this._editedLastName = editedLastName;
-        this._editedPhone = "1234567890"; //"0123456789"
         this._editedAddressOne = testDataGenerator.generateRandomAddress(8);
         this._editedAddressTwo = testDataGenerator.generateRandomStreetType();
 

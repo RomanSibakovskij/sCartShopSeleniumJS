@@ -28,6 +28,20 @@ describe('Change Information Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Account Information Tests - No Singular Input", () => {
+
+        //Test 003a -> invalid edit user account information test - no edited first name (the error gets triggered but the former first name gets displayed)
+        test("Invalid Edit User Account Information Test - No Edited First Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - no edited first name
+            await testMethods.invalidEditAccountInformationNoFirstNameTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
