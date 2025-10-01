@@ -42,6 +42,8 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97);// 101 chars
         this._tooLongAddressTwo = "Bsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs";// 101 chars
 
+        //invalid singular input data - invalid singular input format
+        this._invalidFirstNameFormat = "!@#@#$#$%";// special symbols only
 
     }
 
@@ -154,6 +156,15 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooLongEditedAddressTwo = this._tooLongAddressTwo;
         Logger.info("Too long edited user address two (street type): ", tooLongEditedAddressTwo);
         await editedAddressTwoInputField.sendKeys(tooLongEditedAddressTwo);
+    }
+
+    //invalid singular input methods - invalid singular input format
+    async inputInvalidEditedFirstNameFormatIntoEditedFirstNameInputField(){
+        const editedFirstNameInputField = await this.driver.findElement(this._changeInfoFirstNameInputField);
+        await editedFirstNameInputField.clear();
+        const invalidEditedFirstNameFormat = this._invalidFirstNameFormat;
+        Logger.info("Invalid edited user first name format: ", invalidEditedFirstNameFormat);
+        await editedFirstNameInputField.sendKeys(invalidEditedFirstNameFormat);
     }
 
 }

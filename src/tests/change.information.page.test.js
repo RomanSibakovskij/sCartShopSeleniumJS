@@ -188,7 +188,7 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationTooLongAddressOneTest();
         });
 
-        //Test 003p -> invalid edit user account information test - too long edited address two (101 chars) 
+        //Test 003p -> invalid edit user account information test - too long edited address two (101 chars)
         test("Invalid Edit User Account Information Test - Too Long Edited Address Two", async function () {
             //navigate user to register page test
             await testMethods.navigateToRegisterPageTest();
@@ -196,6 +196,20 @@ describe('Change Information Page Tests', () => {
             await testMethods.validUserAccountCreationTest();
             //invalid edit user account information test - too long edited address two
             await testMethods.invalidEditAccountInformationTooLongAddressTwoTest();
+        });
+
+    });
+
+    describe("Invalid Edit User Account Information Tests - Invalid Singular Input Format", () => {
+
+        //Test 003q -> invalid edit user account information test - invalid edited first name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Account Information Test - Invalid Edited First Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - invalid edited first name format
+            await testMethods.invalidEditAccountInformationInvalidFirstNameFormatTest();
         });
 
     });
