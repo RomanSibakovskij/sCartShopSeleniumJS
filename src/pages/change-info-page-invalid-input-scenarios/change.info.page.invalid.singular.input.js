@@ -35,6 +35,7 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         //invalid singular input data - too long singular input
         this._tooLongFirstName = "Asdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongLastName = "Dsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
+        this._tooLongPhone = "012345678901234"; // 15 chars
 
     }
 
@@ -126,6 +127,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooLongEditedLastName = this._tooLongLastName;
         Logger.info("Too long edited user last name: ", tooLongEditedLastName);
         await editedLastNameInputField.sendKeys(tooLongEditedLastName);
+    }
+    async inputTooLongEditedPhoneIntoEditedPhoneInputField(){
+        const editedPhoneInputField = await this.driver.findElement(this._changeInfoPhoneInputField);
+        await editedPhoneInputField.clear();
+        const tooLongEditedPhone = this._tooLongPhone;
+        Logger.info("Too long edited user phone number: ", tooLongEditedPhone);
+        await editedPhoneInputField.sendKeys(tooLongEditedPhone);
     }
 
 }
