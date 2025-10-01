@@ -32,6 +32,9 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         this._tooShortAddressOne = "3 S";// 3 chars
         this._tooShortAddressTwo = "Bld";// 3 chars
 
+        //invalid singular input data - too long singular input
+        this._tooLongFirstName = "Asdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
+
     }
 
     //invalid singular input methods - no singular input
@@ -106,6 +109,15 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooShortEditedAddressTwo = this._tooShortAddressTwo;
         Logger.info("Too short edited user address two (street type): ", tooShortEditedAddressTwo);
         await editedAddressTwoInputField.sendKeys(tooShortEditedAddressTwo);
+    }
+
+    //invalid singular input methods - too long singular input
+    async inputTooLongEditedFirstNameIntoEditedFirstNameInputField(){
+        const editedFirstNameInputField = await this.driver.findElement(this._changeInfoFirstNameInputField);
+        await editedFirstNameInputField.clear();
+        const tooLongEditedFirstName = this._tooLongFirstName;
+        Logger.info("Too long edited user first name: ", tooLongEditedFirstName);
+        await editedFirstNameInputField.sendKeys(tooLongEditedFirstName);
     }
 
 }
