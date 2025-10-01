@@ -48,6 +48,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooLongFirstName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongLastName = "Gsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongEmail = testDataGenerator.generateRandomTooLongEmailAddress(100);//100 chars -> name, domain
+        this._tooLongPhone = "012345678901234";// 15 chars
 
     }
 
@@ -169,6 +170,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooLongEmail = this._tooLongEmail;
         Logger.info("Too long register user email: ", tooLongEmail);
         await emailInputField.sendKeys(tooLongEmail);
+    }
+    async inputTooLongPhoneIntoPhoneInputField(){
+        const phoneInputField = await this.driver.findElement(this._registerPagePhoneInputField);
+        const tooLongPhone = this._tooLongPhone;
+        Logger.info("Too long register user phone number: ", tooLongPhone);
+        await phoneInputField.sendKeys(tooLongPhone);
     }
 
 }
