@@ -21,6 +21,7 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         //invalid singular input data - no singular input
         this._noEditedFirstName = "";
         this._noEditedLastName = "";
+        this._noEditedPhone = "";
 
     }
 
@@ -38,6 +39,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const noEditedLastName = this._noEditedLastName;
         Logger.info("No edited user last name: ", noEditedLastName);
         await editedLastNameInputField.sendKeys(noEditedLastName);
+    }
+    async inputNoEditedPhoneIntoEditedPhoneInputField(){
+        const editedPhoneInputField = await this.driver.findElement(this._changeInfoPhoneInputField);
+        await editedPhoneInputField.clear();
+        const noEditedPhone = this._noEditedPhone;
+        Logger.info("No edited user phone number: ", noEditedPhone);
+        await editedPhoneInputField.sendKeys(noEditedPhone);
     }
 
 }

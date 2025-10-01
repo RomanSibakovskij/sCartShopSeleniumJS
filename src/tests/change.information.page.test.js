@@ -50,6 +50,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationNoLastNameTest();
         });
 
+        //Test 003c -> invalid edit user account information test - no edited phone (the error gets triggered but the former phone gets displayed)
+        test("Invalid Edit User Account Information Test - No Edited Phone", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - no edited phone
+            await testMethods.invalidEditAccountInformationNoPhoneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
