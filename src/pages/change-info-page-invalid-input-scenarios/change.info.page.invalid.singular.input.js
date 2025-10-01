@@ -28,6 +28,7 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         //invalid singular input data - too short singular input
         this._tooShortFirstName = "A";// 1 char
         this._tooShortLastName = "D";// 1 char
+        this._tooShortPhone = "0123456"; // 7 chars
 
     }
 
@@ -82,6 +83,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooShortEditedLastName = this._tooShortLastName;
         Logger.info("Too short edited user last name: ", tooShortEditedLastName);
         await editedLastNameInputField.sendKeys(tooShortEditedLastName);
+    }
+    async inputTooShortEditedPhoneIntoEditedPhoneInputField(){
+        const editedPhoneInputField = await this.driver.findElement(this._changeInfoPhoneInputField);
+        await editedPhoneInputField.clear();
+        const tooShortEditedPhone = this._tooShortPhone;
+        Logger.info("Too short edited user phone number: ", tooShortEditedPhone);
+        await editedPhoneInputField.sendKeys(tooShortEditedPhone);
     }
 
 }
