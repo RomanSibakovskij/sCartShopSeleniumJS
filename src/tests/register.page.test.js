@@ -256,6 +256,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationInvalidPhoneFormatTest();
         });
 
+        //Test 002ab -> invalid user account creation test - invalid address one format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Invalid Address One Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - invalid phone format (special symbols only)
+            await testMethods.invalidUserAccountCreationInvalidAddressOneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
