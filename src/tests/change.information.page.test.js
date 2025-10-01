@@ -40,6 +40,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationNoFirstNameTest();
         });
 
+        //Test 003b -> invalid edit user account information test - no edited last name (the error gets triggered but the former last name gets displayed)
+        test("Invalid Edit User Account Information Test - No Edited Last Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - no edited last name
+            await testMethods.invalidEditAccountInformationNoLastNameTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

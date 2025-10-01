@@ -2012,6 +2012,12 @@ class TestMethods extends BaseTest{
         await accountDashboardPage.clickAccountDashboardPageAsideLink(1);
         //wait for elements to load
         await basePage.waitForElementLoad(2000)
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2096,6 +2102,12 @@ class TestMethods extends BaseTest{
         await accountDashboardPage.clickAccountDashboardPageAsideLink(1);
         //wait for elements to load
         await basePage.waitForElementLoad(2000)
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2137,6 +2149,86 @@ class TestMethods extends BaseTest{
         assert.strictEqual(changeInfoPageNoFirstNameErrorMsg, "The First name field is required.", "The missing edited first name input error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid Edit Account Information Test Result - No Edited First Name");
+    }
+
+    //invalid edit account information test method - no edited last name
+    async invalidEditAccountInformationNoLastNameTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const changeInformationPage = new ChangeInformationPage(this.driver);
+        const changeInfoPageInvalidSingularInput = new ChangeInfoPageInvalidSingularInput(this.driver);
+        const changeInformationPageTextElementAssert = new ChangeInformationPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Change information" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //change information page web element assert
+        await changeInformationPage.isChangeInfoPageWebElementDisplayed();
+        //change information page text element assert
+        await changeInformationPageTextElementAssert.isChangeInfoPageTextElementAsExpected();
+        //capture screenshot of the change information page display before data input
+        await captureScreenshot(this.driver, "Change Information Page Display Before Data Input");
+        //input valid edited first name into edited first name input field
+        await changeInformationPage.inputEditedFirstNameIntoEditedFirstNameInputField();
+        //don't input valid edited last name into edited last name input field
+        await changeInfoPageInvalidSingularInput.inputNoEditedLastNameIntoEditedLastNameInputField();
+        //input valid edited address one into edited address one input field
+        await changeInformationPage.inputEditedAddressOneIntoEditedAddressOneInputField();
+        //input valid edited address two into edited address two input field
+        await changeInformationPage.inputEditedAddressTwoIntoEditedAddressTwoInputField();
+        //capture screenshot of the change information page display after invalid data input - no edited last name
+        await captureScreenshot(this.driver, "Change Information Page Display After Invalid Data Input - No Edited Last Name");
+        //click "Submit Information" button
+        await changeInformationPage.clickSubmitInfoButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //assert the user gets an expected error message
+        const changeInfoPageNoFirstNameErrorMsg = await changeInformationPage.getChangeInfoPageSingularInputErrorMessage();
+        assert.strictEqual(changeInfoPageNoFirstNameErrorMsg, "The Last name field is required.", "The missing edited last name input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Edit Account Information Test Result - No Edited Last Name");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
