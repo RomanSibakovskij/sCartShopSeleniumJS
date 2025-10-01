@@ -224,6 +224,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationInvalidFirstNameFormatTest();
         });
 
+        //Test 002x -> invalid user account creation test - invalid last name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Invalid Last Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - invalid last name format (special symbols only)
+            await testMethods.invalidUserAccountCreationInvalidLastNameFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
