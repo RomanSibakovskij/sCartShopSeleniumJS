@@ -49,7 +49,8 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooLongLastName = "Gsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongEmail = testDataGenerator.generateRandomTooLongEmailAddress(100);//100 chars -> name, domain
         this._tooLongPhone = "012345678901234";// 15 chars
-        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(100);// 100 chars
+        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(100);// 101 chars
+        this._tooLongAddressTwo = "Ssdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs";// 101 chars
 
     }
 
@@ -183,6 +184,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooLongAddressOne = this._tooLongAddressOne;
         Logger.info("Too long register user address one: ", tooLongAddressOne);
         await addressOneInputField.sendKeys(tooLongAddressOne);
+    }
+    async inputTooLongAddressTwoIntoAddressTwoInputField(){
+        const addressTwoInputField = await this.driver.findElement(this._registerPageAddressTwoInputField);
+        const tooLongAddressTwo = this._tooLongAddressTwo;
+        Logger.info("Too long register user address two: ", tooLongAddressTwo);
+        await addressTwoInputField.sendKeys(tooLongAddressTwo);
     }
 
 }
