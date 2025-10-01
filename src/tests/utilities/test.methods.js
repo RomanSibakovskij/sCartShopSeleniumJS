@@ -1032,6 +1032,70 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Too Short Password and Confirm Password");
     }
 
+    //too long singular input
+
+    //invalid user account creation test method - too long first name (100 chars)
+    async invalidUserAccountCreationTooLongFirstNameTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const registerPage = new RegisterPage(this.driver);
+        const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
+        const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //register page web element assert
+        await registerPage.isRegisterPageWebElementDisplayed();
+        //register page text element assert
+        await registerPageTextElementAssert.isRegisterPageTextElementAsExpected();
+        //capture screenshot of the register page display before data input
+        await captureScreenshot(this.driver, "Register Page Display Before Data Input");
+        //input too long first name into first name input field (100 chars)
+        await registerPageInvalidSingularInput.inputTooLongFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        await registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        await registerPage.inputEmailIntoEmailInputField();
+        //input valid phone into phone input field
+        await registerPage.inputPhoneIntoPhoneInputField();
+        //input valid address one into address one input field
+        await registerPage.inputAddressOneIntoAddressOneInputField();
+        //input valid address two into address two input field
+        await registerPage.inputAddressTwoIntoAddressTwoInputField();
+        //click "Country" dropdown menu
+        await registerPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await registerPage.selectUSCountryOption();
+        //input valid password into password input field
+        await registerPage.inputPasswordIntoPasswordInputField();
+        //input valid matching confirm password into confirm password input field
+        await registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the register page display after invalid data input - too long first name
+        await captureScreenshot(this.driver, "Register Page Display After Invalid Data Input - Too Long First Name");
+        //click "Sign up" button
+        await registerPage.clickSignUpButton();
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            const registerPageTooLongFirstNameInputErrorMsg = await registerPage.getRegisterPageSingularInputErrorMessage();
+            assert.strictEqual(registerPageTooLongFirstNameInputErrorMsg, "The first name is too long.", "The too long register first name input error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Too Long First Name");
+            throw new Error("The too long register first name input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Too Long First Name");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

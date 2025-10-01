@@ -44,6 +44,9 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooShortPassword = "T&t@s"; // 5 chars
         this._tooShortConfirmPassword = "T&t@s"; // 5 chars
 
+        //invalid singular input data - too long singular input
+        this._tooLongFirstName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
+
     }
 
     //invalid user register data input methods - no singular input
@@ -144,6 +147,14 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooShortConfirmPassword = this._tooShortConfirmPassword;
         Logger.info("Too short user register matching confirm password: ", tooShortConfirmPassword);
         await confirmPasswordInputField.sendKeys(tooShortConfirmPassword);
+    }
+
+    //invalid user register data input methods - too long singular input
+    async inputTooLongFirstNameIntoFirstNameInputField(){
+        const firstNameInputField = await this.driver.findElement(this._registerPageFirstNameInputField);
+        const tooLongFirstName = this._tooLongFirstName;
+        Logger.info("Too long register user first name: ", tooLongFirstName);
+        await firstNameInputField.sendKeys(tooLongFirstName);
     }
 
 }
