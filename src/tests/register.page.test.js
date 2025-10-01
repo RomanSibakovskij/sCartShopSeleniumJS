@@ -214,6 +214,17 @@ describe('Register Page Tests', () => {
 
     });
 
+    describe("Invalid User Account Creation Tests - Invalid Singular Input Format", () => {
+
+        //Test 002w -> invalid user account creation test - invalid first name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Invalid First Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - invalid first name format (special symbols only)
+            await testMethods.invalidUserAccountCreationInvalidFirstNameFormatTest();
+        });
+
+    });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
