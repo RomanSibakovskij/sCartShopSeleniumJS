@@ -204,6 +204,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooLongAddressTwoTest();
         });
 
+        //Test 002v -> invalid user account creation test - too long password / confirm password (17 chars)
+        test("Invalid User Account Creation Test - Too Long Password / Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too long password / confirm password (17 chars)
+            await testMethods.invalidUserAccountCreationTooLongPasswordTest();
+        });
+
     });
 
 

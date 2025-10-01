@@ -51,6 +51,8 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooLongPhone = "012345678901234";// 15 chars
         this._tooLongAddressOne = testDataGenerator.generateRandomAddress(100);// 101 chars
         this._tooLongAddressTwo = "Ssdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs";// 101 chars
+        this._tooLongPassword = "DDFD@#$cffds^%&dg"; // 17 chars
+        this._tooLongConfirmPassword = "DDFD@#$cffds^%&dg"; // 17 chars
 
     }
 
@@ -190,6 +192,18 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const tooLongAddressTwo = this._tooLongAddressTwo;
         Logger.info("Too long register user address two: ", tooLongAddressTwo);
         await addressTwoInputField.sendKeys(tooLongAddressTwo);
+    }
+    async inputTooLongPasswordIntoPasswordInputField(){
+        const passwordInputField = await this.driver.findElement(this._registerPagePasswordInputField);
+        const tooLongPassword = this._tooLongPassword;
+        Logger.info("Too long user register password: ", tooLongPassword);
+        await passwordInputField.sendKeys(tooLongPassword);
+    }
+    async inputTooLongConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._registerPageConfirmPasswordInputField);
+        const tooLongConfirmPassword = this._tooLongConfirmPassword;
+        Logger.info("Too long user register matching confirm password: ", tooLongConfirmPassword);
+        await confirmPasswordInputField.sendKeys(tooLongConfirmPassword);
     }
 
 }
