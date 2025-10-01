@@ -134,6 +134,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationTooShortAddressOneTest();
         });
 
+        //Test 003k -> invalid edit user account information test - too short edited address two (3 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Account Information Test - Too Short Edited Address Two", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - too short edited address two
+            await testMethods.invalidEditAccountInformationTooShortAddressTwoTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
