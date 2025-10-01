@@ -3,6 +3,9 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const { RegisterPage } = require("../pages/register.page.js");
+const TestDataGenerator = require("../pages/utilities/test.data.generator.js");
+const Logger = require("./utilities/logger");
 
 class ChangePasswordPage extends BasePage{
 
@@ -23,6 +26,40 @@ class ChangePasswordPage extends BasePage{
         //update password success message
         this._changePasswordPageUpdateSuccessMessage = By.xpath("//div[@role='alert']");
 
+        const registerPage = new RegisterPage(this.driver);
+        const testDataGenerator = new TestDataGenerator(this.driver);
+
+        //valid edited information input data
+        this._oldPassword = registerPage.getPassword();
+        this._newPassword = testDataGenerator.generateRandomPassword(8);
+
+    }
+
+    //valid user password data input methods
+    async inputOldPasswordIntoOldPasswordInputField(){
+        const oldPasswordInputField = await this.driver.findElement(this._changePasswordPageOldPasswordInputField);
+        const oldPassword = this._oldPassword;
+        Logger.info("Valid user password: ", oldPassword);
+        await oldPasswordInputField.sendKeys(oldPassword);
+    }
+    async inputNewPasswordIntoNewPasswordInputField(){
+        const newPasswordInputField = await this.driver.findElement(this._changePasswordPageNewPasswordInputField);
+        const newPassword = this._newPassword;
+        Logger.info("Valid user new password: ", newPassword);
+        await newPasswordInputField.sendKeys(newPassword);
+    }
+    async inputConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._changePasswordPageConfirmPasswordInputField);
+        const newPassword = this._newPassword;
+        Logger.info("Valid user matching confirm password: ", newPassword);
+        await confirmPasswordInputField.sendKeys(newPassword);
+    }
+
+    //click "Submit Information" button method
+    async clickSubmitInfoButton(){
+        const submitInfoButton = await this.driver.findElement(this._changePasswordPageUpdateInfoButton);
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", submitInfoButton);
+        await submitInfoButton.click();
     }
 
     //change password page text getters
