@@ -80,6 +80,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationNoAddressTwoTest();
         });
 
+        //Test 003f -> invalid edit user account information test - no edited country (the error gets triggered but the former country gets displayed)
+        test("Invalid Edit User Account Information Test - No Edited Country", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - no edited country
+            await testMethods.invalidEditAccountInformationNoCountryTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
