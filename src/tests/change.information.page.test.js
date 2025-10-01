@@ -212,6 +212,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationInvalidFirstNameFormatTest();
         });
 
+        //Test 003r -> invalid edit user account information test - invalid edited last name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Account Information Test - Invalid Edited Last Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - invalid edited last name
+            await testMethods.invalidEditAccountInformationInvalidLastNameFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
