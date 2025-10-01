@@ -232,6 +232,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationInvalidPhoneFormatTest();
         });
 
+        //Test 003t -> invalid edit user account information test - invalid edited address one format (special symbols only) (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Account Information Test - Invalid Edited Address One Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - invalid edited address one format
+            await testMethods.invalidEditAccountInformationInvalidAddressOneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
