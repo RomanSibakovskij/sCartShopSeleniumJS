@@ -264,6 +264,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationInvalidAddressOneFormatTest();
         });
 
+        //Test 002ac -> invalid user account creation test - invalid address two format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid User Account Creation Test - Invalid Address Two Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - invalid address two format (special symbols only)
+            await testMethods.invalidUserAccountCreationInvalidAddressTwoFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

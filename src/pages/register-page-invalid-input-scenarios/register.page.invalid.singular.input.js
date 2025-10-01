@@ -61,6 +61,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._existingEmail = "m3@example.com"; //used beforehand in manual testing
         this._invalidPhoneFormat = "$##%^%&^%*";// special symbols only
         this._invalidAddressOneFormat = "%&^^&^(*";// special symbols only
+        this._invalidAddressTwoFormat = ")*&(*^&";// special symbols only
 
     }
 
@@ -250,6 +251,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const invalidAddressOneFormat = this._invalidAddressOneFormat;
         Logger.info("Invalid register user address one format: ", invalidAddressOneFormat);
         await addressOneInputField.sendKeys(invalidAddressOneFormat);
+    }
+    async inputInvalidAddressTwoFormatIntoAddressTwoInputField(){
+        const addressTwoInputField = await this.driver.findElement(this._registerPageAddressTwoInputField);
+        const invalidAddressTwoFormat = this._invalidAddressTwoFormat;
+        Logger.info("Invalid register user address two format: ", invalidAddressTwoFormat);
+        await addressTwoInputField.sendKeys(invalidAddressTwoFormat);
     }
 
 }
