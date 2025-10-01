@@ -70,6 +70,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationNoAddressOneTest();
         });
 
+        //Test 003e -> invalid edit user account information test - no edited address two (the error gets triggered but the former address two gets displayed)
+        test("Invalid Edit User Account Information Test - No Edited Address Two", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - no edited address two
+            await testMethods.invalidEditAccountInformationNoAddressTwoTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
