@@ -1594,6 +1594,68 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Invalid Last Name Format");
     }
 
+    //invalid user account creation test method - invalid email format (missing '@')
+    async invalidUserAccountCreationInvalidEmailFormatTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const registerPage = new RegisterPage(this.driver);
+        const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
+        const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //register page web element assert
+        await registerPage.isRegisterPageWebElementDisplayed();
+        //register page text element assert
+        await registerPageTextElementAssert.isRegisterPageTextElementAsExpected();
+        //capture screenshot of the register page display before data input
+        await captureScreenshot(this.driver, "Register Page Display Before Data Input");
+        //input valid first name into first name input field
+        await registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        await registerPage.inputLastNameIntoLastNameInputField();
+        //input invalid email format into email input field (missing '@')
+        await registerPageInvalidSingularInput.inputInvalidEmailFormatIntoEmailInputField();
+        //input valid phone into phone input field
+        await registerPage.inputPhoneIntoPhoneInputField();
+        //input valid address one into address one input field
+        await registerPage.inputAddressOneIntoAddressOneInputField();
+        //input valid address two into address two input field
+        await registerPage.inputAddressTwoIntoAddressTwoInputField();
+        //click "Country" dropdown menu
+        await registerPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await registerPage.selectUSCountryOption();
+        //input valid password into password input field
+        await registerPage.inputPasswordIntoPasswordInputField();
+        //input valid matching confirm password into confirm password input field
+        await registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the register page display after invalid data input - invalid email format
+        await captureScreenshot(this.driver, "Register Page Display After Invalid Data Input - Invalid Email Format");
+        //click "Sign up" button
+        await registerPage.clickSignUpButton();
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            const registerPageInvalidEmailInputFormatErrorMsg = await registerPage.getRegisterPageSingularInputErrorMessage();
+            assert.strictEqual(registerPageInvalidEmailInputFormatErrorMsg, "The Email field must be a valid email address.", "The invalid register email input format error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Invalid Email Format");
+            throw new Error("The invalid register email input format error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Invalid Email Format");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
