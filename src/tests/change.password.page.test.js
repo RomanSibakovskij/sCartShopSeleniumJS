@@ -28,6 +28,20 @@ describe('Change Password Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Account Password Tests - No Singular Input", () => {
+
+        //Test 004a -> invalid edit user account password test - no old password
+        test("Invalid Edit User Account Password Test - No Old Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account password test - no old password
+            await testMethods.invalidEditAccountPasswordNoOldPasswordTest();
+        });
+
+    });
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

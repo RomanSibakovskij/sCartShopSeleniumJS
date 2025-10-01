@@ -25,6 +25,8 @@ class ChangePasswordPage extends BasePage{
         this._changePasswordPageUpdateInfoButton = By.xpath("//button[@class='button button-secondary']");
         //update password success message
         this._changePasswordPageUpdateSuccessMessage = By.xpath("//div[@role='alert']");
+        //singular input error message
+        this._changePasswordPageInvalidSingularInputError = By.xpath("//span[@class='help-block']");
 
         const registerPage = new RegisterPage(this.driver);
         const testDataGenerator = new TestDataGenerator(this.driver);
@@ -88,6 +90,12 @@ class ChangePasswordPage extends BasePage{
     async getChangePasswordPageUpdateSuccessMessage(){
         const changePasswordUpdateSuccessMessage = await this.driver.findElement(this._changePasswordPageUpdateSuccessMessage);
         return await changePasswordUpdateSuccessMessage.getText();
+    }
+
+    //change password page singular input error message getter
+    async getChangePasswordPageSingularInputErrorMessage(){
+        const changePasswordPageSingularInputErrorMessage = await this.driver.findElement(this._changePasswordPageInvalidSingularInputError);
+        return await changePasswordPageSingularInputErrorMessage.getText();
     }
 
     //change password page web element assert method
