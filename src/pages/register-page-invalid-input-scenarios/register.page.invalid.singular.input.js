@@ -62,6 +62,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._invalidPhoneFormat = "$##%^%&^%*";// special symbols only
         this._invalidAddressOneFormat = "%&^^&^(*";// special symbols only
         this._invalidAddressTwoFormat = ")*&(*^&";// special symbols only
+        this._mismatchingConfirmPassword = "Ikgg#$%%^";
 
     }
 
@@ -257,6 +258,12 @@ class RegisterPageInvalidSingularInput extends BasePage{
         const invalidAddressTwoFormat = this._invalidAddressTwoFormat;
         Logger.info("Invalid register user address two format: ", invalidAddressTwoFormat);
         await addressTwoInputField.sendKeys(invalidAddressTwoFormat);
+    }
+    async inputMismatchingConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._registerPageConfirmPasswordInputField);
+        const mismatchingConfirmPassword = this._mismatchingConfirmPassword;
+        Logger.info("Mismatching user register confirm password: ", mismatchingConfirmPassword);
+        await confirmPasswordInputField.sendKeys(mismatchingConfirmPassword);
     }
 
 }

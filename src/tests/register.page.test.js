@@ -272,6 +272,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationInvalidAddressTwoFormatTest();
         });
 
+        //Test 002ad -> invalid user account creation test - mismatching confirm password
+        test("Invalid User Account Creation Test - Mismatching Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - mismatching confirm password
+            await testMethods.invalidUserAccountCreationMismatchingConfirmPasswordTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

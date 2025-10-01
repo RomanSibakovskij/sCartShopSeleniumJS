@@ -1904,6 +1904,68 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Invalid Address Two Format");
     }
 
+    //invalid user account creation test method - mismatching confirm password
+    async invalidUserAccountCreationMismatchingConfirmPasswordTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const registerPage = new RegisterPage(this.driver);
+        const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
+        const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //register page web element assert
+        await registerPage.isRegisterPageWebElementDisplayed();
+        //register page text element assert
+        await registerPageTextElementAssert.isRegisterPageTextElementAsExpected();
+        //capture screenshot of the register page display before data input
+        await captureScreenshot(this.driver, "Register Page Display Before Data Input");
+        //input valid first name into first name input field
+        await registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        await registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        await registerPage.inputEmailIntoEmailInputField();
+        //input valid phone into phone input field
+        await registerPage.inputPhoneIntoPhoneInputField();
+        //input valid address one into address one input field
+        await registerPage.inputAddressOneIntoAddressOneInputField();
+        //input valid address two into address two input field
+        await registerPage.inputAddressTwoIntoAddressTwoInputField();
+        //click "Country" dropdown menu
+        await registerPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await registerPage.selectUSCountryOption();
+        //input valid password into password input field
+        await registerPage.inputPasswordIntoPasswordInputField();
+        //input mismatching confirm password into confirm password input field
+        await registerPageInvalidSingularInput.inputMismatchingConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the register page display after invalid data input - mismatching confirm password
+        await captureScreenshot(this.driver, "Register Page Display After Invalid Data Input - Mismatching Confirm Password");
+        //click "Sign up" button
+        await registerPage.clickSignUpButton();
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            const registerPageMismatchingPasswordInputErrorMsg = await registerPage.getRegisterPageSingularInputErrorMessage();
+            assert.strictEqual(registerPageMismatchingPasswordInputErrorMsg, "The Password field confirmation does not match.", "The mismatching register confirm password and confirm password input format error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+            throw new Error("The mismatching password register input format error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
