@@ -4,6 +4,9 @@ const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
 
+const TestDataGenerator = require("../pages/utilities/test.data.generator.js");
+const Logger = require("./utilities/logger");
+
 class ChangeInformationPage extends BasePage{
 
     constructor(driver) {
@@ -32,6 +35,66 @@ class ChangeInformationPage extends BasePage{
         //update information success message
         this._changeInfoPageUpdateSuccessMessage = By.xpath("//div[@role='alert']");
 
+        const testDataGenerator = new TestDataGenerator(this.driver);
+
+        //valid edited information input data
+        const { editedFirstName, editedLastName } = testDataGenerator.getRandomEditedName();
+        this._editedFirstName = editedFirstName;
+        this._editedLastName = editedLastName;
+        this._editedPhone = "1234567890"; //"0123456789"
+        this._editedAddressOne = testDataGenerator.generateRandomAddress(8);
+        this._editedAddressTwo = testDataGenerator.generateRandomStreetType();
+
+    }
+
+    //valid user register data input methods
+    async inputEditedFirstNameIntoEditedFirstNameInputField(){
+        const editedFirstNameInputField = await this.driver.findElement(this._changeInfoFirstNameInputField);
+        await editedFirstNameInputField.clear();
+        const editedFirstName = this._editedFirstName;
+        Logger.info("Valid edited user first name: ", editedFirstName);
+        await editedFirstNameInputField.sendKeys(editedFirstName);
+    }
+    async inputEditedLastNameIntoEditedLastNameInputField(){
+        const editedLastNameInputField = await this.driver.findElement(this._changeInfoLastNameInputField);
+        await editedLastNameInputField.clear();
+        const editedLastName = this._editedLastName;
+        Logger.info("Valid edited user last name: ", editedLastName);
+        await editedLastNameInputField.sendKeys(editedLastName);
+    }
+    async inputEditedAddressOneIntoEditedAddressOneInputField(){
+        const editedAddressOneInputField = await this.driver.findElement(this._changeInfoAddressOneInputField);
+        await editedAddressOneInputField.clear();
+        const editedAddressOne = await this._editedAddressOne;
+        Logger.info("Valid edited user address one: ", editedAddressOne);
+        await editedAddressOneInputField.sendKeys(editedAddressOne);
+    }
+    async inputEditedAddressTwoIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._changeInfoAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const editedAddressTwo = await this._editedAddressTwo;
+        Logger.info("Valid edited user address two (street type): ", editedAddressTwo);
+        await editedAddressTwoInputField.sendKeys(editedAddressTwo);
+    }
+
+    //click country dropdown menu method
+    async clickCountryDropdownMenu(){
+        const countryDropdownMenu = await this.driver.findElement(this._changeInfoCountryDropdownMenu);
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", countryDropdownMenu);
+        await countryDropdownMenu.click();
+    }
+
+    //select "Country"  menu option method
+    async selectCountryOption(){
+        const countryMenuOption = await this.driver.findElement(this._changeInfoCountryOption);
+        await countryMenuOption.click();
+    }
+
+    //click "Submit Information" button method
+    async clickSubmitInfoButton(){
+        const submitInfoButton = await this.driver.findElement(this._changeInfoUpdateInfoBtn);
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", submitInfoButton);
+        await submitInfoButton.click();
     }
 
     //change information page text element getters

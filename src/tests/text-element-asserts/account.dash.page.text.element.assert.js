@@ -20,9 +20,9 @@ class AccountDashPageTextElementAssert extends BaseTest{
         //aside
         //assert the account dashboard page link texts are as expected
         const expectedAccountDashPageAsideLinkTexts = ["Change password", "Change infomation", "Address list", "Order history"];
+        const actualAccountDashPageAsideLinkTexts = await accountDashboardPage.getAccountDashboardPageAsideLinkText();
         //log the misspelling issue
         (expectedAccountDashPageAsideLinkTexts[1] === "Change information") ? Logger.info("The 'change information' is spelled correctly") : Logger.info(`The 'change information' isn't spelled correctly. Expected: 'change information', actual: ${actualAccountDashPageAsideLinkTexts[1]}.`);
-        const actualAccountDashPageAsideLinkTexts = await accountDashboardPage.getAccountDashboardPageAsideLinkText();
         assert.deepStrictEqual(actualAccountDashPageAsideLinkTexts, expectedAccountDashPageAsideLinkTexts, "The account dashboard page aside link texts don't match expectations.");
     }
 

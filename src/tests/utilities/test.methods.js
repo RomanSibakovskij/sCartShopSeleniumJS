@@ -7,6 +7,8 @@ const { GeneralPage } = require("../../pages/general.page.js");
 const { HomePage } = require("../../pages/home.page.js");
 const { LoginPage } = require("../../pages/login.page.js");
 const { RegisterPage } = require("../../pages/register.page.js");
+const { AccountDashboardPage } = require("../../pages/account.dashboard.page.js");
+const { ChangeInformationPage } = require("../../pages/change.information.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 
@@ -14,10 +16,13 @@ const GeneralPageTextElementAsserts = require("../text-element-asserts/general.p
 const HomePageTextElementAssert = require("../text-element-asserts/home.page.text.element.assert.js");
 //const LoginPageTextElementAssert = require("../text-element-asserts/login.page.text.element.assert.js");
 const RegisterPageTextElementAssert = require("../text-element-asserts/register.page.text.element.assert.js");
+const AccountDashPageTextElementAssert = require("../text-element-asserts/account.dash.page.text.element.assert.js");
+const ChangeInformationPageTextElementAssert = require("../text-element-asserts/change.information.page.text.element.assert.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 
 const assert = require("node:assert");
+const Logger = require("../../pages/utilities/logger.js");
 const {captureScreenshot} = require("./screenshot.class");
 
 class TestMethods extends BaseTest{
@@ -1964,6 +1969,89 @@ class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid edit account information test
+
+    //valid edit account information test method
+    async validEditAccountInformationTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const changeInformationPage = new ChangeInformationPage(this.driver);
+        const changeInformationPageTextElementAssert = new ChangeInformationPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Change information" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //change information page web element assert
+        await changeInformationPage.isChangeInfoPageWebElementDisplayed();
+        //change information page text element assert
+        await changeInformationPageTextElementAssert.isChangeInfoPageTextElementAsExpected();
+        //capture screenshot of the change information page display before data input
+        await captureScreenshot(this.driver, "Change Information Page Display Before Data Input");
+        //input valid edited first name into edited first name input field
+        await changeInformationPage.inputEditedFirstNameIntoEditedFirstNameInputField();
+        //input valid edited last name into edited last name input field
+        await changeInformationPage.inputEditedLastNameIntoEditedLastNameInputField();
+        //input valid edited address one into edited address one input field
+        await changeInformationPage.inputEditedAddressOneIntoEditedAddressOneInputField();
+        //input valid edited address two into edited address two input field
+        await changeInformationPage.inputEditedAddressTwoIntoEditedAddressTwoInputField();
+        //capture screenshot of the change information page display after valid data input
+        await captureScreenshot(this.driver, "Change Information Page Display After Valid Data Input");
+        //click "Submit Information" button
+        await changeInformationPage.clickSubmitInfoButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //assert the user gets an expected success message
+        const changeInfoPageSuccessMsg = await changeInformationPage.getChangeInfoPageUpdateSuccessMessage();
+        assert.strictEqual(changeInfoPageSuccessMsg, "×\nUpdate success", "The valid user information update message doesn't match expectations or the update process has failed.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid Edit Account Information Test Result");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

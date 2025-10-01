@@ -17,6 +17,13 @@ class AccountDashboardPage extends BasePage{
 
     }
 
+    //click account dashboard page aside link method
+    async clickAccountDashboardPageAsideLink(index){
+        const setAccountDashboardPageAsideLink = await this.driver.findElements(this._accountDashboardPageAsideLinkElements);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: setAccountDashboardPageAsideLink[index] }).click().perform();
+    }
+
     //account dashboard page text element getters
     async getAccountDashboardPageWelcomeMsg(){
         const element = await this.driver.findElement(this._accountDashboardPageWelcomeMsg);
