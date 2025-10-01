@@ -248,6 +248,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationExistingEmailTest();
         });
 
+        //Test 002aa -> invalid user account creation test - invalid phone format (special symbols only)
+        test("Invalid User Account Creation Test - Invalid Phone Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - invalid phone format (special symbols only)
+            await testMethods.invalidUserAccountCreationInvalidPhoneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
