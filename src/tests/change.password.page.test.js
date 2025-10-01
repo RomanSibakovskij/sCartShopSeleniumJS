@@ -40,6 +40,16 @@ describe('Change Password Page Tests', () => {
             await testMethods.invalidEditAccountPasswordNoOldPasswordTest();
         });
 
+        //Test 004b -> invalid edit user account password test - no new / confirm password
+        test("Invalid Edit User Account Password Test - No New and Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account password test - no new / confirm password
+            await testMethods.invalidEditAccountPasswordNoNewConfirmPasswordTest();
+        });
+
     });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

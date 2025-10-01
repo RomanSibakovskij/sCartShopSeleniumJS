@@ -17,6 +17,7 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
 
         //invalid singular input data - no singular input
         this._noOldPassword = "";
+        this._noNewPassword = "";
 
     }
 
@@ -26,6 +27,18 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
         const noOldPassword = this._noOldPassword;
         Logger.info("No user password: ", noOldPassword);
         await oldPasswordInputField.sendKeys(noOldPassword);
+    }
+    async inputNoNewPasswordIntoNewPasswordInputField(){
+        const newPasswordInputField = await this.driver.findElement(this._changePasswordPageNewPasswordInputField);
+        const noNewPassword = this._noNewPassword;
+        Logger.info("No user new password: ", noNewPassword);
+        await newPasswordInputField.sendKeys(noNewPassword);
+    }
+    async inputNoConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._changePasswordPageConfirmPasswordInputField);
+        const noNewPassword = this._noNewPassword;
+        Logger.info("No user matching confirm password: ", noNewPassword);
+        await confirmPasswordInputField.sendKeys(noNewPassword);
     }
 
 }
