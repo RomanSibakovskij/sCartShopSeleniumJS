@@ -188,6 +188,14 @@ describe('Register Page Tests', () => {
             await testMethods.invalidUserAccountCreationTooLongPhoneTest();
         });
 
+        //Test 002t -> invalid user account creation test - too long address one (101 chars)
+        test("Invalid User Account Creation Test - Too Long Address One", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //invalid user account creation test - too long address one (101 chars)
+            await testMethods.invalidUserAccountCreationTooLongAddressOneTest();
+        });
+
     });
 
 
