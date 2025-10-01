@@ -49,7 +49,7 @@ class RegisterPageInvalidSingularInput extends BasePage{
         this._tooLongLastName = "Gsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongEmail = testDataGenerator.generateRandomTooLongEmailAddress(100);//100 chars -> name, domain
         this._tooLongPhone = "012345678901234";// 15 chars
-        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(100);// 101 chars
+        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97);// 101 chars
         this._tooLongAddressTwo = "Ssdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs";// 101 chars
         this._tooLongPassword = "DDFD@#$cffds^%&dg"; // 17 chars
         this._tooLongConfirmPassword = "DDFD@#$cffds^%&dg"; // 17 chars

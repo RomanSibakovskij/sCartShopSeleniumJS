@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("../utilities/base.page.js");
+const TestDataGenerator = require("../utilities/test.data.generator.js");
 
 const Logger = require("../utilities/logger");
 
@@ -17,6 +18,8 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         this._changeInfoPhoneInputField = By.xpath("//input[@id='phone']");
         this._changeInfoAddressOneInputField = By.xpath("//input[@id='address1']");
         this._changeInfoAddressTwoInputField = By.xpath("//input[@id='address2']");
+
+        const testDataGenerator = new TestDataGenerator(this.driver);
 
         //invalid singular input data - no singular input
         this._noEditedFirstName = "";
@@ -36,6 +39,8 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         this._tooLongFirstName = "Asdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongLastName = "Dsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongPhone = "012345678901234"; // 15 chars
+        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97);// 101 chars
+
 
     }
 
@@ -134,6 +139,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooLongEditedPhone = this._tooLongPhone;
         Logger.info("Too long edited user phone number: ", tooLongEditedPhone);
         await editedPhoneInputField.sendKeys(tooLongEditedPhone);
+    }
+    async inputTooLongEditedAddressOneIntoEditedAddressOneInputField(){
+        const editedAddressOneInputField = await this.driver.findElement(this._changeInfoAddressOneInputField);
+        await editedAddressOneInputField.clear();
+        const tooLongEditedAddressOne = this._tooLongAddressOne;
+        Logger.info("Too long edited user address one: ", tooLongEditedAddressOne);
+        await editedAddressOneInputField.sendKeys(tooLongEditedAddressOne);
     }
 
 }

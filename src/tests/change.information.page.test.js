@@ -178,6 +178,16 @@ describe('Change Information Page Tests', () => {
             await testMethods.invalidEditAccountInformationTooLongPhoneTest();
         });
 
+        //Test 003o -> invalid edit user account information test - too long edited address one (101 chars)
+        test("Invalid Edit User Account Information Test - Too Long Edited Address One", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - too long edited address one
+            await testMethods.invalidEditAccountInformationTooLongAddressOneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
