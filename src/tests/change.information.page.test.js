@@ -92,6 +92,20 @@ describe('Change Information Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Account Information Tests - Too Short Singular Input", () => {
+
+        //Test 003g -> invalid edit user account information test - too short edited first name (1 char) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Account Information Test - Too Short Edited First Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account information test - too short edited first name
+            await testMethods.invalidEditAccountInformationTooShortFirstNameTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
