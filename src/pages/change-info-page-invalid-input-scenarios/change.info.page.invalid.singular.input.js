@@ -40,6 +40,7 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         this._tooLongLastName = "Dsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg";// 100 chars
         this._tooLongPhone = "012345678901234"; // 15 chars
         this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97);// 101 chars
+        this._tooLongAddressTwo = "Bsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs";// 101 chars
 
 
     }
@@ -146,6 +147,13 @@ class ChangeInfoPageInvalidSingularInput extends BasePage{
         const tooLongEditedAddressOne = this._tooLongAddressOne;
         Logger.info("Too long edited user address one: ", tooLongEditedAddressOne);
         await editedAddressOneInputField.sendKeys(tooLongEditedAddressOne);
+    }
+    async inputTooLongEditedAddressTwoIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._changeInfoAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const tooLongEditedAddressTwo = this._tooLongAddressTwo;
+        Logger.info("Too long edited user address two (street type): ", tooLongEditedAddressTwo);
+        await editedAddressTwoInputField.sendKeys(tooLongEditedAddressTwo);
     }
 
 }
