@@ -52,6 +52,20 @@ describe('Change Password Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Account Password Tests - Too Short Singular Input", () => {
+
+        //Test 004c -> invalid edit user account password test - too short new / confirm password (5 chars)
+        test("Invalid Edit User Account Password Test - Too Short New and Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account password test - too short new / confirm password (5 chars)
+            await testMethods.invalidEditAccountPasswordTooShortNewConfirmPasswordTest();
+        });
+
+    });
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

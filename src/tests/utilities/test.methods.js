@@ -4278,7 +4278,7 @@ class TestMethods extends BaseTest{
         await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
         //assert the user gets an expected success message, log an error otherwise (it throws react style alert that can't be pinpointed with locator)
         try {
-            const noOldPasswordInputError = await changePasswordPage.getChangePasswordPageUpdateSuccessMessage();
+            const noOldPasswordInputError = await changePasswordPage.getChangePasswordPageSingularInputErrorMessage();
             assert.strictEqual(noOldPasswordInputError, "Please input old password", "The missing user password error message doesn't match expectations.");
         } catch {
             Logger.error("The missing old password input wasn't triggered.");
@@ -4378,13 +4378,116 @@ class TestMethods extends BaseTest{
         await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
         //assert the user gets an expected success message, log an error otherwise (it throws react style alert that can't be pinpointed with locator)
         try {
-            const noOldPasswordInputError = await changePasswordPage.getChangePasswordPageUpdateSuccessMessage();
+            const noOldPasswordInputError = await changePasswordPage.getChangePasswordPageSingularInputErrorMessage();
             assert.strictEqual(noOldPasswordInputError, "Please input new password", "The missing user new password/confirm password error message doesn't match expectations.");
         } catch {
-            Logger.error("The missing old password/confirm password input wasn't triggered.");
+            Logger.error("The missing new password/confirm password input wasn't triggered.");
         }
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid Edit Account Password Test Result - No New and Confirm Password");
+    }
+
+    //too short singular input
+
+    //invalid edit account password test method - too short new/confirm password (5 chars)
+    async invalidEditAccountPasswordTooShortNewConfirmPasswordTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const changePasswordPage = new ChangePasswordPage(this.driver);
+        const changePasswordPageInvalidSingularInput = new ChangePasswordPageInvalidSingularInput(this.driver);
+        const changePasswordPageTextElementAssert = new ChangePasswordPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Change password" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(0);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //change password page web element assert
+        await changePasswordPage.isChangePasswordPageWebElementDisplayed();
+        //change password text element assert
+        await changePasswordPageTextElementAssert.isChangeInfoPageTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the change password page display before data input
+        await captureScreenshot(this.driver, "Change Password Page Display Before Data Input");
+        //input valid old password into old password one input field
+        await changePasswordPage.inputOldPasswordIntoOldPasswordInputField();
+        //input too short new password into new password two input field (5 chars)
+        await changePasswordPageInvalidSingularInput.inputTooShortNewPasswordIntoNewPasswordInputField();
+        //input too short confirm password into confirm password two input field (5 chars)
+        await changePasswordPageInvalidSingularInput.inputTooShortConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the change password page display after invalid data input - too short new/confirm password
+        await captureScreenshot(this.driver, "Change Password Page Display After Invalid Data Input - Too Short New and Confirm Password");
+        //click "Submit Information" button
+        await changePasswordPage.clickSubmitInfoButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //assert the user gets an expected success message, throw an error otherwise
+        try {
+            const tooShortPasswordInputError = await changePasswordPage.getChangePasswordPageSingularInputErrorMessage();
+            assert.strictEqual(tooShortPasswordInputError, "Password minimum 6 characters", "The too short user new password/confirm password error message doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid Edit Account Password Test Result - Too Short New and Confirm Password");
+            throw new Error("The too short password/confirm password input wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Edit Account Password Test Result - Too Short New and Confirm Password");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
