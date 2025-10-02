@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("../utilities/base.page.js");
+const TestDataGenerator = require("../utilities/test.data.generator.js")
 const Logger = require("../utilities/logger");
 
 class AddressDetailsPageInvalidSingularInput extends BasePage{
@@ -16,6 +17,8 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._addressDetailsPagePhoneInputField = By.xpath("//input[@id='phone']");
         this._addressDetailsPageAddressOneInputField = By.xpath("//input[@id='address1']");
         this._addressDetailsPageAddressTwoInputField = By.xpath("//input[@id='address2']");
+
+        const testDataGenerator = new TestDataGenerator(this.driver);
 
         //invalid singular input - no singular input
         this._noAddressFirstName = "";
@@ -35,6 +38,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._tooLongAddressFirstName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
         this._tooLongAddressLastName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
         this._tooLongAddressPhone = "012345678901234"; // 15 chars
+        this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97); // 101 chars
 
     }
 
@@ -133,6 +137,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const tooLongEditedAddressPhone = this._tooLongAddressPhone;
         Logger.info("Too long edited user phone (address details): ", tooLongEditedAddressPhone);
         await editedAddressPhoneInputField.sendKeys(tooLongEditedAddressPhone);
+    }
+    async inputTooLongEditedAddressOneIntoEditedAddressOneInputField(){
+        const editedAddressOneInputField = await this.driver.findElement(this._addressDetailsPageAddressOneInputField);
+        await editedAddressOneInputField.clear();
+        const tooLongEditedAddressOne = this._tooLongAddressOne;
+        Logger.info("Too long edited user address one (address details): ", tooLongEditedAddressOne);
+        await editedAddressOneInputField.sendKeys(tooLongEditedAddressOne);
     }
 
 }
