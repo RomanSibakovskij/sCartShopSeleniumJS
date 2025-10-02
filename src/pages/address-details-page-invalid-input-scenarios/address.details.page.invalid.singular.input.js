@@ -39,6 +39,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._tooLongAddressLastName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
         this._tooLongAddressPhone = "012345678901234"; // 15 chars
         this._tooLongAddressOne = testDataGenerator.generateRandomAddress(97); // 101 chars
+        this._tooLongAddressTwo = "Ssdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhgs"; // 101 chars
 
     }
 
@@ -144,6 +145,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const tooLongEditedAddressOne = this._tooLongAddressOne;
         Logger.info("Too long edited user address one (address details): ", tooLongEditedAddressOne);
         await editedAddressOneInputField.sendKeys(tooLongEditedAddressOne);
+    }
+    async inputTooLongEditedAddressTwoIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._addressDetailsPageAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const tooLongEditedAddressTwo = this._tooLongAddressTwo;
+        Logger.info("Too long edited user address two (street type) (address details): ", tooLongEditedAddressTwo);
+        await editedAddressTwoInputField.sendKeys(tooLongEditedAddressTwo);
     }
 
 }

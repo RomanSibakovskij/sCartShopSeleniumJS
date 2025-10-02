@@ -178,7 +178,7 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressTooLongPhoneTest();
         });
 
-        //Test 005n -> invalid edit user address details test - too long edited address one (100 chars)
+        //Test 005n -> invalid edit user address details test - too long edited address one (101 chars)
         test("Invalid Edit User Address Details Test - Too Long Edited Address One", async function () {
             //navigate user to register page test
             await testMethods.navigateToRegisterPageTest();
@@ -186,6 +186,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.validUserAccountCreationTest();
             //invalid edit user address details test - too long edited address one
             await testMethods.invalidEditUserAddressTooLongAddressOneTest();
+        });
+
+        //Test 005o -> invalid edit user address details test - too long edited address two (101 chars)
+        test("Invalid Edit User Address Details Test - Too Long Edited Address Two", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too long edited address two
+            await testMethods.invalidEditUserAddressTooLongAddressTwoTest();
         });
 
     });
