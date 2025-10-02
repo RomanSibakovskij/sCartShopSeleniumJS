@@ -200,6 +200,20 @@ describe('Address Details Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Address Details Tests - Invalid Singular Input Format", () => {
+
+        //Test 005p -> invalid edit user address details test - invalid edited first name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Invalid Edited First Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - invalid edited first name format
+            await testMethods.invalidEditUserAddressInvalidFirstNameFormatTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
