@@ -42,6 +42,20 @@ describe('Login Page Tests', () => {
             await testMethods.validUserLoginTest();
         });
 
+        //Test 007b -> valid user login with edited password test
+        test("Valid User Login With Edited Password Test", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //valid edit user account password test
+            await testMethods.validEditAccountPasswordTest();
+            //valid user logout test
+            await testMethods.validUserLogoutTest();
+            //valid user login with edited password test
+            await testMethods.validUserLoginEditedPasswordTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -33,14 +33,14 @@ class ChangePasswordPage extends BasePage{
 
         //valid edited information input data
         this._oldPassword = registerPage.getPassword();
-        this._newPassword = testDataGenerator.generateRandomPassword(8);
+        this._newPassword = "Ganger334";
 
     }
 
     //valid user password data input methods
     async inputOldPasswordIntoOldPasswordInputField(){
         const oldPasswordInputField = await this.driver.findElement(this._changePasswordPageOldPasswordInputField);
-        const oldPassword = this._oldPassword;
+        const oldPassword = await this._oldPassword;
         Logger.info("Valid user password: ", oldPassword);
         await oldPasswordInputField.sendKeys(oldPassword);
     }
