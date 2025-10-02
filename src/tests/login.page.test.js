@@ -100,6 +100,18 @@ describe('Login Page Tests', () => {
             await testMethods.invalidUserInvalidLoginEmailTest();
         });
 
+        //Test 007f -> invalid user login test - invalid login email format (missing '@')
+        test("Invalid Edit User Login Test - Invalid Login Email Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //valid valid user logout test
+            await testMethods.validUserLogoutTest();
+            //invalid user login test - invalid login email format
+            await testMethods.invalidUserInvalidLoginEmailFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
