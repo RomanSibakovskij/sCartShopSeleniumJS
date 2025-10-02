@@ -104,6 +104,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressTooShortFirstNameTest();
         });
 
+        //Test 005g -> invalid edit user address details test - too short edited last name (1 char) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Too Short Edited Last Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too short edited last name
+            await testMethods.invalidEditUserAddressTooShortLastNameTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -26,6 +26,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
 
         //invalid singular input - too short singular input
         this._tooShortAddressFirstName = "D"; // 1 char
+        this._tooShortAddressLastName = "S"; // 1 char
 
     }
 
@@ -73,6 +74,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const tooShortEditedAddressFirstName = this._tooShortAddressFirstName;
         Logger.info("Too short edited user first name (address details): ", tooShortEditedAddressFirstName);
         await editedAddressFirstNameInputField.sendKeys(tooShortEditedAddressFirstName);
+    }
+    async inputTooShortEditedAddressLastNameIntoEditedAddressLastNameInputField(){
+        const editedAddressLastNameInputField = await this.driver.findElement(this._addressDetailsPageLastNameInputField);
+        await editedAddressLastNameInputField.clear();
+        const tooShortEditedAddressLastName = this._tooShortAddressLastName;
+        Logger.info("Too short edited user last name (address details): ", tooShortEditedAddressLastName);
+        await editedAddressLastNameInputField.sendKeys(tooShortEditedAddressLastName);
     }
 
 }
