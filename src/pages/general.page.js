@@ -56,6 +56,12 @@ class GeneralPage extends BasePage{
         await actions.move({ origin: setNavBarLink[index] }).click().perform();
     }
 
+    //click header homepage link method
+    async clickHeaderHomeLogoLink(){
+        const headerHomeLogoLink = await this.driver.findElement(this._homePageLogoLink);
+        await headerHomeLogoLink.click();
+    }
+
     //click set account dropdown menu option method
     async clickSetAccountDropdownMenuOption(index){
         const setAccountDropdownMenuOption = await this.driver.findElements(this._headerNavLinkAccountDropdownMenuElements);

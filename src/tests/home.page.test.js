@@ -30,6 +30,16 @@ describe('Home Page Tests', () => {
             await testMethods.addSingleHomePageNewProductToCartGuestTest();
         });
 
+        //Test 008a -> add single new product ("Product bundle 3 - English") to cart test (as a registered user)
+        test("Add Single New Product To Cart Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single new product ("Product bundle 3 - English") to cart test (as a registered user)
+            await testMethods.addSingleHomePageNewProductToCartRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
