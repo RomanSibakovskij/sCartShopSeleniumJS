@@ -146,6 +146,20 @@ describe('Address Details Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Address Details Tests - Too Long Singular Input", () => {
+
+        //Test 005k -> invalid edit user address details test - too long edited first name (100 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Too Long Edited First Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too long edited first name
+            await testMethods.invalidEditUserAddressTooLongFirstNameTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
