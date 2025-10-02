@@ -42,6 +42,15 @@ describe('Home Page Tests', () => {
 
     });
 
+    describe("Add Multiple New Product To Cart Tests", () => {
+
+        //Test 008b -> add multiple new products ("Product bundle 1 - English") to cart test (as a guest)
+        test("Add Multiple New Products To Cart Test (as a guest)", async function () {
+            await testMethods.addMultipleHomePageNewProductToCartGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

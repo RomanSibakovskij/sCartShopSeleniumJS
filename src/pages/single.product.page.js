@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const Logger = require("./utilities/logger");
 
 class SingleProductPage extends BasePage{
 
@@ -46,6 +47,14 @@ class SingleProductPage extends BasePage{
         this._singleProductPageProductRecommendedAddToCartBtnElements = By.xpath("//section[@class='section section-sm section-last bg-default']//a[@class='button button-secondary button-zakaria add-to-cart-list']");
         this._singleProductPageProductRecommendedUnitPriceElements = By.xpath("//section[@class='section section-sm section-last bg-default']//div[@class='product-price']");
 
+    }
+
+    //input set product quantity method
+    async inputSetProductQuantityIntoQuantityInputField(quantity){
+        const quantityInputField = await this.driver.findElement(this._singleProductPageProductQtyInputField);
+        await quantityInputField.clear();
+        Logger.info("Set product quantity input: ", quantity);
+        await quantityInputField.sendKeys(quantity);
     }
 
     //click "Add to cart" button method
