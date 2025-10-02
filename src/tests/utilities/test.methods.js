@@ -10,6 +10,8 @@ const { RegisterPage } = require("../../pages/register.page.js");
 const { AccountDashboardPage } = require("../../pages/account.dashboard.page.js");
 const { ChangeInformationPage } = require("../../pages/change.information.page.js");
 const { ChangePasswordPage } = require("../../pages/change.password.page.js");
+const { AddressListPage } = require("../../pages/address.list.page.js");
+const { AddressDetailsPage } = require("../../pages/address.details.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
@@ -22,8 +24,11 @@ const RegisterPageTextElementAssert = require("../text-element-asserts/register.
 const AccountDashPageTextElementAssert = require("../text-element-asserts/account.dash.page.text.element.assert.js");
 const ChangeInformationPageTextElementAssert = require("../text-element-asserts/change.information.page.text.element.assert.js");
 const ChangePasswordPageTextElementAssert = require("../text-element-asserts/change.password.page.text.element.assert.js");
+const AddressListPageTextElementAssert = require("../text-element-asserts/address.list.page.text.element.assert.js");
+const AddressDetailsPageTextElementAssert = require("../text-element-asserts/address.details.page.text.element.assert.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
+const AddressListPageDataLogger = require("../data-loggers/address.list.page.data.logger.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -4694,6 +4699,120 @@ class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid Edit Account Password Test Result - Mismatching Confirm Password");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid edit user address test
+
+    //valid edit user address test method
+    async validEditUserAddressTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        const addressListPageTextElementAssert = new AddressListPageTextElementAssert(this.driver);
+        const addressListPageDataLogger = new AddressListPageDataLogger(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const addressDetailsPageTextElementAssert = new AddressDetailsPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Address List" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(2);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //address list page web element assert
+        await addressListPage.isAddressListPageWebElementDisplayed();
+        //address list page text element assert
+        await addressListPageTextElementAssert.isAddressListPageTextElementAsExpected();
+        //log address list page data
+        await addressListPageDataLogger.logAddressListPageData();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Edit address" button
+        await addressListPage.clickSetEditAddressButton(0);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //address details page web element assert
+        await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
+        //address details page text element assert
+        await addressDetailsPageTextElementAssert.isAddressDetailsPageTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the address details page display before data input
+        await captureScreenshot(this.driver, "Address Details Page Display Before Data Input");
+        //input valid edited user address one into address one input field
+        await addressDetailsPage.inputEditedAddressOneIntoEditedAddressOneInputField();
+        //input valid edited user address two into address two input field
+        await addressDetailsPage.inputEditedAddressTwoIntoEditedAddressTwoInputField();
+        //click "Country" dropdown menu
+        await addressDetailsPage.clickAddressDetailsPageCountryDropdownMenu();
+        //select set country ("Turkey") option
+        await addressDetailsPage.selectTRCountryOption();
+        //capture screenshot of the address details page after valid data input
+        await captureScreenshot(this.driver, "Address Details Page Display After Valid Data Input");
+        //click "Update Information" button
+        await addressDetailsPage.clickUpdateInfoButton();
+        //assert the user gets an expected success message
+        const addressDetailsUpdateSuccessMsg = await addressDetailsPage.getAddressDetailsUpdateSuccessMessage();
+        assert.strictEqual(addressDetailsUpdateSuccessMsg, "×\nUpdate success", "The valid user address details update message doesn't match expectations or the address details update process has failed.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid Edit User Address Test Result");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

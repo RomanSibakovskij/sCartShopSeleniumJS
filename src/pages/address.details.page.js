@@ -3,6 +3,8 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const TestDataGenerator = require("../pages/utilities/test.data.generator.js");
+const Logger = require("./utilities/logger");
 
 class AddressDetailsPage extends BasePage{
 
@@ -33,6 +35,48 @@ class AddressDetailsPage extends BasePage{
         //singular input error message
         this._addressDetailsPageInvalidSingularInputError = By.xpath("//span[@class='help-block']");
 
+        const testDataGenerator = new TestDataGenerator(this.driver);
+
+        //valid address details input data
+        this._editedAddressOne = testDataGenerator.generateRandomAddress(8);
+        this._editedAddressTwo = testDataGenerator.generateRandomStreetType();
+
+    }
+
+    //valid edited address details input methods
+    async inputEditedAddressOneIntoEditedAddressOneInputField(){
+        const editedAddressOneInputField = await this.driver.findElement(this._addressDetailsPageAddressOneInputField);
+        await editedAddressOneInputField.clear();
+        const editedAddressOne = await this._editedAddressOne;
+        Logger.info("Valid edited user address one (address details): ", editedAddressOne);
+        await editedAddressOneInputField.sendKeys(editedAddressOne);
+    }
+    async inputEditedAddressTwoIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._addressDetailsPageAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const editedAddressTwo = await this._editedAddressTwo;
+        Logger.info("Valid edited user address two (street type) (address details): ", editedAddressTwo);
+        await editedAddressTwoInputField.sendKeys(editedAddressTwo);
+    }
+
+    //click "Country" dropdown menu method
+    async clickAddressDetailsPageCountryDropdownMenu(){
+        const countryDropdownMenu = await this.driver.findElement(this._addressDetailsPageCountryDropdownMenu);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: countryDropdownMenu }).click().perform();
+    }
+
+    //select "Turkey" country option
+    async selectTRCountryOption(){
+        const turkeyCountryOption = await this.driver.findElement(this._addressDetailsPageTurkeyCountryOption);
+        await turkeyCountryOption.click();
+    }
+
+    //click "Update Information" button method
+    async clickUpdateInfoButton(){
+        const updateInfoButton = await this.driver.findElement(this._addressDetailsPageUpdateInfoBtn);
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", updateInfoButton);
+        await updateInfoButton.click();
     }
 
     //address details page text element getters

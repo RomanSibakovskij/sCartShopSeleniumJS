@@ -32,6 +32,13 @@ class AddressListPage extends BasePage{
 
     }
 
+    //click set "Edit address" button method
+    async clickSetEditAddressButton(index){
+        const setEditAddressButton = await this.driver.findElements(this._addressListPageEditAddressBtnElements);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: setEditAddressButton[index] }).click().perform();
+    }
+
     //address list page address data getters
     async getAddressListFirstName(){
         const elements = await this.driver.findElements(this._addressListPageFirstNameElements);
