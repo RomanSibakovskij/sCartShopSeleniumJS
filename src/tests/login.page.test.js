@@ -72,7 +72,7 @@ describe('Login Page Tests', () => {
             await testMethods.invalidUserNoLoginEmailTest();
         });
 
-        //Test 007c -> invalid user login test - no login password
+        //Test 007d -> invalid user login test - no login password
         test("Invalid Edit User Login Test - No Login Password", async function () {
             //navigate user to register page test
             await testMethods.navigateToRegisterPageTest();
@@ -82,6 +82,22 @@ describe('Login Page Tests', () => {
             await testMethods.validUserLogoutTest();
             //invalid user login test - no login password
             await testMethods.invalidUserNoLoginPasswordTest();
+        });
+
+    });
+
+    describe("Invalid User Login Tests - Invalid Singular Input", () => {
+
+        //Test 007e -> invalid user login test - invalid login email
+        test("Invalid Edit User Login Test - Invalid Login Email", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //valid valid user logout test
+            await testMethods.validUserLogoutTest();
+            //invalid user login test - invalid login email
+            await testMethods.invalidUserInvalidLoginEmailTest();
         });
 
     });
