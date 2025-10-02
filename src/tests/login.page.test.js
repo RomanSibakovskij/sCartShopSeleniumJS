@@ -72,6 +72,18 @@ describe('Login Page Tests', () => {
             await testMethods.invalidUserNoLoginEmailTest();
         });
 
+        //Test 007c -> invalid user login test - no login password
+        test("Invalid Edit User Login Test - No Login Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //valid valid user logout test
+            await testMethods.validUserLogoutTest();
+            //invalid user login test - no login password
+            await testMethods.invalidUserNoLoginPasswordTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
