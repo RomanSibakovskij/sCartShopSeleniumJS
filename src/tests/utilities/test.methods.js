@@ -7039,5 +7039,55 @@ class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user logout test
+
+    //valid user logout test method
+    async validUserLogoutTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const loginPage = new LoginPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //click 'My account" header navbar dropdown menu
+        await generalPage.clickSetNavBarLink(4);
+        //select "Logout" option
+        await generalPage.clickSetAccountDropdownMenuOption(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(1300);
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //login page web element assert (to verify the user returns to login page)
+        await loginPage.isLoginPageWebElementDisplayed();
+        //login page text element assert (Selenium can't find these elements with VALID selectors)
+        //await loginPageTextElementAssert.isLoginPageTextElementAsExpected();
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid User Logout Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
 module.exports = TestMethods;
