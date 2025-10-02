@@ -212,6 +212,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressInvalidFirstNameFormatTest();
         });
 
+        //Test 005q -> invalid edit user address details test - invalid edited last name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Invalid Edited Last Name Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - invalid edited last name format
+            await testMethods.invalidEditUserAddressInvalidLastNameFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
