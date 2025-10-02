@@ -112,6 +112,18 @@ describe('Login Page Tests', () => {
             await testMethods.invalidUserInvalidLoginEmailFormatTest();
         });
 
+        //Test 007f -> invalid user login test - invalid login password
+        test("Invalid Edit User Login Test - Invalid Login Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //valid valid user logout test
+            await testMethods.validUserLogoutTest();
+            //invalid user login test - invalid login password
+            await testMethods.invalidUserInvalidLoginPasswordTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

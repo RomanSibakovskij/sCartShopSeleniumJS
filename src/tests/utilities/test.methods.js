@@ -7393,6 +7393,49 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid User Login Test Result - Invalid Login Email Format");
     }
 
+    //invalid user login test method - invalid user login password
+    async invalidUserInvalidLoginPasswordTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const loginPage = new LoginPage(this.driver);
+        //const loginPageTextElementAssert = new LoginPageTextElementAssert(this.driver);
+        const loginPageInvalidSingularInput = new LoginPageInvalidSingularInput(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //login page web element assert
+        await loginPage.isLoginPageWebElementDisplayed();
+        //login page text element assert (Selenium can't find these elements with VALID selectors)
+        //await loginPageTextElementAssert.isLoginPageTextElementAsExpected();
+        //capture screenshot of the login page display before data input
+        await captureScreenshot(this.driver, "Login Page Display Before Data Input");
+        //input valid login email into login email input field
+        await loginPage.inputValidLoginEmailIntoLoginEmailInputField();
+        //input invalid login password into login password input field
+        await loginPageInvalidSingularInput.inputInvalidLoginPasswordIntoLoginPasswordInputField();
+        //capture screenshot of the login page display after invalid data input - no login password
+        await captureScreenshot(this.driver, "Login Page Display After Invalid Data Input - Invalid Login Password");
+        //click "Login" button
+        await loginPage.clickLoginButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //assert the user receives an expected error message
+        const invalidLoginPasswordErrorMsg = await loginPage.getLoginPageSingularInputErrorMessage();
+        assert.strictEqual(invalidLoginPasswordErrorMsg, "These credentials do not match our records.", "The invalid login password input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid User Login Test Result - Invalid Login Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
