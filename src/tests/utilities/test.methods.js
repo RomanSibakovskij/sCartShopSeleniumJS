@@ -5829,6 +5829,108 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Too Short Edited Address One");
     }
 
+    //invalid edit user address test method - too short edited address two (3 chars)
+    async invalidEditUserAddressTooShortAddressTwoTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        const addressListPageTextElementAssert = new AddressListPageTextElementAssert(this.driver);
+        const addressListPageDataLogger = new AddressListPageDataLogger(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const addressDetailsPageInvalidSingularInput = new AddressDetailsPageInvalidSingularInput(this.driver);
+        const addressDetailsPageTextElementAssert = new AddressDetailsPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Address List" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(2);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address list page web element assert
+        await addressListPage.isAddressListPageWebElementDisplayed();
+        //address list page text element assert
+        await addressListPageTextElementAssert.isAddressListPageTextElementAsExpected();
+        //log address list page data
+        await addressListPageDataLogger.logAddressListPageData();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Edit address" button
+        await addressListPage.clickSetEditAddressButton(0);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address details page web element assert
+        await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
+        //address details page text element assert
+        await addressDetailsPageTextElementAssert.isAddressDetailsPageTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the address details page display before data input
+        await captureScreenshot(this.driver, "Address Details Page Display Before Data Input");
+        //input too short edited user address two into address two input field (3 chars)
+        await addressDetailsPageInvalidSingularInput.inputTooShortEditedAddressTwoIntoEditedAddressTwoInputField();
+        //capture screenshot of the address details page after invalid data input - too short edited address two
+        await captureScreenshot(this.driver, "Address Details Page Display After Invalid Data Input - Too Short Edited Address Two");
+        //click "Update Information" button
+        await addressDetailsPage.clickUpdateInfoButton();
+        //assert the user receives an expected error message, throw an error otherwise
+        try{
+            const addressDetailsPageTooShortAddressTwoInputError = await addressDetailsPage.getAddressDetailsSingularInputErrorMessage();
+            assert.strictEqual(addressDetailsPageTooShortAddressTwoInputError, "The address 2 is too short.", "The too short address two input error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Too Short Edited Address Two")
+            throw new Error("The too short address two input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Too Short Edited Address Two");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
