@@ -114,6 +114,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressTooShortLastNameTest();
         });
 
+        //Test 005h -> invalid edit user address details test - too short edited phone (7 digits)
+        test("Invalid Edit User Address Details Test - Too Short Edited Phone", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too short edited phone
+            await testMethods.invalidEditUserAddressTooShortPhoneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
