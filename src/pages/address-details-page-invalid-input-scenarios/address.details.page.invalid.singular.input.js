@@ -22,6 +22,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._noAddressLastName = "";
         this._noAddressPhone = "";
         this._noAddressOne = "";
+        this._noAddressTwo = "";
 
     }
 
@@ -53,6 +54,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const noEditedAddressOne = this._noAddressOne;
         Logger.info("No edited user address one (address details): ", noEditedAddressOne);
         await editedAddressOneInputField.sendKeys(noEditedAddressOne);
+    }
+    async inputNoEditedAddressTwoIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._addressDetailsPageAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const noEditedAddressTwo = this._noAddressTwo;
+        Logger.info("No edited user address two (street type) (address details): ", noEditedAddressTwo);
+        await editedAddressTwoInputField.sendKeys(noEditedAddressTwo);
     }
 
 }
