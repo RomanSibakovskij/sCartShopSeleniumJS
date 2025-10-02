@@ -124,6 +124,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressTooShortPhoneTest();
         });
 
+        //Test 005i -> invalid edit user address details test - too short edited address one (3 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Too Short Edited Address One", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too short edited address one
+            await testMethods.invalidEditUserAddressTooShortAddressOneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
