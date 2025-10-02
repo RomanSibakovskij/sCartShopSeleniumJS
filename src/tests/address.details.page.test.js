@@ -242,6 +242,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressInvalidAddressOneFormatTest();
         });
 
+        //Test 005t -> invalid edit user address details test - invalid edited address two format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Invalid Edited Address Two Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - invalid edited address two format
+            await testMethods.invalidEditUserAddressInvalidAddressTwoFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

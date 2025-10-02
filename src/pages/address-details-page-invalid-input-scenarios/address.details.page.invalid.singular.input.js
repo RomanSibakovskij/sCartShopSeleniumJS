@@ -46,6 +46,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._invalidAddressLastNameFormat = "$#$^$%^"; // special symbols only
         this._invalidAddressPhoneFormat = "*&(*^&"; // special symbols only
         this._invalidAddressOneFormat = "@$##^%"; // special symbols only
+        this._invalidAddressTwoFormat = ")*(&*^"; // special symbols only
 
     }
 
@@ -188,6 +189,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const invalidEditedAddressOneFormat = this._invalidAddressOneFormat;
         Logger.info("Invalid edited user address one format (address details): ", invalidEditedAddressOneFormat);
         await editedAddressOneInputField.sendKeys(invalidEditedAddressOneFormat);
+    }
+    async inputInvalidEditedAddressTwoFormatIntoEditedAddressTwoInputField(){
+        const editedAddressTwoInputField = await this.driver.findElement(this._addressDetailsPageAddressTwoInputField);
+        await editedAddressTwoInputField.clear();
+        const invalidEditedAddressTwoFormat = this._invalidAddressTwoFormat;
+        Logger.info("Invalid edited user address two (street type) format (address details): ", invalidEditedAddressTwoFormat);
+        await editedAddressTwoInputField.sendKeys(invalidEditedAddressTwoFormat);
     }
 
 }
