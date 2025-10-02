@@ -222,6 +222,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressInvalidLastNameFormatTest();
         });
 
+        //Test 005r -> invalid edit user address details test - invalid edited phone format (special symbols only) (former phone gets shown but the error gets triggered)
+        test("Invalid Edit User Address Details Test - Invalid Edited Phone Format", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - invalid edited phone format
+            await testMethods.invalidEditUserAddressInvalidPhoneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

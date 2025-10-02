@@ -48,7 +48,7 @@ class TestMethods extends BaseTest{
     async navigateToRegisterPageTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         //const homePage = new HomePage(this.driver);
         const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
         const homePageDataLogger = new HomePageDataLogger(this.driver);
@@ -59,11 +59,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //scroll down to new products section
         //await homePage.scrollDownToNewProductsSection();
         //wait for elements to load
@@ -104,7 +104,7 @@ class TestMethods extends BaseTest{
     async validUserAccountCreationTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
         //wait for elements to load
@@ -112,11 +112,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -164,7 +164,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -173,11 +173,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -221,7 +221,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -230,11 +230,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -278,7 +278,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoEmailTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -287,11 +287,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -335,7 +335,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -344,11 +344,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -392,7 +392,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -401,11 +401,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -449,7 +449,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -458,11 +458,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -506,7 +506,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoCountryTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
         //wait for elements to load
@@ -514,11 +514,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -558,7 +558,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationNoPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -567,11 +567,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -617,7 +617,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -626,11 +626,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -679,7 +679,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -688,11 +688,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -741,7 +741,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortEmailTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -750,11 +750,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -803,7 +803,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -812,11 +812,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -865,7 +865,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -874,11 +874,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -927,7 +927,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -936,11 +936,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -989,7 +989,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooShortPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -998,11 +998,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1053,7 +1053,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1062,11 +1062,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1115,7 +1115,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1124,11 +1124,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1177,7 +1177,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongEmailTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1186,11 +1186,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1239,7 +1239,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1248,11 +1248,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1301,7 +1301,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1310,11 +1310,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1363,7 +1363,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1372,11 +1372,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1425,7 +1425,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationTooLongPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1434,11 +1434,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1489,7 +1489,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidFirstNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1498,11 +1498,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1551,7 +1551,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidLastNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1560,11 +1560,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1613,7 +1613,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidEmailFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1622,11 +1622,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1675,7 +1675,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationExistingEmailTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1684,11 +1684,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1737,7 +1737,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidPhoneFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1746,11 +1746,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1799,7 +1799,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidAddressOneFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1808,11 +1808,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1861,7 +1861,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationInvalidAddressTwoFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1870,11 +1870,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1923,7 +1923,7 @@ class TestMethods extends BaseTest{
     async invalidUserAccountCreationMismatchingConfirmPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const registerPage = new RegisterPage(this.driver);
         const registerPageInvalidSingularInput = new RegisterPageInvalidSingularInput(this.driver);
         const registerPageTextElementAssert = new RegisterPageTextElementAssert(this.driver);
@@ -1932,11 +1932,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //register page web element assert
@@ -1989,7 +1989,7 @@ class TestMethods extends BaseTest{
     async validEditAccountInformationTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -1999,11 +1999,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2022,11 +2022,11 @@ class TestMethods extends BaseTest{
         //wait for elements to load
         await basePage.waitForElementLoad(2000)
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2056,11 +2056,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2082,7 +2082,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2093,11 +2093,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2116,11 +2116,11 @@ class TestMethods extends BaseTest{
         //wait for elements to load
         await basePage.waitForElementLoad(2000)
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2150,11 +2150,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2172,7 +2172,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2183,11 +2183,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2234,11 +2234,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2256,7 +2256,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2269,9 +2269,9 @@ class TestMethods extends BaseTest{
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2294,7 +2294,7 @@ class TestMethods extends BaseTest{
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2326,11 +2326,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2348,7 +2348,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts= new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2359,11 +2359,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2384,11 +2384,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2418,11 +2418,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2440,7 +2440,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2451,11 +2451,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2476,11 +2476,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2510,11 +2510,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2532,7 +2532,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationNoCountryTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2542,11 +2542,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2567,11 +2567,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2605,11 +2605,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2629,7 +2629,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooShortFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2640,11 +2640,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2665,11 +2665,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2699,11 +2699,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2726,7 +2726,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooShortLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2739,9 +2739,9 @@ class TestMethods extends BaseTest{
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2762,11 +2762,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2796,11 +2796,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2823,7 +2823,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooShortPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2834,11 +2834,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2859,11 +2859,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2895,11 +2895,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2922,7 +2922,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooShortAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -2933,11 +2933,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2958,11 +2958,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -2992,11 +2992,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3019,7 +3019,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooShortAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts= new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3030,11 +3030,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3055,11 +3055,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3089,11 +3089,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3118,7 +3118,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooLongFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3129,11 +3129,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3154,11 +3154,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3188,11 +3188,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3215,7 +3215,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooLongLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3226,11 +3226,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3251,11 +3251,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3285,11 +3285,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3312,7 +3312,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooLongPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3323,11 +3323,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3348,11 +3348,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3384,11 +3384,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3411,7 +3411,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooLongAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3422,11 +3422,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3447,11 +3447,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3481,11 +3481,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3508,7 +3508,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationTooLongAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3519,11 +3519,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3544,11 +3544,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3578,11 +3578,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3607,7 +3607,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationInvalidFirstNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3618,11 +3618,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3643,11 +3643,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3677,11 +3677,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3704,7 +3704,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationInvalidLastNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3715,11 +3715,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3740,11 +3740,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3774,11 +3774,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3801,7 +3801,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationInvalidPhoneFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3812,11 +3812,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3837,11 +3837,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3873,11 +3873,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3900,7 +3900,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationInvalidAddressOneFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -3911,11 +3911,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3936,11 +3936,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3970,11 +3970,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -3997,7 +3997,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountInformationInvalidAddressTwoFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts= new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changeInformationPage = new ChangeInformationPage(this.driver);
@@ -4008,11 +4008,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4033,11 +4033,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4067,11 +4067,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4098,7 +4098,7 @@ class TestMethods extends BaseTest{
     async validEditAccountPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts= new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4108,11 +4108,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4133,11 +4133,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4171,11 +4171,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4197,7 +4197,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountPasswordNoOldPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts= new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4208,11 +4208,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4233,11 +4233,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4271,11 +4271,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4297,7 +4297,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountPasswordNoNewConfirmPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4308,11 +4308,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4333,11 +4333,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4371,11 +4371,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4399,7 +4399,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountPasswordTooShortNewConfirmPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4410,11 +4410,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4435,11 +4435,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4473,11 +4473,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4502,7 +4502,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountPasswordTooLongNewConfirmPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4513,11 +4513,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4538,11 +4538,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4576,11 +4576,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4605,7 +4605,7 @@ class TestMethods extends BaseTest{
     async invalidEditAccountPasswordMismatchingConfirmPasswordTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
@@ -4616,11 +4616,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4641,11 +4641,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4679,11 +4679,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page web element assert
@@ -4710,7 +4710,7 @@ class TestMethods extends BaseTest{
     async validEditUserAddressTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -4723,11 +4723,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4748,11 +4748,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //address list page web element assert
@@ -4774,11 +4774,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //address details page web element assert
@@ -4820,7 +4820,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -4834,11 +4834,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4859,11 +4859,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -4883,11 +4883,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -4920,7 +4920,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -4934,11 +4934,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -4959,11 +4959,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -4983,11 +4983,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5020,7 +5020,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5034,11 +5034,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5059,11 +5059,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5083,11 +5083,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5120,7 +5120,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5134,11 +5134,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5159,11 +5159,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5183,11 +5183,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5220,7 +5220,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5234,11 +5234,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5259,11 +5259,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5283,11 +5283,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5320,7 +5320,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressNoCountryTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5333,11 +5333,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5358,11 +5358,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5382,11 +5382,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5423,7 +5423,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooShortFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5437,11 +5437,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5462,11 +5462,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5486,11 +5486,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5525,7 +5525,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooShortLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5539,11 +5539,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5564,11 +5564,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5588,11 +5588,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5627,7 +5627,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooShortPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5641,11 +5641,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5666,11 +5666,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5690,11 +5690,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5731,7 +5731,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooShortAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5745,11 +5745,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5770,11 +5770,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5794,11 +5794,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5833,7 +5833,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooShortAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5847,11 +5847,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5872,11 +5872,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -5896,11 +5896,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -5937,7 +5937,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooLongFirstNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -5951,11 +5951,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -5976,11 +5976,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6000,11 +6000,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6039,7 +6039,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooLongLastNameTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6053,11 +6053,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6078,11 +6078,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6102,11 +6102,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6141,7 +6141,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooLongPhoneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6155,11 +6155,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6180,11 +6180,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6204,11 +6204,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6245,7 +6245,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooLongAddressOneTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6259,11 +6259,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6284,11 +6284,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6308,11 +6308,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6347,7 +6347,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressTooLongAddressTwoTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6361,11 +6361,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6386,11 +6386,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6410,11 +6410,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6451,7 +6451,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressInvalidFirstNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6465,11 +6465,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6490,11 +6490,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6514,11 +6514,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6553,7 +6553,7 @@ class TestMethods extends BaseTest{
     async invalidEditUserAddressInvalidLastNameFormatTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const accountDashboardPage = new AccountDashboardPage(this.driver);
         const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
         const addressListPage = new AddressListPage(this.driver);
@@ -6567,11 +6567,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //account dashboard page (aside elements) web element assert
@@ -6592,11 +6592,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address list page web element assert
         await addressListPage.isAddressListPageWebElementDisplayed();
         //address list page text element assert
@@ -6616,11 +6616,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert (registered user side)
-        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //address details page web element assert
         await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
         //address details page text element assert
@@ -6649,6 +6649,108 @@ class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Invalid Edited Last Name Format");
+    }
+
+    //invalid edit user address test method - invalid edited phone format (special symbols only)
+    async invalidEditUserAddressInvalidPhoneFormatTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        const addressListPageTextElementAssert = new AddressListPageTextElementAssert(this.driver);
+        const addressListPageDataLogger = new AddressListPageDataLogger(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const addressDetailsPageInvalidSingularInput = new AddressDetailsPageInvalidSingularInput(this.driver);
+        const addressDetailsPageTextElementAssert = new AddressDetailsPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Address List" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(2);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address list page web element assert
+        await addressListPage.isAddressListPageWebElementDisplayed();
+        //address list page text element assert
+        await addressListPageTextElementAssert.isAddressListPageTextElementAsExpected();
+        //log address list page data
+        await addressListPageDataLogger.logAddressListPageData();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Edit address" button
+        await addressListPage.clickSetEditAddressButton(0);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address details page web element assert
+        await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
+        //address details page text element assert
+        await addressDetailsPageTextElementAssert.isAddressDetailsPageTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the address details page display before data input
+        await captureScreenshot(this.driver, "Address Details Page Display Before Data Input");
+        //input invalid edited user phone format into phone input field (special symbols only)
+        await addressDetailsPageInvalidSingularInput.inputInvalidEditedAddressPhoneFormatIntoEditedAddressPhoneInputField();
+        //capture screenshot of the address details page after invalid data input - invalid edited phone input format
+        await captureScreenshot(this.driver, "Address Details Page Display After Invalid Data Input - Invalid Edited Phone Format");
+        //click "Update Information" button
+        await addressDetailsPage.clickUpdateInfoButton();
+        //assert the user receives an expected error message, throw an error otherwise
+        try{
+            const addressDetailsPageInvalidPhoneInputFormatError = await addressDetailsPage.getAddressDetailsSingularInputErrorMessage();
+            assert.strictEqual(addressDetailsPageInvalidPhoneInputFormatError, "The phone format is not correct. Length 8-14, use only 0-9 and the \"-\" SIGN.", "The invalid address phone input format error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Invalid Edited Phone Format")
+            throw new Error("The invalid address phone input format error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Invalid Edited Phone Format");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
