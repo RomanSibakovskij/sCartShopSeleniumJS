@@ -23,6 +23,15 @@ describe('Home Page Tests', () => {
 
     });
 
+    describe("Add Single New Product To Cart Tests", () => {
+
+        //Test 008 -> add single new product ("Product bundle 1 - English") to cart test (as a guest)
+        test("Add Single New Product To Cart Test (as a guest)", async function () {
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

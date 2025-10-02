@@ -12,6 +12,8 @@ const { ChangeInformationPage } = require("../../pages/change.information.page.j
 const { ChangePasswordPage } = require("../../pages/change.password.page.js");
 const { AddressListPage } = require("../../pages/address.list.page.js");
 const { AddressDetailsPage } = require("../../pages/address.details.page.js");
+const { SingleProductPage } = require("../../pages/single.product.page.js");
+const { ShoppingCartPage } = require("../../pages/shopping.cart.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
@@ -28,9 +30,12 @@ const ChangeInformationPageTextElementAssert = require("../text-element-asserts/
 const ChangePasswordPageTextElementAssert = require("../text-element-asserts/change.password.page.text.element.assert.js");
 const AddressListPageTextElementAssert = require("../text-element-asserts/address.list.page.text.element.assert.js");
 const AddressDetailsPageTextElementAssert = require("../text-element-asserts/address.details.page.text.element.assert.js");
+const SingleProductPageTextElementAssert = require("../text-element-asserts/single.product.page.text.element.assert.js");
+const ShoppingCartPageTextElementAssert = require("../text-element-asserts/shopping.cart.page.text.element.assert.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 const AddressListPageDataLogger = require("../data-loggers/address.list.page.data.logger.js");
+const SingleProductPageDataLoggers = require("../data-loggers/single.product.page.data.loggers.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -7434,6 +7439,97 @@ class TestMethods extends BaseTest{
         assert.strictEqual(invalidLoginPasswordErrorMsg, "These credentials do not match our records.", "The invalid login password input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid User Login Test Result - Invalid Login Password");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //single homepage new product addition to cart tests
+
+    //add single homepage new product ("Product bundle 1 - English") to cart test (as a guest)
+    async addSingleHomePageNewProductToCartGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const singleProductPage = new SingleProductPage(this.driver);
+        const singleProductPageTextElementAssert = new SingleProductPageTextElementAssert(this.driver);
+        const singleProductPageDataLoggers = new SingleProductPageDataLoggers(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //scroll down to new products section
+        await homePage.scrollDownToNewProductsSection();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //click set new product ("Product bundle 1 - English") name link
+        await homePage.clickSetNewProductNameLink(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(4000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //single product page web element assert
+        await singleProductPage.isSingleProductPageWebElementDisplayed();
+        //single product page text element assert
+        await singleProductPageTextElementAssert.isSingleProductPageTextElementAsExpected();
+        //assert the user is on the correct product page
+        const expectedSingleProductPageProductName = "Product bundle 1 - English";
+        const actualSingleProductPageProductName = await singleProductPage.getSingleProductPageTitle();
+        assert.strictEqual(actualSingleProductPageProductName, expectedSingleProductPageProductName, "The expected single product page product name doesn't match expectations.");
+        //log single product page data
+        await singleProductPageDataLoggers.logSingleProductPageProductData();
+        //capture screenshot of the single product page display
+        await captureScreenshot(this.driver, "Single Product (Product bundle 1 - English) Page Display");
+        //click "Add to cart" button
+        await singleProductPage.clickAddToCartButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+
+        //assert the user gets an expected success message
+        const productAdditionToCartSuccessMsg = await addressDetailsPage.getAddressDetailsUpdateSuccessMessage(); //same element is being used as in address details page
+        assert.strictEqual(productAdditionToCartSuccessMsg, "×\nAdd to cart success", "The product addition to cart message doesn't match expectations or the product addition to cart process has failed.");
+        //assert the correct product has been added
+        const expectedSingleHomeProduct = "Product bundle 1 - English";
+        const actualSingleHomeProduct = await shoppingCartPage.getShoppingCartPageProductName(); //[0] is being added since it returns a list of elements
+        assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected home product name doesn't match expectations. Expected: 'Product bundle 1 - English', Actual: ${actualSingleHomeProduct}`);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Single Product (Product bundle 1 - English) Addition To Cart Test Result (guest)");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

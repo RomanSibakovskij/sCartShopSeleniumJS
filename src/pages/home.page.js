@@ -31,6 +31,21 @@ class HomePage extends BasePage{
 
     }
 
+    //click set new products name link method
+    async clickSetNewProductNameLink(index){
+        const setNewProductNameLink = await this.driver.findElements(this._homePageNewProductsProductCardLinkElements);
+        const targetElement = setNewProductNameLink[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
+    //scroll down method
+    async scrollDownToNewProductsSection(){
+        const targetElement = await this.driver.findElement(this._newProductsBlock);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: targetElement }).perform();
+    }
+
     //home page text element getters
     async getHomePageTitle(){
         const homePageTitle = await this.driver.findElement(this._homePageTitle);

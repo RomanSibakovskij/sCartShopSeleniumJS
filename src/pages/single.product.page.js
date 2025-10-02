@@ -48,6 +48,13 @@ class SingleProductPage extends BasePage{
 
     }
 
+    //click "Add to cart" button method
+    async clickAddToCartButton(){
+        const addToCartButton = await this.driver.findElement(this._singleProductPageProductAddToCartButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: addToCartButton }).click().perform();
+    }
+
     //single product page text element getters
     async getSingleProductPageTitle(){
         const singleProductPageTitle = await this.driver.findElement(this._singleProductPageProductName);
