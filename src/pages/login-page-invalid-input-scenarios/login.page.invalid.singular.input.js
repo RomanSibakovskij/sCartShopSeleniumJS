@@ -8,6 +8,11 @@ class LoginPageInvalidSingularInput extends BasePage{
 
     constructor(driver) {
         super(driver);
+
+        //relevant web elements
+        this._loginPageEmailInputField = By.xpath("//input[@name='email']");
+        this._loginPagePasswordInputField = By.xpath("//input[@name='password']");
+
     }
 
 
