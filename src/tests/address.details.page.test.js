@@ -158,6 +158,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressTooLongFirstNameTest();
         });
 
+        //Test 005l -> invalid edit user address details test - too long edited last name (100 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Edit User Address Details Test - Too Long Edited Last Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - too long edited last name
+            await testMethods.invalidEditUserAddressTooLongLastNameTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
