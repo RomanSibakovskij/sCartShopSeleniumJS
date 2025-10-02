@@ -12,6 +12,8 @@ class AddressListPage extends BasePage{
 
         //address list page web elements
         this._addressListPageTitle = By.xpath("//h6");
+        //empty address list message element
+        this._emptyAddressListMsg = By.xpath("//div[@class='text-danger']");
         //address list (list elements)
         this._addressListPageFirstNameSubtext = By.xpath("//table//tr[1]/td[1]");
         this._addressListPageFirstNameElements = By.xpath("//table//tr[1]/td[2]");
@@ -37,6 +39,19 @@ class AddressListPage extends BasePage{
         const setEditAddressButton = await this.driver.findElements(this._addressListPageEditAddressBtnElements);
         const actions = this.driver.actions({ bridge: true });
         await actions.move({ origin: setEditAddressButton[index] }).click().perform();
+    }
+
+    //click set "Delete address" button method
+    async clickSetDeleteAddressButton(index){
+        const setDeleteAddressButton = await this.driver.findElements(this._addressListPageDeleteAddressBtnElements);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: setDeleteAddressButton[index] }).click().perform();
+    }
+
+    //handle browser pop-up alert method
+    async clickOkPopUpAlertButton(){
+        const alert = await this.driver.switchTo().alert();
+        await alert.accept();
     }
 
     //address list page address data getters
@@ -160,6 +175,12 @@ class AddressListPage extends BasePage{
     async getAddressListCountrySubtext(){
         const addressListCountrySubtext = await this.driver.findElement(this._addressListPageCountrySubtext);
         return await addressListCountrySubtext.getText();
+    }
+
+    //empty address list message getter
+    async getEmptyAddressListMsg(){
+        const emptyAddressListMsg = await this.driver.findElement(this._emptyAddressListMsg);
+        return await emptyAddressListMsg.getText();
     }
 
     //address list page web element assert method

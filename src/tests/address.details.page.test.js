@@ -254,6 +254,20 @@ describe('Address Details Page Tests', () => {
 
     });
 
+    describe("Remove User Address Test", () => {
+
+        //Test 006 -> remove user address test
+        test("Remove User Address Test", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //remove user address test
+            await testMethods.removeUserAddressTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

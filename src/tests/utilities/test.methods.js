@@ -6957,6 +6957,86 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - Invalid Edited Address Two Format");
     }
 
+    //user address removal test
+
+    //remove user address test method
+    async removeUserAddressTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        const addressListPageTextElementAssert = new AddressListPageTextElementAssert(this.driver);
+        const addressListPageDataLogger = new AddressListPageDataLogger(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Address List" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(2);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address list page web element assert
+        await addressListPage.isAddressListPageWebElementDisplayed();
+        //address list page text element assert
+        await addressListPageTextElementAssert.isAddressListPageTextElementAsExpected();
+        //log address list page data
+        await addressListPageDataLogger.logAddressListPageData();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Delete address" button
+        await addressListPage.clickSetDeleteAddressButton(0);
+        //wait for alert to appear
+        await basePage.waitForElementLoad(900);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the user gets an expected success message, log the issue otherwise
+        try {
+            const addressRemovalSuccessMsg = await addressListPage.getEmptyAddressListMsg();
+            assert.strictEqual(addressRemovalSuccessMsg, "No items yet", "The valid user address removal message doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "User Address Removal Test Result")
+            throw new Error ("The user address removal feature doesn't work, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "User Address Removal Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
