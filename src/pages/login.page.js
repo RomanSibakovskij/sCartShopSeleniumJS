@@ -3,6 +3,8 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const { RegisterPage } = require("./register.page.js");
+const Logger = require("./utilities/logger");
 
 class LoginPage extends BasePage{
 
@@ -22,6 +24,33 @@ class LoginPage extends BasePage{
         //button
         this._loginPageLoginButton = By.xpath("//button[@class='button button-secondary']");
 
+        const registerPage = new RegisterPage(this.driver);
+
+        //valid user login input data
+        this._validLoginEmail = registerPage.getEmail();
+        this._validLoginPassword = registerPage.getPassword();
+
+    }
+
+    //valid login input data methods
+    async inputValidLoginEmailIntoLoginEmailInputField(){
+        const loginEmailInputField = await this.driver.findElement(this._loginPageEmailInputField);
+        const validLoginEmail = this._validLoginEmail;
+        Logger.info("Valid user login email: ", validLoginEmail);
+        await loginEmailInputField.sendKeys(validLoginEmail);
+    }
+    async inputValidLoginPasswordIntoLoginPasswordInputField(){
+        const loginPasswordInputField = await this.driver.findElement(this._loginPagePasswordInputField);
+        const validLoginPassword = this._validLoginPassword;
+        Logger.info("Valid user login password: ", validLoginPassword);
+        await loginPasswordInputField.sendKeys(validLoginPassword);
+    }
+
+    //click "Login" button method
+    async clickLoginButton(){
+        const loginButton = await this.driver.findElement(this._loginPageLoginButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: loginButton }).click().perform();
     }
 
     //click "Account register" link method
