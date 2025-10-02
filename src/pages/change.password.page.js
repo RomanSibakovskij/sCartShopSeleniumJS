@@ -4,7 +4,6 @@ const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
 const { RegisterPage } = require("../pages/register.page.js");
-const TestDataGenerator = require("../pages/utilities/test.data.generator.js");
 const Logger = require("./utilities/logger");
 
 class ChangePasswordPage extends BasePage{
@@ -29,7 +28,6 @@ class ChangePasswordPage extends BasePage{
         this._changePasswordPageInvalidSingularInputError = By.xpath("//span[@class='help-block']");
 
         const registerPage = new RegisterPage(this.driver);
-        const testDataGenerator = new TestDataGenerator(this.driver);
 
         //valid edited information input data
         this._oldPassword = registerPage.getPassword();
