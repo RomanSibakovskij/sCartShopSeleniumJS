@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("../utilities/base.page.js");
+const Logger = require("../utilities/logger");
 
 class AddressDetailsPageInvalidSingularInput extends BasePage{
 
@@ -16,9 +17,19 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         this._addressDetailsPageAddressOneInputField = By.xpath("//input[@id='address1']");
         this._addressDetailsPageAddressTwoInputField = By.xpath("//input[@id='address2']");
 
+        //invalid singular input - no singular input
+        this._noAddressFirstName = "";
+
     }
 
-
+    //invalid edited address details input methods - no singular input
+    async inputNoEditedAddressFirstNameIntoEditedAddressFirstNameInputField(){
+        const editedAddressFirstNameInputField = await this.driver.findElement(this._addressDetailsPageFirstNameInputField);
+        await editedAddressFirstNameInputField.clear();
+        const noEditedAddressFirstName = this._noAddressFirstName;
+        Logger.info("No edited user first name (address details): ", noEditedAddressFirstName);
+        await editedAddressFirstNameInputField.sendKeys(noEditedAddressFirstName);
+    }
 
 }
-module.exports = { AddressDetailsPageInvalidSingularInput };
+module.exports = AddressDetailsPageInvalidSingularInput;

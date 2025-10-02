@@ -28,6 +28,20 @@ describe('Address Details Page Tests', () => {
 
     });
 
+    describe("Invalid Edit User Address Details Tests - No Singular Input", () => {
+
+        //Test 005a -> invalid edit user address details test - no edited first name
+        test("Invalid Edit User Address Details Test - No Edited First Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - no edited first name
+            await testMethods.invalidEditUserAddressNoFirstNameTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

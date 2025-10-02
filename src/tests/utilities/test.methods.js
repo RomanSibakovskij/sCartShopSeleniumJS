@@ -16,6 +16,7 @@ const { AddressDetailsPage } = require("../../pages/address.details.page.js");
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
 const ChangePasswordPageInvalidSingularInput = require("../../pages/change-password-page-invalid-input-scenarios/change.password.page.invalid.singular.input.js");
+const AddressDetailsPageInvalidSingularInput = require("../../pages/address-details-page-invalid-input-scenarios/address.details.page.invalid.singular.input.js");
 
 const GeneralPageTextElementAsserts = require("../text-element-asserts/general.page.text.element.asserts.js");
 const HomePageTextElementAssert = require("../text-element-asserts/home.page.text.element.assert.js");
@@ -4813,6 +4814,114 @@ class TestMethods extends BaseTest{
         assert.strictEqual(addressDetailsUpdateSuccessMsg, "×\nUpdate success", "The valid user address details update message doesn't match expectations or the address details update process has failed.");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Valid Edit User Address Test Result");
+    }
+
+    //invalid edit user address tests
+
+    //no singular input
+
+    //invalid edit user address test method - no edited first name
+    async invalidEditUserAddressNoFirstNameTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPagePageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        const addressListPageTextElementAssert = new AddressListPageTextElementAssert(this.driver);
+        const addressListPageDataLogger = new AddressListPageDataLogger(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const addressDetailsPageInvalidSingularInput = new AddressDetailsPageInvalidSingularInput(this.driver);
+        const addressDetailsPageTextElementAssert = new AddressDetailsPageTextElementAssert(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the account page dashboard display
+        await captureScreenshot(this.driver, "Account Dashboard Page Display");
+        //assert the account dashboard page welcome greeting is as expected
+        const accountDashPageWelcomeMsg = await accountDashboardPage.getAccountDashboardPageWelcomeMsg();
+        //log the misspelling issue
+        (accountDashPageWelcomeMsg === "Welcome") ? Logger.info("The 'welcome' word is spelled correctly") : Logger.info(`The "welcome" word isn't spelled correctly. Expected: "Welcome", actual: ${accountDashPageWelcomeMsg}`);
+        assert.strictEqual(accountDashPageWelcomeMsg, "Wellcome", "The account dashboard page welcome text message doesn't match expectations.");
+        //click "Address List" link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(2);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //address list page web element assert
+        await addressListPage.isAddressListPageWebElementDisplayed();
+        //address list page text element assert
+        await addressListPageTextElementAssert.isAddressListPageTextElementAsExpected();
+        //log address list page data
+        await addressListPageDataLogger.logAddressListPageData();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Edit address" button
+        await addressListPage.clickSetEditAddressButton(0);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPagePageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPagePageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //address details page web element assert
+        await addressDetailsPage.isAddressDetailsPageWebElementDisplayed();
+        //address details page text element assert
+        await addressDetailsPageTextElementAssert.isAddressDetailsPageTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //capture screenshot of the address details page display before data input
+        await captureScreenshot(this.driver, "Address Details Page Display Before Data Input");
+        //don't input edited user first name into first name input field
+        await addressDetailsPageInvalidSingularInput.inputNoEditedAddressFirstNameIntoEditedAddressFirstNameInputField();
+        //capture screenshot of the address details page after invalid data input - no edited first name
+        await captureScreenshot(this.driver, "Address Details Page Display After Invalid Data Input - No Edited First Name");
+        //click "Update Information" button
+        await addressDetailsPage.clickUpdateInfoButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //since the address details page has no error boxes (that can't be pinpointed with locators), html address assert is being used
+        const addressListURL = "https://demo.s-cart.org/customer/address-list.html";
+        const actualURL = await this.driver.getCurrentUrl();
+        assert.notStrictEqual(actualURL, addressListURL, `The actual (${actualURL}) and expected (${addressListURL}) URL addresses match, test has failed.`);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Edit User Address Test Result - No Edited First Name");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
