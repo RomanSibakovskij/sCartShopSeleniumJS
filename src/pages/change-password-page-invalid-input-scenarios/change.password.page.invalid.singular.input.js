@@ -25,6 +25,9 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
         //invalid singular input data - too long singular input
         this._tooLongNewPassword = "DDFD@#$cffds^%&dg"; //17 chars
 
+        //invalid singular input data - invalid singular input
+        this._mismatchingConfirmPassword = "gfhf@#%$$#sd";
+
     }
 
     //invalid user password data input methods - no singular input
@@ -73,6 +76,14 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
         const tooLongNewPassword = this._tooLongNewPassword;
         Logger.info("Too long user matching confirm password: ", tooLongNewPassword);
         await confirmPasswordInputField.sendKeys(tooLongNewPassword);
+    }
+
+    //invalid user password data input method - invalid singular input
+    async inputMismatchingConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._changePasswordPageConfirmPasswordInputField);
+        const mismatchingConfirmPassword = this._mismatchingConfirmPassword;
+        Logger.info("Mismatching user matching confirm password: ", mismatchingConfirmPassword);
+        await confirmPasswordInputField.sendKeys(mismatchingConfirmPassword);
     }
 
 }

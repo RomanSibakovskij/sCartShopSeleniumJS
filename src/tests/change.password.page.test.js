@@ -12,7 +12,7 @@ describe('Change Password Page Tests', () => {
     });
 
     jest.setTimeout(140000) //timer for the whole single test run, otherwise throws a timeout error
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     describe("Valid Edit User Account Password Test", () => {
 
@@ -80,7 +80,21 @@ describe('Change Password Page Tests', () => {
 
     });
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    describe("Invalid Edit User Account Password Test - Invalid Singular Input", () => {
+
+        //Test 004e -> invalid edit user account password test - mismatching confirm password
+        test("Invalid Edit User Account Password Test - Mismatching Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account password test - mismatching confirm password
+            await testMethods.invalidEditAccountPasswordMismatchingConfirmPasswordTest();
+        });
+
+    });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
     afterEach(async function() {
