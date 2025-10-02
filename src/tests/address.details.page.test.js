@@ -60,6 +60,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressNoPhoneTest();
         });
 
+        //Test 005d -> invalid edit user address details test - no edited address one
+        test("Invalid Edit User Address Details Test - No Edited Address One", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - no edited address one
+            await testMethods.invalidEditUserAddressNoAddressOneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
