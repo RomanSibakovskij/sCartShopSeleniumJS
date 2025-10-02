@@ -20,6 +20,7 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         //invalid singular input - no singular input
         this._noAddressFirstName = "";
         this._noAddressLastName = "";
+        this._noAddressPhone = "";
 
     }
 
@@ -37,6 +38,13 @@ class AddressDetailsPageInvalidSingularInput extends BasePage{
         const noEditedAddressLastName = this._noAddressLastName;
         Logger.info("No edited user last name (address details): ", noEditedAddressLastName);
         await editedAddressLastNameInputField.sendKeys(noEditedAddressLastName);
+    }
+    async inputNoEditedAddressPhoneIntoEditedAddressPhoneInputField(){
+        const editedAddressPhoneInputField = await this.driver.findElement(this._addressDetailsPagePhoneInputField);
+        await editedAddressPhoneInputField.clear();
+        const noEditedAddressPhone = this._noAddressPhone;
+        Logger.info("No edited user phone (address details): ", noEditedAddressPhone);
+        await editedAddressPhoneInputField.sendKeys(noEditedAddressPhone);
     }
 
 }
