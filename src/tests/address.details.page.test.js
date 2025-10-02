@@ -40,6 +40,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressNoFirstNameTest();
         });
 
+        //Test 005b -> invalid edit user address details test - no edited last name
+        test("Invalid Edit User Address Details Test - No Edited Last Name", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - no edited last name
+            await testMethods.invalidEditUserAddressNoLastNameTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
