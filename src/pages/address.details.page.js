@@ -79,6 +79,12 @@ class AddressDetailsPage extends BasePage{
         await updateInfoButton.click();
     }
 
+    //select "Country" country option
+    async selectCountryOption(){
+        const countryOption = await this.driver.findElement(this._addressDetailsPageSelectCountryOption);
+        await countryOption.click();
+    }
+
     //address details page text element getters
     async getAddressDetailsPageTitle(){
         const addressDetailsPageTitle = await this.driver.findElement(this._addressDetailsPageTitle);

@@ -80,6 +80,16 @@ describe('Address Details Page Tests', () => {
             await testMethods.invalidEditUserAddressNoAddressTwoTest();
         });
 
+        //Test 005f -> invalid edit user address details test - no edited country (it throws 500 server error)
+        test("Invalid Edit User Address Details Test - No Edited Country", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user address details test - no edited country
+            await testMethods.invalidEditUserAddressNoCountryTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
