@@ -24,6 +24,8 @@ class LoginPage extends BasePage{
         this._loginPageAccountRegisterLink = By.xpath("//p[@class='lost_password form-group']/a[2]");
         //button
         this._loginPageLoginButton = By.xpath("//button[@class='button button-secondary']");
+        //singular input error message
+        this._loginPageInvalidSingularInputError = By.xpath("//span[@class='help-block']");
 
         const registerPage = new RegisterPage(this.driver);
         const changePasswordPage = new ChangePasswordPage(this.driver);
