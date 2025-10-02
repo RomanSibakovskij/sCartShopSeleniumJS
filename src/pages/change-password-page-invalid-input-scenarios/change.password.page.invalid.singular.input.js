@@ -19,8 +19,11 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
         this._noOldPassword = "";
         this._noNewPassword = "";
 
-        //invalid singular input data - no singular input
+        //invalid singular input data - too short singular input
         this._tooShortNewPassword = "$5Rte"; //5 chars
+
+        //invalid singular input data - too long singular input
+        this._tooLongNewPassword = "DDFD@#$cffds^%&dg"; //17 chars
 
     }
 
@@ -56,6 +59,20 @@ class ChangePasswordPageInvalidSingularInput extends BasePage{
         const tooShortNewPassword = this._tooShortNewPassword;
         Logger.info("Too short user matching confirm password: ", tooShortNewPassword);
         await confirmPasswordInputField.sendKeys(tooShortNewPassword);
+    }
+
+    //invalid user password data input methods - too long singular input
+    async inputTooLongNewPasswordIntoNewPasswordInputField(){
+        const newPasswordInputField = await this.driver.findElement(this._changePasswordPageNewPasswordInputField);
+        const tooLongNewPassword = this._tooLongNewPassword;
+        Logger.info("Too long user new password: ", tooLongNewPassword);
+        await newPasswordInputField.sendKeys(tooLongNewPassword);
+    }
+    async inputTooLongConfirmPasswordIntoConfirmPasswordInputField(){
+        const confirmPasswordInputField = await this.driver.findElement(this._changePasswordPageConfirmPasswordInputField);
+        const tooLongNewPassword = this._tooLongNewPassword;
+        Logger.info("Too long user matching confirm password: ", tooLongNewPassword);
+        await confirmPasswordInputField.sendKeys(tooLongNewPassword);
     }
 
 }

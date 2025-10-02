@@ -52,7 +52,7 @@ describe('Change Password Page Tests', () => {
 
     });
 
-    describe("Invalid Edit User Account Password Tests - Too Short Singular Input", () => {
+    describe("Invalid Edit User Account Password Test - Too Short Singular Input", () => {
 
         //Test 004c -> invalid edit user account password test - too short new / confirm password (5 chars)
         test("Invalid Edit User Account Password Test - Too Short New and Confirm Password", async function () {
@@ -62,6 +62,20 @@ describe('Change Password Page Tests', () => {
             await testMethods.validUserAccountCreationTest();
             //invalid edit user account password test - too short new / confirm password (5 chars)
             await testMethods.invalidEditAccountPasswordTooShortNewConfirmPasswordTest();
+        });
+
+    });
+
+    describe("Invalid Edit User Account Password Test - Too Long Singular Input", () => {
+
+        //Test 004d -> invalid edit user account password test - too long new / confirm password (17 chars)
+        test("Invalid Edit User Account Password Test - Too Long New and Confirm Password", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //invalid edit user account password test - too long new / confirm password (17 chars)
+            await testMethods.invalidEditAccountPasswordTooLongNewConfirmPasswordTest();
         });
 
     });
