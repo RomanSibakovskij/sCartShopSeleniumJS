@@ -70,6 +70,20 @@ describe('Valid Checkout Page Tests', () => {
 
     });
 
+    describe("Single Searched Product Checkout Confirmation Tests", () => {
+
+        //Test 021 -> single searched product ("Sample product 35 - English") check out confirmation test (as a guest)
+        test("Single Searched Product Checkout Confirmation Test (as a guest)", async function () {
+            //add single searched product ("Sample product 35 - English") to cart test (as a guest)
+            await testMethods.addSingleSearchedProductToCartGuestTest();
+            //add single searched product ("Sample product 35 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //single searched product ("Sample product 35 - English") check out confirmation test (as a guest)
+            await testMethods.validProductCheckoutConfirmationTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
