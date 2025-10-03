@@ -8753,7 +8753,7 @@ class TestMethods extends BaseTest{
     async addMultipleHomePageNewProductsToCompareListGuestTest(){
         const basePage = new BasePage(this.driver);
         const generalPage = new GeneralPage(this.driver);
-        const generalPageTextElementAssert = new GeneralPageTextElementAsserts(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
         const homePage = new HomePage(this.driver);
         const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
         const homePageDataLogger = new HomePageDataLogger(this.driver);
@@ -8764,11 +8764,11 @@ class TestMethods extends BaseTest{
         //general page web element assert
         await generalPage.isGeneralPageWebElementDisplayed();
         //general page header text element assert
-        await generalPageTextElementAssert.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPageTextElementAssert.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //scroll down to new products section
         await homePage.scrollDownToNewProductsSection();
         //wait for elements to load
@@ -8804,11 +8804,11 @@ class TestMethods extends BaseTest{
         //general page breadcrumb web element assert
         await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
         //general page header text element assert
-        await generalPageTextElementAssert.isGeneralPageHeaderTextElementAsExpected();
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
         //general page footer web element assert (Selenium can't find these elements with VALID selectors)
         //await generalPage.isGeneralPageFooterWebElementDisplayed();
         //general page footer text element assert (Selenium can't find these elements with VALID selectors)
-        //await generalPageTextElementAssert.isGeneralPageFooterTextElementAsExpected();
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
         //compare list page web element assert
         await compareListPage.isCompareListPageWebElementDisplayed();
         //log compare list page product data
@@ -8905,6 +8905,104 @@ class TestMethods extends BaseTest{
         assert.deepStrictEqual(expectedCompareListProductNames, actualCompareListProductNames, "The compare list page added product names don't match expectations");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Multiple Products (Product bundle 3 - English, Sample product 1 - English, Sample product 2 - English) Addition To Compare List Test Result (registered user)");
+    }
+
+    //remove multiple products from compare list test (since both registered user and guest will have the same output, only guest branch is tested to avoid redundancy)
+
+    //remove multiple products from compare list test method (as a guest)
+    async removeMultipleProductsFromCompareListGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const compareListPage = new CompareListPage(this.driver);
+        const compareListPageDataLogger = new CompareListPageDataLogger(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //compare list page web element assert
+        await compareListPage.isCompareListPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //log compare list page product data
+        await compareListPageDataLogger.logCompareListPageProductData();
+        //assert the correct products are added to compare list
+        const expectedCompareListProductNames = ["Product bundle 1 - English(SAMPLE-BUNDLE-1)", "Sample product 5 - English(SAMPLE-1-2)", "Sample product 6 - English(SAMPLE-1-3)"];
+        const productData = await compareListPage.getCompareListPageProductData();
+        const actualCompareListProductNames = productData.map(product => product[0]); //map to get just the first line (product name) from each product (since the product name is included in the div block and it can't be extracted otherwise)
+        assert.deepStrictEqual(expectedCompareListProductNames, actualCompareListProductNames, "The compare list page added product names don't match expectations");
+        //compare list page html address (since the refresh doesn't seem to work)
+        const compareListURL = "https://demo.s-cart.org/compare.html";
+        //click set product ("Product bundle 1 - English") remove from compare list button
+        await compareListPage.clickSetRemoveProductFromCompareListBtn(0);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(compareListURL);
+        //wait for elements to load
+        await basePage.waitForElementLoad(4000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //capture screenshot of the compare list page display (after first product removal)
+        await captureScreenshot(this.driver, "Compare List Page Display With Multiple Products (Sample product 5 - English, Sample product 6 - English)");
+        //click set product ("Sample product 2 - English") remove from compare list button
+        await compareListPage.clickSetRemoveProductFromCompareListBtn(1);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(compareListURL);
+        //wait for elements to load
+        await basePage.waitForElementLoad(4000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //capture screenshot of the compare list page display (after second product removal)
+        await captureScreenshot(this.driver, "Compare List Page Display With Multiple Products (Sample product 5 - English)");
+        //click set product ("Sample product 5 - English") remove from compare list button
+        await compareListPage.clickSetRemoveProductFromCompareListBtn(0);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(compareListURL);
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(4500);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets an expected warning message
+        const actualEmptyCompareListWarning = await compareListPage.getCompareListPageEmptyWishlistWarningMessage();
+        assert.strictEqual(actualEmptyCompareListWarning, "No items yet", "The empty compare list warning message doesn't match expectations.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Multiple Products (Product bundle 1 - English, Sample product 5 - English, Sample product 6 - English) Removal From Compare List Test Result");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

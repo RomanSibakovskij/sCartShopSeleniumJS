@@ -52,6 +52,18 @@ describe('Compare List Page Tests', () => {
 
     });
 
+    describe("Remove Products From Compare List Test", () => {
+
+        //Test 013 -> remove multiple products ("Product bundle 1 - English", "Sample product 1 - English", "Sample product 2 - English") from compare list test (as a guest)
+        test("Remove Multiple New Products From Compare List Test (as a guest)", async function () {
+            //add multiple new products ("Product bundle 1 - English", "Sample product 1 - English", "Sample product 2 - English") to compare list test (as a guest)
+            await testMethods.addMultipleHomePageNewProductsToCompareListGuestTest();
+            //remove multiple products ("Product bundle 1 - English", "Sample product 1 - English", "Sample product 2 - English") from compare list test (as a guest)
+            await testMethods.removeMultipleProductsFromCompareListGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

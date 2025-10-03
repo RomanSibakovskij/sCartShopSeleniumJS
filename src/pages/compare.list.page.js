@@ -22,6 +22,14 @@ class CompareListPage extends BasePage{
 
     }
 
+    //click set product "Remove from compare list" button method (since the common click, nor Actions click do work, JS executor click is used)
+    async clickSetRemoveProductFromCompareListBtn(index){
+        const setRemoveProductFromCompareListBtn = await this.driver.findElements(this._compareListPageProductRemoveBtnElements);
+        const targetElement = setRemoveProductFromCompareListBtn[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
     //compare list product data getters
     async getCompareListPageProductData() {
         const elements = await this.driver.findElements(this._compareListPageProductCardBlock);
