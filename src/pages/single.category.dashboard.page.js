@@ -34,6 +34,14 @@ class SingleCategoryDashboardPage extends BasePage{
         await this.driver.executeScript("arguments[0].click();", targetElement);
     }
 
+    //click set product name link method
+    async clickSetProductNameLink(index){
+        const setProductNameLink = await this.driver.findElements(this._singleCategoryDashboardPageProductNameLinkElements);
+        const targetElement = setProductNameLink[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
     //single category dashboard product data getters
     async getSingleCategoryDashPageProductCount(){
         const singleCategoryDashPageProductCount = await this.driver.findElement(this._singleCategoryDashboardPageProductCount);

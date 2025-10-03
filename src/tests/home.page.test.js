@@ -80,6 +80,15 @@ describe('Home Page Tests', () => {
 
     });
 
+    describe("Add Multiple Searched Products To Cart Tests", () => {
+
+        //Test 009b -> add multiple searched products ("Sample product 14 - English") to cart test (as a guest)
+        test("Add Multiple Searched Products To Cart Test (as a guest)", async function () {
+            await testMethods.addMultipleSearchedProductsToCartGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
