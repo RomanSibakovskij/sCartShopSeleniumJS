@@ -26,6 +26,14 @@ class WishlistPage extends BasePage{
 
     }
 
+    //click set product "Remove from wishlist" button method (since the common click, nor Actions click do work, JS executor click is used)
+    async clickSetRemoveProductFromWishlistBtn(index){
+        const setRemoveProductFromWishlistBtn = await this.driver.findElements(this._wishlistPageTableProductRemoveBtnElements);
+        const targetElement = setRemoveProductFromWishlistBtn[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
     //wishlist page product data getters
     async getWishlistPageProductNumber(){
         const elements = await this.driver.findElements(this._wishlistPageTableProductNumberElements);

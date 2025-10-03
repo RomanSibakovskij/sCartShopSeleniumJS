@@ -8509,6 +8509,96 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Multiple Products (Product bundle 3 - English, Sample product 1 - English, Sample product 2 - English) Addition To Wishlist Test Result (registered user)");
     }
 
+    //remove multiple products from wishlist test (since both registered user and guest will have the same output, only guest branch is tested to avoid redundancy)
+
+    //remove multiple products from wishlist test method (as a guest)
+    async removeMultipleProductsFromWishlistGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const wishlistPage = new WishlistPage(this.driver);
+        const wishlistPageTextElementAssert = new WishlistPageTextElementAssert(this.driver);
+        const wishlistPageDataLogger = new WishlistPageDataLogger(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //wishlist page web element assert
+        await wishlistPage.isWishlistPageWebElementDisplayed();
+        //wishlist page text element assert
+        await wishlistPageTextElementAssert.isWishlistPageTextElementAsExpected();
+        //log wishlist page product data
+        await wishlistPageDataLogger.logWishlistPageProductData();
+        //capture screenshot of the wishlist page display (with multiple products)
+        await captureScreenshot(this.driver, "Wishlist Page Display With Multiple Products (Product bundle 1 - English, Sample product 5 - English, Sample product 6 - English)");
+        //assert the correct products are present in wishlist
+        const expectedWishlistProducts = ["Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English"];
+        const actualWishlistProducts = await wishlistPage.getWishlistPageProductName();
+        assert.deepStrictEqual(expectedWishlistProducts, actualWishlistProducts, "The wishlist page added product names don't match expectations");
+        //wishlist page html address (since the refresh doesn't seem to work)
+        const wishlistURL = "https://demo.s-cart.org/wishlist.html";
+        //click set product ("Product bundle 1 - English") remove from wishlist button
+        await wishlistPage.clickSetRemoveProductFromWishlistBtn(0);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(wishlistURL);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the correct products are present in wishlist, throw the error otherwise
+        try {
+            const expectedWishlistProductsAfterFirstRemoval = ["Sample product 5 - English", "Sample product 6 - English"];
+            const actualWishlistProductsAfterFirstRemoval = await wishlistPage.getWishlistPageProductName();
+            assert.deepStrictEqual(expectedWishlistProductsAfterFirstRemoval, actualWishlistProductsAfterFirstRemoval, "The wishlist page added product names don't match expectations (after first removal)");
+        } catch {
+            await captureScreenshot(this.driver, "Wishlist Page Display (Expected List: Sample product 5 - English, Sample product 6 - English) Product Removal Failure");
+            throw new Error("The product removal from wishlist process has failed, test has failed.");
+        }
+        //capture screenshot of the wishlist page display (after first product removal)
+        await captureScreenshot(this.driver, "Wishlist Page Display With Multiple Products (Sample product 5 - English, Sample product 6 - English)");
+        //click set product ("Sample product 6 - English") remove from wishlist button
+        await wishlistPage.clickSetRemoveProductFromWishlistBtn(1);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(wishlistURL);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the correct products are present in wishlist, throw the error otherwise
+        try {
+            const expectedWishlistProductsAfterSecondRemoval = ["Sample product 5 - English"];
+            const actualWishlistProductsAfterSecondRemoval = await wishlistPage.getWishlistPageProductName();
+            assert.deepStrictEqual(expectedWishlistProductsAfterSecondRemoval, actualWishlistProductsAfterSecondRemoval, "The wishlist page added product names don't match expectations (after second removal)");
+        } catch {
+            await captureScreenshot(this.driver, "Wishlist Page Display (Expected List: Sample product 5 - English) Product Removal Failure");
+            throw new Error("The product removal from wishlist process has failed, test has failed.");
+        }
+        //capture screenshot of the wishlist page display (after second product removal)
+        await captureScreenshot(this.driver, "Wishlist Page Display With Multiple Products (Sample product 5 - English)");
+        //click set product ("Sample product 5 - English") remove from wishlist button
+        await wishlistPage.clickSetRemoveProductFromWishlistBtn(0);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //navigate back to wishlist page
+        await this.driver.get(wishlistURL);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the user gets an expected warning message
+        const actualEmptyWishlistWarning = await wishlistPage.getWishlistPageEmptyWishlistWarningMessage();
+        assert.strictEqual(actualEmptyWishlistWarning, "No items yet", "The empty wishlist warning message doesn't match expectations.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Multiple Products (Product bundle 1 - English, Sample product 5 - English, Sample product 6 - English) Removal From Wishlist Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

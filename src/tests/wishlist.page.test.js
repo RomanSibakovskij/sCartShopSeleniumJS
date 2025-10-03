@@ -52,6 +52,18 @@ describe('Wishlist Page Tests', () => {
 
     });
 
+    describe("Remove Products From Wishlist Test", () => {
+
+        //Test 011 -> remove multiple products ("Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English") from wishlist test (as a guest)
+        test("Remove Multiple Products From Wishlist Test (as a guest)", async function () {
+            //add multiple new products ("Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English") to wishlist test (as a guest)
+            await testMethods.addMultipleHomePageNewProductsToWishlistGuestTest();
+            //remove multiple products ("Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English") from wishlist test (as a guest)
+            await testMethods.removeMultipleProductsFromWishlistGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
