@@ -14,14 +14,14 @@ class SingleCategoryDashboardPage extends BasePage{
         this._singleCategoryDashboardPageProductCount = By.xpath("//p[@class='product-top-panel-title']");
         this._singleCategoryDashboardPageSortDropdownMenu = By.xpath("//select[@class='form-control']");
         //list elements
-        this._singleCategoryDashboardPageSortByOptionElements = By.xpath("//select[@class='form-control']/option");
+        //this._singleCategoryDashboardPageSortByOptionElements = By.xpath("//select[@class='form-control']/option"); //in automation run, sort by dropdown menu seems to be non-operational
         //product table list elements
         this._singleCategoryDashboardPageProductImgElements = By.xpath("//div[@class='product-body']//img");
         this._singleCategoryDashboardPageProductNameLinkElements = By.xpath("//div[@class='product-body']//h5/a");
         this._singleCategoryDashboardPageProductUnitPriceElements = By.xpath("//div[@class='product-body']//div[@class='product-price']");
         this._singleCategoryDashboardPageProductAddToCartBtnElements = By.xpath("//div[@class='product-body']//a[@class='button button-secondary button-zakaria add-to-cart-list']");
-        this._singleCategoryDashboardPageProductAddToWishlistBtnElements = By.xpath("//div[@class='product-button-wrap']/div[1]/a"); //appear only after hovering above the product card
-        this._singleCategoryDashboardPageProductAddToCompareListBtnElements = By.xpath("//div[@class='product-button-wrap']/div[2]/a"); //appear only after hovering above the product card
+        //this._singleCategoryDashboardPageProductAddToWishlistBtnElements = By.xpath("//div[@class='product-button-wrap']/div[1]/a"); //appear only after hovering above the product card
+        //this._singleCategoryDashboardPageProductAddToCompareListBtnElements = By.xpath("//div[@class='product-button-wrap']/div[2]/a"); //appear only after hovering above the product card
         this._singleCategoryDashboardPagePaginationBtnElements = By.xpath("//nav[@aria-label='Page navigation']/ul//ul/li/a");
 
     }

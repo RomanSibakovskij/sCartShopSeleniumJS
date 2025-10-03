@@ -9007,5 +9007,86 @@ class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //add single category dashboard page single product to cart tests
+
+    //add single category dashboard page single product ("Product bundle 2 - English") to cart test method (as a guest)
+    async addSingleCategorySingleProductToCartGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        //const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const singleCategoryDashboardPage = new SingleCategoryDashboardPage(this.driver);
+        const singleCategoryDashPageDataLogger = new SingleCategoryDashPageDataLogger(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //click "All products" header navbar link
+        await generalPage.clickSetNavBarLink(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //single category dashboard page web element
+        await singleCategoryDashboardPage.isSingleCategoryDashboardPageWebElementDisplayed();
+        //log single category dashboard page product data
+        await singleCategoryDashPageDataLogger.logSingleCategoryDashboardPageProductData();
+        //capture screenshot of the single category dashboard page display
+        await captureScreenshot(this.driver, "Single Category Dashboard Page Display");
+        //click set product ("Product bundle 2 - English") "Add to cart" button
+        await singleCategoryDashboardPage.selectSetAddToCartBtn(1);
+        //click header shopping cart button
+        await generalPage.clickHeaderShoppingCartBtn();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets on shopping cart page
+        const expectedURL = "https://demo.s-cart.org/cart.html";
+        const currentURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentURL, expectedURL, "The page URL doesn't match expectations or the product addition to cart process has failed.");
+        //assert the correct product has been added
+        const expectedSingleHomeProduct = "Product bundle 2 - English";
+        const actualSingleHomeProduct = await shoppingCartPage.getShoppingCartPageProductName();
+        assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected single category product name doesn't match expectations. Expected: 'Product bundle 2 - English', Actual: ${actualSingleHomeProduct}`);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Single Category Dashboard Single Product (Product bundle 2 - English) To Cart Test Result (guest)");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
 module.exports = TestMethods;
