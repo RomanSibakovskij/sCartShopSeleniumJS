@@ -9424,6 +9424,56 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Add Product(s) To Checkout Test Result (guest)");
     }
 
+    //add product(s) addition to check out test method (as a registered user)
+    async addProductToCheckoutRegUserTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        const shoppingCartPageTextElementAssert = new ShoppingCartPageTextElementAssert(this.driver);
+        const shoppingCartPageDataLogger = new ShoppingCartPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //shopping cart page web element assert
+        await shoppingCartPage.isShoppingCartPageWebElementDisplayed();
+        //shopping cart page text element assert
+        await shoppingCartPageTextElementAssert.isShoppingCartPageTextElementAsExpected();
+        //log shopping cart product data
+        await shoppingCartPageDataLogger.logShoppingCartPageProductData();
+        //capture screenshot of the shopping cart page display
+        await captureScreenshot(this.driver, "Shopping Cart Page Display");
+        //click "Checkout" button
+        await shoppingCartPage.clickCheckoutButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //assert the user gets on checkout page
+        const expectedURL = "https://demo.s-cart.org/checkout.html"
+        const currentURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentURL, expectedURL, "The page URL doesn't match expectations or the product addition to checkout process has failed.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Product(s) To Checkout Test Result (registered user)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
