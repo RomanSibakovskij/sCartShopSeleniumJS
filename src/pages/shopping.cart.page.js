@@ -34,6 +34,14 @@ class ShoppingCartPage extends BasePage{
 
     }
 
+    //input set product quantity into product quantity input field method
+    async inputSetProductQtyIntoSetProductQtyInputField(index, quantity){
+        const shopCartQtyInputFieldElements = await this.driver.findElements(this._shoppingCartTableProductQtyInputFieldElements);
+        const targetElement = shopCartQtyInputFieldElements[index];
+        await targetElement.clear();
+        await targetElement.sendKeys(quantity);
+    }
+
     //click "Checkout" button method
     async clickCheckoutButton(){
         const checkoutButton = await this.driver.findElement(this._shoppingCartCheckoutButton);

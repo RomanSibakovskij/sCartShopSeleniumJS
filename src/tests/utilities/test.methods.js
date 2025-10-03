@@ -9474,6 +9474,52 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Add Product(s) To Checkout Test Result (registered user)");
     }
 
+    //update product quantity in shopping cart test (only guest branch is tested to avoid redundancy)
+
+    //update product quantity in shopping cart test method
+    async updateProductQuantityShopCartTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        const shoppingCartPageTextElementAssert = new ShoppingCartPageTextElementAssert(this.driver);
+        const shoppingCartPageDataLogger = new ShoppingCartPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //shopping cart page web element assert
+        await shoppingCartPage.isShoppingCartPageWebElementDisplayed();
+        //shopping cart page text element assert
+        await shoppingCartPageTextElementAssert.isShoppingCartPageTextElementAsExpected();
+        //log shopping cart product data
+        await shoppingCartPageDataLogger.logShoppingCartPageProductData();
+        //capture screenshot of the shopping cart page display before set product quantity input
+        await captureScreenshot(this.driver, "Shopping Cart Page Display Before Set Product Quantity Input");
+        //input set product quantity into set product quantity input field
+        await shoppingCartPage.inputSetProductQtyIntoSetProductQtyInputField(0, 5);
+        //refresh the page
+        await this.driver.navigate().refresh();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Update Product Quantity In Shopping Cart Test Result");
+        //if the product quantity doesn't get updated, throw an error
+        const updatedProductQtyArray = await shoppingCartPage.getShoppingCartPageProductQty();
+        const updatedProductQty = updatedProductQtyArray[0];
+        if(updatedProductQty !== 5){
+            throw new Error("The product quantity failed to be updated after page refresh, test has failed");
+        }
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -158,6 +158,18 @@ describe('Shopping Cart Page Tests', () => {
 
     });
 
+    describe("Update Shopping Cart Product Quantity Test", () => {
+
+        //Test 018 -> update product ("Product bundle 1 - English") quantity in shopping cart test (the product quantity doesn't get updated, test has failed)
+        test("Update Shopping Cart Product Quantity Test", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //update product ("Product bundle 1 - English") quantity test
+            await testMethods.updateProductQuantityShopCartTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
