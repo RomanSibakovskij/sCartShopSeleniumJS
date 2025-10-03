@@ -110,6 +110,20 @@ describe('Valid Checkout Page Tests', () => {
             await testMethods.validProductCheckoutConfirmationTest();
         });
 
+        //Test 021c -> multiple searched products ("Sample product 10 - English") check out confirmation test (as a registered user)
+        test("Multiple Searched Products Checkout Confirmation Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add multiple searched products ("Sample product 10 - English") to cart test (as a registered user)
+            await testMethods.addMultipleSearchedProductsToCartRegUserTest();
+            //add multiple searched products ("Sample product 10 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+            //multiple searched products ("Sample product 10 - English") check out confirmation test (as a registered user)
+            await testMethods.validProductCheckoutConfirmationRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
