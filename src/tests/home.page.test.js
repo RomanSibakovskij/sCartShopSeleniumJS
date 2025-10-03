@@ -59,6 +59,14 @@ describe('Home Page Tests', () => {
             await testMethods.addMultipleHomePageNewProductsToCartRegUserTest();
         });
 
+    });
+
+    describe("Add Single Searched Product To Cart Tests", () => {
+
+        //Test 009 -> add single searched product ("Sample product 35 - English") to cart test (as a guest)
+        test("Add Single Searched Product To Cart Test (as a guest)", async function () {
+            await testMethods.addSingleSearchedProductToCartGuestTest();
+        });
 
     });
 

@@ -14,6 +14,7 @@ const { AddressListPage } = require("../../pages/address.list.page.js");
 const { AddressDetailsPage } = require("../../pages/address.details.page.js");
 const { SingleProductPage } = require("../../pages/single.product.page.js");
 const { ShoppingCartPage } = require("../../pages/shopping.cart.page.js");
+const { SingleCategoryDashboardPage } = require("../../pages/single.category.dashboard.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
@@ -36,6 +37,7 @@ const ShoppingCartPageTextElementAssert = require("../text-element-asserts/shopp
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 const AddressListPageDataLogger = require("../data-loggers/address.list.page.data.logger.js");
 const SingleProductPageDataLoggers = require("../data-loggers/single.product.page.data.loggers.js");
+const SingleCategoryDashPageDataLogger = require("../data-loggers/single.category.dash.page.data.logger.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -7821,6 +7823,82 @@ class TestMethods extends BaseTest{
         assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected home page multiple new product names don't match expectations. Expected: 'Sample product 1 - English', Actual: ${actualSingleHomeProduct}`);
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Multiple New Products (Sample product 1 - English) Addition To Cart Test Result (registered user)");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //add single searched product to cart tests
+
+    //add single searched product ("Sample product 35 - English") to cart test method (as a guest)
+    async addSingleSearchedProductToCartGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const singleCategoryDashboardPage = new SingleCategoryDashboardPage(this.driver);
+        const singleCategoryDashPageDataLogger = new SingleCategoryDashPageDataLogger(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //scroll down to new products section
+        await homePage.scrollDownToNewProductsSection();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //click header search button
+        await generalPage.clickHeaderSearchButton();
+        //input search query ("Sample product 35 - English") into search input field
+        await generalPage.inputProductThirtyFiveQueryIntoSearchInputField();
+        //click "Search" button (it's present in the DOM)
+        await generalPage.clickInvisibleSearchButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //searched product page web element assert (same list elements as with single category dashboard page (product list))
+        await singleCategoryDashboardPage.isSearchedProductPageWebElementDisplayed();
+        //assert the correct searched product has been displayed
+        const expectedSearchedProductPageProductName = "SAMPLE PRODUCT 35 - ENGLISH";
+        const actualSearchedProductPageProductName = await singleCategoryDashboardPage.getSingleCategoryDashPageProductName();
+        assert.strictEqual(actualSearchedProductPageProductName[0], expectedSearchedProductPageProductName, "The expected searched product page product name doesn't match expectations.");
+        //log searched product page displayed data (the logger shares elements with single category dashboard page)
+        await singleCategoryDashPageDataLogger.logSearchedProductPageProductData();
+        //click searched product ("Sample product 35 - English") "Add to cart" button
+        await singleCategoryDashboardPage.selectSetAddToCartBtn(0);
+        //click header shopping cart button
+        await generalPage.clickHeaderShoppingCartBtn();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the correct product has been added
+        const expectedSingleHomeProduct = "Sample product 35 - English";
+        const actualSingleHomeProduct = await shoppingCartPage.getShoppingCartPageProductName();
+        assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected searched product name doesn't match expectations. Expected: 'Sample product 35 - English', Actual: ${actualSingleHomeProduct}`);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Single Searched Product (Sample product 35 - English) To Cart Test Result (guest)");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

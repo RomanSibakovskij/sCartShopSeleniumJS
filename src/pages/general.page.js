@@ -62,6 +62,40 @@ class GeneralPage extends BasePage{
         await headerHomeLogoLink.click();
     }
 
+    //click header navbar "Search" button method
+    async clickHeaderSearchButton(){
+        const headerSearchButton = await this.driver.findElement(this._headerSearchButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: headerSearchButton }).click().perform();
+    }
+
+    //input set product ("Sample product 35 - English") search query into search input field method
+    async inputProductThirtyFiveQueryIntoSearchInputField(){
+        const searchInputField = await this.driver.findElement(this._headerSearchInputField);
+        const searchQuery = "Sample product 35 - English";
+        Logger.info("Valid product search query: ", searchQuery);
+
+        //input the query into input field with JS events as the sendKeys refuses to work with this input field
+        await this.driver.executeScript(`
+        arguments[0].value = arguments[1];
+        arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+        arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+    `, searchInputField, searchQuery);
+    }
+
+    //click invisible "Search" button method (only JS executor click seems to work here)
+    async clickInvisibleSearchButton(){
+        const invisibleSearchButton = await this.driver.findElement(this._headerInvisibleSearchBtn);
+        await this.driver.executeScript("arguments[0].click();", invisibleSearchButton);
+    }
+
+    //click header shopping cart button method
+    async clickHeaderShoppingCartBtn(){
+        const headerShoppingCartBtn = await this.driver.findElement(this._headerShoppingCartButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: headerShoppingCartBtn }).click().perform();
+    }
+
     //click set account dropdown menu option method
     async clickSetAccountDropdownMenuOption(index){
         const setAccountDropdownMenuOption = await this.driver.findElements(this._headerNavLinkAccountDropdownMenuElements);

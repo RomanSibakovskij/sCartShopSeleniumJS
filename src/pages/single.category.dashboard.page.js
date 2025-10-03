@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const Logger = require("./utilities/logger");
 
 class SingleCategoryDashboardPage extends BasePage{
 
@@ -23,6 +24,14 @@ class SingleCategoryDashboardPage extends BasePage{
         this._singleCategoryDashboardPageProductAddToCompareListBtnElements = By.xpath("//div[@class='product-button-wrap']/div[2]/a"); //appear only after hovering above the product card
         this._singleCategoryDashboardPagePaginationBtnElements = By.xpath("//nav[@aria-label='Page navigation']/ul//ul/li/a");
 
+    }
+
+    //click set product "Add to cart" button method
+    async selectSetAddToCartBtn(index){
+        const setAddToCartBtn = await this.driver.findElements(this._singleCategoryDashboardPageProductAddToCartBtnElements);
+        const targetElement = setAddToCartBtn[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
     }
 
     //single category dashboard product data getters
