@@ -38,6 +38,18 @@ describe('Shopping Cart Page Tests', () => {
 
     });
 
+    describe("Add Multiple New Products To Checkout Tests", () => {
+
+        //Test 015b -> add multiple new products ("Product bundle 1 - English") to check out test (as a guest)
+        test("Add Multiple New Products To Checkout Test (as a guest)", async function () {
+            //add multiple new products ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addMultipleHomePageNewProductToCartGuestTest();
+            //add multiple new products ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
