@@ -62,6 +62,14 @@ class HomePage extends BasePage{
         await this.driver.executeScript("arguments[0].click();", targetElement);
     }
 
+    //click set new products "Add to compare list" button method (since the common click, nor Actions click do work, JS executor click is used)
+    async clickSetNewProductAddToCompareListBtn(index){
+        const setNewProductAddToCompareListBtn = await this.driver.findElements(this._homePageNewProductsProductAddToCompareListBtnElements);
+        const targetElement = setNewProductAddToCompareListBtn[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
     //home page text element getters
     async getHomePageTitle(){
         const homePageTitle = await this.driver.findElement(this._homePageTitle);

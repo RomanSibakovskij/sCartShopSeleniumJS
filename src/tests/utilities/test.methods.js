@@ -16,6 +16,7 @@ const { SingleProductPage } = require("../../pages/single.product.page.js");
 const { ShoppingCartPage } = require("../../pages/shopping.cart.page.js");
 const { SingleCategoryDashboardPage } = require("../../pages/single.category.dashboard.page.js");
 const { WishlistPage } = require("../../pages/wishlist.page.js");
+const { CompareListPage } = require("../../pages/compare.list.page.js")
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
@@ -41,6 +42,7 @@ const AddressListPageDataLogger = require("../data-loggers/address.list.page.dat
 const SingleProductPageDataLoggers = require("../data-loggers/single.product.page.data.loggers.js");
 const SingleCategoryDashPageDataLogger = require("../data-loggers/single.category.dash.page.data.logger.js");
 const WishlistPageDataLogger = require("../data-loggers/wishlist.page.data.logger.js");
+const CompareListPageDataLogger = require("../data-loggers/compare.list.page.data.logger.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -8597,6 +8599,70 @@ class TestMethods extends BaseTest{
         assert.strictEqual(actualEmptyWishlistWarning, "No items yet", "The empty wishlist warning message doesn't match expectations.");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Multiple Products (Product bundle 1 - English, Sample product 5 - English, Sample product 6 - English) Removal From Wishlist Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //add single product to compare list tests
+
+    //add single product ("Product bundle 1 - English") to compare list test method (as a guest)
+    async addSingleHomePageNewProductToCompareListGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const compareListPage = new CompareListPage(this.driver);
+        const compareListPageDataLogger = new CompareListPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //scroll down to new products section
+        await homePage.scrollDownToNewProductsSection();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //hover over set new product ("Product bundle 1 - English") card
+        await homePage.hoverOverSetNewProductCard(0)
+        //click set new product ("Product bundle 1 - English") "Add to compare list" button
+        await homePage.clickSetNewProductAddToCompareListBtn(0);
+        //click header "Account" navbar link
+        await generalPage.clickSetNavBarLink(4);
+        //click "Compare" option
+        await generalPage.clickSetAccountDropdownMenuOption(2);
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(4000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //compare list page web element assert
+        await compareListPage.isCompareListPageWebElementDisplayed();
+        //log compare list page product data
+        await compareListPageDataLogger.logCompareListPageProductData();
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Single New Product (Product bundle 1 - English) To Compare List Test Result (guest)");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
