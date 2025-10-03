@@ -9154,6 +9154,112 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Add Single Category Dashboard Single Product (Sample product 4 - English) To Cart Test Result (registered user)");
     }
 
+    //add single category dashboard page multiple products to cart tests
+
+    //add single category dashboard page multiple products ("Product bundle 2 - English") to cart test method (as a guest)
+    async addSingleCategoryMultipleProductsToCartGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const singleCategoryDashboardPage = new SingleCategoryDashboardPage(this.driver);
+        const singleCategoryDashPageDataLogger = new SingleCategoryDashPageDataLogger(this.driver);
+        const singleProductPage = new SingleProductPage(this.driver);
+        const singleProductPageTextElementAssert = new SingleProductPageTextElementAssert(this.driver);
+        const singleProductPageDataLoggers = new SingleProductPageDataLoggers(this.driver);
+        const addressDetailsPage = new AddressDetailsPage(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //scroll down to new products section
+        await homePage.scrollDownToNewProductsSection();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //click "All products" header navbar link
+        await generalPage.clickSetNavBarLink(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //single category dashboard page web element
+        await singleCategoryDashboardPage.isSingleCategoryDashboardPageWebElementDisplayed();
+        //log single category dashboard page product data
+        await singleCategoryDashPageDataLogger.logSingleCategoryDashboardPageProductData();
+        //capture screenshot of the single category dashboard page display
+        await captureScreenshot(this.driver, "Single Category Dashboard Page Display");
+        //click set product name link
+        await singleCategoryDashboardPage.clickSetProductNameLink(1);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //single product page web element assert
+        await singleProductPage.isSingleProductPageWebElementDisplayed();
+        //single product page text element assert
+        await singleProductPageTextElementAssert.isSingleProductPageTextElementAsExpected();
+        //log single product page data
+        await singleProductPageDataLoggers.logSingleProductPageProductData();
+        //capture screenshot of the single product page display
+        await captureScreenshot(this.driver, "Single Product (Product bundle 2 - English) Page Display");
+        //input set product quantity into quantity input field
+        await singleProductPage.inputSetProductQuantityIntoQuantityInputField(4);
+        //capture screenshot of the single product page after quantity alteration display
+        await captureScreenshot(this.driver, "Single Product (Product bundle 2 - English) Page Display (Multiple Product Quantity)");
+        //click "Add to cart" button
+        await singleProductPage.clickAddToCartButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets an expected success message
+        const productAdditionToCartSuccessMsg = await addressDetailsPage.getAddressDetailsUpdateSuccessMessage(); //same element is being used as in address details page
+        assert.strictEqual(productAdditionToCartSuccessMsg, "×\nAdd to cart success", "The product addition to cart message doesn't match expectations or the product addition to cart process has failed.");
+        //assert the correct product has been added
+        const expectedSingleHomeProduct = "Product bundle 2 - English";
+        const actualSingleHomeProduct = await shoppingCartPage.getShoppingCartPageProductName();
+        assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected single category multiple product names don't match expectations. Expected: 'Product bundle 2 - English', Actual: ${actualSingleHomeProduct}`);
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Single Category Dashboard Single Product (Product bundle 2 - English) To Cart Test Result (guest)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

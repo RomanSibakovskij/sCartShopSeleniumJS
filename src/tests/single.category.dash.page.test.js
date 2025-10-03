@@ -33,6 +33,15 @@ describe('Single Category Dashboard Page Tests', () => {
 
     });
 
+    describe("Add Single Category Multiple Products To Cart Tests", () => {
+
+        //Test 014b -> add single category multiple products ("Product bundle 2 - English") to cart test (as a guest)
+        test("Add Single Category Multiple Products To Cart Test (as a guest)", async function () {
+            await testMethods.addSingleCategoryMultipleProductsToCartGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
