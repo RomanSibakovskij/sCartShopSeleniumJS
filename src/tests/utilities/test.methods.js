@@ -43,6 +43,7 @@ const SingleProductPageDataLoggers = require("../data-loggers/single.product.pag
 const SingleCategoryDashPageDataLogger = require("../data-loggers/single.category.dash.page.data.logger.js");
 const WishlistPageDataLogger = require("../data-loggers/wishlist.page.data.logger.js");
 const CompareListPageDataLogger = require("../data-loggers/compare.list.page.data.logger.js");
+const ShoppingCartPageDataLogger = require("../data-loggers/shopping.cart.page.data.logger.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -9367,6 +9368,60 @@ class TestMethods extends BaseTest{
         assert.strictEqual(actualSingleHomeProduct[0], expectedSingleHomeProduct, `The expected single category multiple product names don't match expectations. Expected: 'Sample product 3 - English', Actual: ${actualSingleHomeProduct}`);
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Add Single Category Dashboard Multiple Products (Sample product 3 - English) To Cart Test Result (registered user)");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //product addition to check out tests
+
+    //add product(s) addition to check out test method (as a guest)
+    async addProductToCheckoutGuestTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        const shoppingCartPageTextElementAssert = new ShoppingCartPageTextElementAssert(this.driver);
+        const shoppingCartPageDataLogger = new ShoppingCartPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //shopping cart page web element assert
+        await shoppingCartPage.isShoppingCartPageWebElementDisplayed();
+        //shopping cart page text element assert
+        await shoppingCartPageTextElementAssert.isShoppingCartPageTextElementAsExpected();
+        //log shopping cart product data
+        await shoppingCartPageDataLogger.logShoppingCartPageProductData();
+        //capture screenshot of the shopping cart page display
+        await captureScreenshot(this.driver, "Shopping Cart Page Display");
+        //click "Checkout" button
+        await shoppingCartPage.clickCheckoutButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //assert the user gets on checkout page
+        const expectedURL = "https://demo.s-cart.org/checkout.html"
+        const currentURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentURL, expectedURL, "The page URL doesn't match expectations or the product addition to checkout process has failed.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Add Product(s) To Checkout Test Result (guest)");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -14,7 +14,7 @@ class ShoppingCartPageTextElementAssert extends BaseTest{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //shopping cart page text element assert test method
-    async isShoppingcartPageTextElementAsExpected(){
+    async isShoppingCartPageTextElementAsExpected(){
         const shoppingCartPage = new ShoppingCartPage(this.driver);
         //assert the single product page title is as expected
         const shoppingCartPageTitle = await shoppingCartPage.getShoppingCartPageTitle();

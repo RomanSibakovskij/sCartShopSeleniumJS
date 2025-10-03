@@ -1,6 +1,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const Logger = require("./utilities/logger");
 
 class ShoppingCartPage extends BasePage{
 
@@ -31,6 +32,13 @@ class ShoppingCartPage extends BasePage{
         //empty shopping cart message
         this._shoppingCartEmptyMsg = By.xpath("//div[@class='col-md-12']");
 
+    }
+
+    //click "Checkout" button method
+    async clickCheckoutButton(){
+        const checkoutButton = await this.driver.findElement(this._shoppingCartCheckoutButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: checkoutButton }).click().perform();
     }
 
     //shopping cart product data getters

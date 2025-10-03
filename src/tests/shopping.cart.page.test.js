@@ -1,0 +1,36 @@
+const TestMethods = require('./utilities/test.methods.js');
+const BaseTest = require('./utilities/base.test.js');
+
+describe('Shopping Cart Page Tests', () => {
+    let testMethods; //testMethods initializer
+    let baseTest; //baseTest initializer
+
+    beforeEach(async function () {
+        baseTest = new BaseTest();  //BaseTest initialization
+        await baseTest.beforeEach();  //beforeEach caller for setup (from BaseTest)
+        testMethods = new TestMethods(baseTest.driver);  //driver passage to TestMethods
+    });
+
+    jest.setTimeout(140000) //timer for the whole single test run, otherwise throws a timeout error
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    describe("Add Single New Product To Checkout Tests", () => {
+
+        //Test 015 -> add single new product ("Product bundle 1 - English") to check out test (as a guest)
+        test("Add Single New Product To Checkout Test (as a guest)", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+        });
+
+    });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //driver clean-up after each test run
+    afterEach(async function() {
+        await baseTest.afterEach();  //afterEach caller for cleanup (from BaseTest)
+    });
+
+});
