@@ -40,6 +40,16 @@ describe('Single Category Dashboard Page Tests', () => {
             await testMethods.addSingleCategoryMultipleProductsToCartGuestTest();
         });
 
+        //Test 014c -> add single category multiple products ("Sample product 3 - English") to cart test (as a registered user)
+        test("Add Single Category Multiple Products To Cart Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single category multiple products ("Sample product 3 - English") to cart test (as a registered user)
+            await testMethods.addSingleCategoryMultipleProductsToCartRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
