@@ -21,6 +21,16 @@ describe('Wishlist Page Tests', () => {
             await testMethods.addSingleHomePageNewProductToWishlistGuestTest();
         });
 
+        //Test 010a -> add single new product ("Product bundle 3 - English") to wishlist test (as a registered user)
+        test("Add Single New Product To Wishlist Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single new product ("Product bundle 3 - English") to wishlist test (as a registered user)
+            await testMethods.addSingleHomePageNewProductToWishlistRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
