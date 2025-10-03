@@ -83,6 +83,20 @@ class GeneralPage extends BasePage{
     `, searchInputField, searchQuery);
     }
 
+    //input set product ("Sample product 10 - English") search query into search input field method
+    async inputProductTenSearchQueryIntoSearchInputField(){
+        const searchInputField = await this.driver.findElement(this._headerSearchInputField);
+        const searchQuery = "Sample product 10 - English";
+        Logger.info("Valid product search query: ", searchQuery);
+
+        //input the query into input field with JS events as the sendKeys refuses to work with this input field
+        await this.driver.executeScript(`
+        arguments[0].value = arguments[1];
+        arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+        arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+    `, searchInputField, searchQuery);
+    }
+
     //click invisible "Search" button method (only JS executor click seems to work here)
     async clickInvisibleSearchButton(){
         const invisibleSearchButton = await this.driver.findElement(this._headerInvisibleSearchBtn);
