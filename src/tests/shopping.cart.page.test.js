@@ -86,6 +86,18 @@ describe('Shopping Cart Page Tests', () => {
 
     });
 
+    describe("Add Multiple Searched Products To Checkout Tests", () => {
+
+        //Test 016b -> add multiple searched products ("Sample product 14 - English") to check out test (as a guest)
+        test("Add Multiple Searched Products To Checkout Test (as a guest)", async function () {
+            //add multiple searched products ("Sample product 14 - English") to cart test (as a guest)
+            await testMethods.addMultipleSearchedProductsToCartGuestTest();
+            //add multiple searched products ("Sample product 14 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
