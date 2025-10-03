@@ -48,6 +48,18 @@ describe('Shopping Cart Page Tests', () => {
             await testMethods.addProductToCheckoutGuestTest();
         });
 
+        //Test 015c -> add multiple new products ("Sample product 1 - English") to check out test (as a registered user)
+        test("Add Multiple New Products To Checkout Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add multiple new products ("Sample product 1 - English") to cart test (as a registered user)
+            await testMethods.addMultipleHomePageNewProductsToCartRegUserTest();
+            //add multiple new products ("Sample product 1 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
