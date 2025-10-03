@@ -170,6 +170,18 @@ describe('Shopping Cart Page Tests', () => {
 
     });
 
+    describe("Product Removal From Shopping Cart Test", () => {
+
+        //Test 019 -> product ("Product bundle 1 - English") removal from shopping cart test
+        test("Product Removal From Shopping Cart Test", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //product ("Product bundle 1 - English") removal from shopping cart test
+            await testMethods.productRemovalFromShopCartTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run

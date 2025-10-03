@@ -9520,6 +9520,52 @@ class TestMethods extends BaseTest{
         }
     }
 
+    //product removal from shopping cart test (only guest branch is tested to avoid redundancy)
+
+    //product removal from shopping cart test method
+    async productRemovalFromShopCartTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const shoppingCartPage = new ShoppingCartPage(this.driver);
+        const shoppingCartPageTextElementAssert = new ShoppingCartPageTextElementAssert(this.driver);
+        const shoppingCartPageDataLogger = new ShoppingCartPageDataLogger(this.driver);
+        const addressListPage = new AddressListPage(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //shopping cart page web element assert
+        await shoppingCartPage.isShoppingCartPageWebElementDisplayed();
+        //shopping cart page text element assert
+        await shoppingCartPageTextElementAssert.isShoppingCartPageTextElementAsExpected();
+        //log shopping cart product data
+        await shoppingCartPageDataLogger.logShoppingCartPageProductData();
+        //capture screenshot of the shopping cart page display before product removal
+        await captureScreenshot(this.driver, "Shopping Cart Page Display Before Product Removal");
+        //click set product removal button
+        await shoppingCartPage.clickSetProductRemovalButton(0);
+        //wait for alert to appear
+        await basePage.waitForElementLoad(900);
+        //click "OK" button in pop-up browser alert
+        await addressListPage.clickOkPopUpAlertButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //assert the user gets an expected message
+        const actualShopCartEmptyMsg = await shoppingCartPage.getShoppingCartEmptyMsg();
+        assert.strictEqual(actualShopCartEmptyMsg, "The shopping cart is empty!", "The empty shopping cart message doesn't match expectations or the product removal process has failed");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Product Removal From Shopping Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -42,6 +42,14 @@ class ShoppingCartPage extends BasePage{
         await targetElement.sendKeys(quantity);
     }
 
+    //click set product removal button method
+    async clickSetProductRemovalButton(index){
+        const productRemovalBtnElements = await this.driver.findElements(this._shoppingCartTableProductRemoveBtnElements);
+        const targetElement = productRemovalBtnElements[index];
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: targetElement }).click().perform();
+    }
+
     //click "Checkout" button method
     async clickCheckoutButton(){
         const checkoutButton = await this.driver.findElement(this._shoppingCartCheckoutButton);
