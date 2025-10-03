@@ -40,6 +40,16 @@ describe('Wishlist Page Tests', () => {
             await testMethods.addMultipleHomePageNewProductsToWishlistGuestTest();
         });
 
+        //Test 010c -> add multiple new products ("Product bundle 3 - English", "Sample product 1 - English", "Sample product 2 - English") to wishlist test (as a registered user)
+        test("Add Multiple New Products To Wishlist Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add multiple new products ("Product bundle 3 - English", "Sample product 1 - English", "Sample product 2 - English") to wishlist test (as a registered user)
+            await testMethods.addMultipleHomePageNewProductsToWishlistRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

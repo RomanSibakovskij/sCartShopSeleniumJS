@@ -8422,6 +8422,93 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Multiple Products (Product bundle 1 - English, Sample product 5 - English, Sample product 6 - English) Addition To Wishlist Test Result (guest)");
     }
 
+    //add single product ("Product bundle 3 - English", "Sample product 1 - English", "Sample product 2 - English") to wishlist test method (as a registered user)
+    async addMultipleHomePageNewProductsToWishlistRegUserTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const homePage = new HomePage(this.driver);
+        const homePageTextElementAssert = new HomePageTextElementAssert(this.driver);
+        const homePageDataLogger = new HomePageDataLogger(this.driver);
+        const wishlistPage = new WishlistPage(this.driver);
+        const wishlistPageTextElementAssert = new WishlistPageTextElementAssert(this.driver);
+        const wishlistPageDataLogger = new WishlistPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //click home page logo
+        await generalPage.clickHeaderHomeLogoLink();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //scroll down to new products section
+        await homePage.scrollDownToNewProductsSection();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000)
+        //home page web element assert (Selenium can't find these elements with VALID selectors)
+        //await homePage.isHomePageWebElementDisplayed();
+        //home page text element assert
+        await homePageTextElementAssert.isHomePageTextElementAsExpected();
+        //log home page new product data
+        await homePageDataLogger.logHomePageNewProductData();
+        //capture screenshot of the home page display
+        await captureScreenshot(this.driver, "Home Page Display");
+        //hover over set new product ("Product bundle 3 - English") card
+        await homePage.hoverOverSetNewProductCard(2)
+        //click set new product ("Product bundle 3 - English") "Add to wishlist" button
+        await homePage.clickSetNewProductAddToWishlistBtn(2);
+        //hover over set new product ("Sample product 1 - English") card
+        await homePage.hoverOverSetNewProductCard(6)
+        //click set new product ("Sample product 1 - English") "Add to wishlist" button
+        await homePage.clickSetNewProductAddToWishlistBtn(6);
+        //hover over set new product ("Sample product 2 - English") card
+        await homePage.hoverOverSetNewProductCard(7)
+        //click set new product ("Sample product 2 - English") "Add to wishlist" button
+        await homePage.clickSetNewProductAddToWishlistBtn(7);
+        //click header "Account" navbar link
+        await generalPage.clickSetNavBarLink(4);
+        //click "Wishlist" option
+        await generalPage.clickSetAccountDropdownMenuOption(2);
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(4000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //wishlist page web element assert
+        await wishlistPage.isWishlistPageWebElementDisplayed();
+        //wishlist page text element assert
+        await wishlistPageTextElementAssert.isWishlistPageTextElementAsExpected();
+        //log wishlist page product data
+        await wishlistPageDataLogger.logWishlistPageProductData();
+        //assert the correct product is added to wishlist
+        const expectedWishlistProduct = ["Product bundle 3 - English", "Sample product 1 - English", "Sample product 2 - English"];
+        const actualWishlistProduct = await wishlistPage.getWishlistPageProductName();
+        assert.deepStrictEqual(expectedWishlistProduct, actualWishlistProduct, "The wishlist page added product names don't match expectations");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Multiple Products (Product bundle 3 - English, Sample product 1 - English, Sample product 2 - English) Addition To Wishlist Test Result (registered user)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
