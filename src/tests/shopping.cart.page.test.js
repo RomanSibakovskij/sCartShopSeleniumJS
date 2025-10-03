@@ -72,6 +72,18 @@ describe('Shopping Cart Page Tests', () => {
             await testMethods.addProductToCheckoutGuestTest();
         });
 
+        //Test 016a -> add single searched product ("Sample product 10 - English") to check out test (as a registered user)
+        test("Add Single Searched Product To Checkout Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single searched product ("Sample product 10 - English") to cart test (as a registered user)
+            await testMethods.addSingleSearchedProductToCartRegUserTest();
+            //add single searched product ("Sample product 10 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
