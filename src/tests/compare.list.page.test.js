@@ -33,6 +33,15 @@ describe('Compare List Page Tests', () => {
 
     });
 
+    describe("Add Multiple New Products To Compare List Tests", () => {
+
+        //Test 012b -> add multiple new products ("Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English") to compare list test (as a guest)
+        test("Add Multiple New Products To Compare List Test (as a guest)", async function () {
+            await testMethods.addMultipleHomePageNewProductsToCompareListGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
