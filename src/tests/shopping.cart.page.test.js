@@ -96,6 +96,18 @@ describe('Shopping Cart Page Tests', () => {
             await testMethods.addProductToCheckoutGuestTest();
         });
 
+        //Test 016c -> add multiple searched products ("Sample product 10 - English") to check out test (as a registered user)
+        test("Add Multiple Searched Products To Checkout Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add multiple searched products ("Sample product 10 - English") to cart test (as a registered user)
+            await testMethods.addMultipleSearchedProductsToCartRegUserTest();
+            //add multiple searched products ("Sample product 10 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
