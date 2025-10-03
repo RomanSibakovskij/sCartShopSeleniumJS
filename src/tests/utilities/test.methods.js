@@ -17,12 +17,15 @@ const { ShoppingCartPage } = require("../../pages/shopping.cart.page.js");
 const { SingleCategoryDashboardPage } = require("../../pages/single.category.dashboard.page.js");
 const { WishlistPage } = require("../../pages/wishlist.page.js");
 const { CompareListPage } = require("../../pages/compare.list.page.js")
+const { CheckoutPage } = require("../../pages/checkout.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
 const ChangePasswordPageInvalidSingularInput = require("../../pages/change-password-page-invalid-input-scenarios/change.password.page.invalid.singular.input.js");
 const AddressDetailsPageInvalidSingularInput = require("../../pages/address-details-page-invalid-input-scenarios/address.details.page.invalid.singular.input.js");
 const LoginPageInvalidSingularInput = require("../../pages/login-page-invalid-input-scenarios/login.page.invalid.singular.input.js")
+
+const CheckoutPageValidGuestInput = require("../../pages/checkout-page-guest-input/checkout.page.valid.guest.input.js");
 
 const GeneralPageTextElementAsserts = require("../text-element-asserts/general.page.text.element.asserts.js");
 const HomePageTextElementAssert = require("../text-element-asserts/home.page.text.element.assert.js");
@@ -36,6 +39,7 @@ const AddressDetailsPageTextElementAssert = require("../text-element-asserts/add
 const SingleProductPageTextElementAssert = require("../text-element-asserts/single.product.page.text.element.assert.js");
 const ShoppingCartPageTextElementAssert = require("../text-element-asserts/shopping.cart.page.text.element.assert.js");
 const WishlistPageTextElementAssert = require("../text-element-asserts/wishlist.page.text.element.assert.js");
+const CheckoutPageTextElementAsserts = require("../text-element-asserts/checkout.page.text.element.asserts.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 const AddressListPageDataLogger = require("../data-loggers/address.list.page.data.logger.js");
@@ -44,6 +48,7 @@ const SingleCategoryDashPageDataLogger = require("../data-loggers/single.categor
 const WishlistPageDataLogger = require("../data-loggers/wishlist.page.data.logger.js");
 const CompareListPageDataLogger = require("../data-loggers/compare.list.page.data.logger.js");
 const ShoppingCartPageDataLogger = require("../data-loggers/shopping.cart.page.data.logger.js");
+const CheckoutPageDataLoggers = require("../data-loggers/checkout.page.data.loggers.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -9564,6 +9569,125 @@ class TestMethods extends BaseTest{
         assert.strictEqual(actualShopCartEmptyMsg, "The shopping cart is empty!", "The empty shopping cart message doesn't match expectations or the product removal process has failed");
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Product Removal From Shopping Cart Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid product(s) checkout confirmation tests
+
+    //valid product(s) checkout confirmation test method (as a guest)
+    async validProductCheckoutConfirmationTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const checkoutPage = new CheckoutPage(this.driver);
+        const checkoutPageTextElementAsserts = new CheckoutPageTextElementAsserts(this.driver);
+        const checkoutPageDataLoggers = new CheckoutPageDataLoggers(this.driver);
+        const checkoutPageValidGuestInput = new CheckoutPageValidGuestInput(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //checkout page web element assert
+        await checkoutPage.isCheckoutPageWebElementDisplayed();
+        //checkout page input address web element assert
+        await checkoutPage.isCheckoutPageInputAddressWebElementDisplayed();
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageTextElementAsExpected();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page input address section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageInputAddressSectionTextElementAsExpected();
+        //log checkout page product table data
+        await checkoutPageDataLoggers.logCheckoutPageProductTableData();
+        //capture screenshot of the checkout page display before data input (guest)
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display Before Data Input (guest)");
+        //input valid guest first name into first name input field
+        await checkoutPageValidGuestInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        await checkoutPageValidGuestInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        await checkoutPageValidGuestInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        await checkoutPageValidGuestInput.inputValidGuestPhoneIntoPhoneInputField();
+        //click country dropdown menu
+        await checkoutPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await checkoutPage.selectUnitedStatesOption();
+        //input valid guest address one into address one input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressOneIntoAddressOneInputField();
+        //input valid guest address two into address two input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressTwoIntoAddressTwoInputField();
+        //input valid guest note into note text area
+        await checkoutPageValidGuestInput.inputValidGuestNoteIntoNoteTextarea();
+        //capture screenshot of the checkout page display after data input (guest)
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display After Data Input (guest)");
+        //click "Checkout" button
+        await checkoutPage.clickCheckoutButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(5500);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets on checkout (confirmation section) page
+        const expectedURL = "https://demo.s-cart.org/checkout-confirm.html"
+        const currentURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentURL, expectedURL, "The page URL doesn't match expectations or the product checkout confirmation process has failed.");
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page shipping address web element
+        await checkoutPage.isCheckoutPageShipAddressWebElementDisplayed();
+        //checkout page shipping address text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageShipAddressTableTextElementAsExpected();
+        //log shipping address data
+        await checkoutPageDataLoggers.logCheckoutPageShipAddressData();
+        //capture screenshot of the checkout page shipping address display
+        await captureScreenshot(this.driver, "Checkout Page Shipping Address Section Display");
+        //click "Confirm" button
+        await checkoutPage.clickConfirmButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2500);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets the order submitted
+        const expectedOrderSuccessURL = "https://demo.s-cart.org/order-success.html"
+        const currentOrderSuccessURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentOrderSuccessURL, expectedOrderSuccessURL, "The page URL doesn't match expectations or the order submission confirmation process has failed.");
+        //checkout page order success section web element assert
+        await checkoutPage.isCheckoutPageOrderSuccessWebElementDisplayed();
+        //checkout page order success section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageOrderSuccessTextElementAsExpected();
+        //log checkout page order number
+        await checkoutPageDataLoggers.logCheckoutPageOrderNumber();
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid Product(s) Checkout Confirmation Test Result (registered user)");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

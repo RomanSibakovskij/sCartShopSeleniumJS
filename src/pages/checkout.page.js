@@ -72,6 +72,33 @@ class CheckoutPage extends BasePage{
 
     }
 
+    //click country dropdown menu
+    async clickCountryDropdownMenu(){
+        const countryDropdownMenu = await this.driver.findElement(this._checkoutPageCountryDropdownMenu);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: countryDropdownMenu }).click().perform();
+    }
+
+    //select "United States" option
+    async selectUnitedStatesOption(){
+        const usCountryOption = await this.driver.findElement(this._checkoutPageUSCountryOption);
+        await usCountryOption.click();
+    }
+
+    //click "Checkout" button
+    async clickCheckoutButton(){
+        const checkoutButton = await this.driver.findElement(this._checkoutPageCheckoutButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: checkoutButton }).click().perform();
+    }
+
+    //click "Confirm" button
+    async clickConfirmButton(){
+        const confirmButton = await this.driver.findElement(this._checkoutPageConfirmButton);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: confirmButton }).click().perform();
+    }
+
     //checkout page product data getters
     //product table (list elements)
     async getCheckoutPageProductName() {
