@@ -110,6 +110,18 @@ describe('Shopping Cart Page Tests', () => {
 
     });
 
+    describe("Add Single Category Single Product To Checkout Tests", () => {
+
+        //Test 017 -> add single category single product ("Product bundle 2 - English") to check out test (as a guest)
+        test("Add Single Category Single Product To Checkout Test (as a guest)", async function () {
+            //add single category single product ("Product bundle 2 - English") to cart test (as a guest)
+            await testMethods.addSingleCategorySingleProductToCartGuestTest();
+            //add single category single product ("Product bundle 2 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
