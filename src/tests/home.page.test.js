@@ -87,6 +87,17 @@ describe('Home Page Tests', () => {
             await testMethods.addMultipleSearchedProductsToCartGuestTest();
         });
 
+        //Test 009c -> add multiple searched products ("Sample product 10 - English") to cart test (as a registered user)
+        test("Add Multiple Searched Products To Cart Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add multiple searched products ("Sample product 10 - English") to cart test (as a registered user)
+            await testMethods.addMultipleSearchedProductsToCartRegUserTest();
+        });
+
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
