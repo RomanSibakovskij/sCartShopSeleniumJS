@@ -33,6 +33,15 @@ describe('Wishlist Page Tests', () => {
 
     });
 
+    describe("Add Multiple New Products To Wishlist Tests", () => {
+
+        //Test 010b -> add multiple new products ("Product bundle 1 - English", "Sample product 5 - English", "Sample product 6 - English") to wishlist test (as a guest)
+        test("Add Multiple New Products To Wishlist Test (as a guest)", async function () {
+            await testMethods.addMultipleHomePageNewProductsToWishlistGuestTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
