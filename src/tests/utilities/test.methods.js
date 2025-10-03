@@ -9690,6 +9690,102 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Valid Product(s) Checkout Confirmation Test Result (registered user)");
     }
 
+    //valid product(s) checkout confirmation test method (as a registered user)
+    async validProductCheckoutConfirmationRegUserTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const checkoutPage = new CheckoutPage(this.driver);
+        const checkoutPageTextElementAsserts = new CheckoutPageTextElementAsserts(this.driver);
+        const checkoutPageDataLoggers = new CheckoutPageDataLoggers(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //checkout page web element assert
+        await checkoutPage.isCheckoutPageWebElementDisplayed();
+        //checkout page input address web element assert
+        await checkoutPage.isCheckoutPageInputAddressWebElementDisplayed();
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageTextElementAsExpected();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page input address section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageInputAddressSectionTextElementAsExpected();
+        //log checkout page product table data
+        await checkoutPageDataLoggers.logCheckoutPageProductTableData();
+        //log checkout page registered user input data
+        await checkoutPageDataLoggers.logCheckoutPageRegUserInputAddressData();
+        //capture screenshot of the checkout page display (registered user)
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display(registered user)");
+        //click "Checkout" button
+        await checkoutPage.clickCheckoutButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(5500);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets on checkout (confirmation section) page
+        const expectedURL = "https://demo.s-cart.org/checkout-confirm.html"
+        const currentURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentURL, expectedURL, "The page URL doesn't match expectations or the product checkout confirmation process has failed.");
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page shipping address web element
+        await checkoutPage.isCheckoutPageShipAddressWebElementDisplayed();
+        //checkout page shipping address text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageShipAddressTableTextElementAsExpected();
+        //log shipping address data
+        await checkoutPageDataLoggers.logCheckoutPageShipAddressData();
+        //capture screenshot of the checkout page shipping address display
+        await captureScreenshot(this.driver, "Checkout Page Shipping Address Section Display");
+        //click "Confirm" button
+        await checkoutPage.clickConfirmButton();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2500);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //assert the user gets the order submitted
+        const expectedOrderSuccessURL = "https://demo.s-cart.org/order-success.html"
+        const currentOrderSuccessURL = await this.driver.getCurrentUrl();
+        assert.strictEqual(currentOrderSuccessURL, expectedOrderSuccessURL, "The page URL doesn't match expectations or the order submission confirmation process has failed.");
+        //checkout page order success section web element assert
+        await checkoutPage.isCheckoutPageOrderSuccessWebElementDisplayed();
+        //checkout page order success section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageOrderSuccessTextElementAsExpected();
+        //log checkout page order number
+        await checkoutPageDataLoggers.logCheckoutPageOrderNumber();
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Valid Product(s) Checkout Confirmation Test Result (registered user)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
