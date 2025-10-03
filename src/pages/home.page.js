@@ -46,6 +46,22 @@ class HomePage extends BasePage{
         await actions.move({ origin: targetElement }).perform();
     }
 
+    //hover over set new products card method
+    async hoverOverSetNewProductCard(index){
+        const setNewProductCard = await this.driver.findElements(this._homePageNewProductsProductCardLinkElements);
+        const targetElement = setNewProductCard[index];
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: targetElement }).perform();
+    }
+
+    //click set new products "Add to wishlist" button method (since the common click, nor Actions click do work, JS executor click is used)
+    async clickSetNewProductAddToWishlistBtn(index){
+        const setNewProductAddToWishlistBtn = await this.driver.findElements(this._homePageNewProductsProductAddToWishlistBtnElements);
+        const targetElement = setNewProductAddToWishlistBtn[index];
+        await this.driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", targetElement);
+        await this.driver.executeScript("arguments[0].click();", targetElement);
+    }
+
     //home page text element getters
     async getHomePageTitle(){
         const homePageTitle = await this.driver.findElement(this._homePageTitle);
