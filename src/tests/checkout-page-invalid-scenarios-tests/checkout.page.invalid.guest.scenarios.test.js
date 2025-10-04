@@ -204,6 +204,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmTooLongAddressOneTest();
         });
 
+        //Test 023r -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too long guest address two (101 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Too Long Address Two", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too long guest address two
+            await testMethods.invalidProductCheckoutConfirmTooLongAddressTwoTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
