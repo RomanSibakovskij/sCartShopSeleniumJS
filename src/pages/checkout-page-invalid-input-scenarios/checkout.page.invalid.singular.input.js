@@ -31,6 +31,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._tooShortGuestAddressFirstName = "G"; // 1 char
         this._tooShortGuestAddressLastName = "F"; // 1 char
         this._tooShortGuestAddressEmail = testDataGenerator.generateRandomTooShortEmailAddress(1); // 1 char -> name, domain
+        this._tooShortGuestAddressPhone = "0123456"; // 7 digits
 
     }
 
@@ -90,6 +91,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const tooShortGuestEmail = this._tooShortGuestAddressEmail;
         Logger.info("Too short guest input address email (checkout page): ", tooShortGuestEmail);
         await emailInputField.sendKeys(tooShortGuestEmail);
+    }
+    async inputTooShortGuestPhoneIntoPhoneInputField(){
+        const phoneInputField = await this.driver.findElement(this._checkoutPagePhoneInputField);
+        const tooShortGuestPhone = this._tooShortGuestAddressPhone;
+        Logger.info("Too short guest input address phone (checkout page): ", tooShortGuestPhone);
+        await phoneInputField.sendKeys(tooShortGuestPhone);
     }
 
 }
