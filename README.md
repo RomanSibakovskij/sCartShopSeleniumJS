@@ -1,6 +1,6 @@
 # sCartShopSeleniumJS
 
-Selenium test suite on basic e-commerce web app functionality (user account creation, address addition, login/logout, various product addition to / quantity update / removal from shopping cart). The test suite captures screenshots at the end of test case run (for logging purposes).
+Selenium basic UI test suite on basic e-commerce web app functionality (user account creation, address addition, login/logout, various product addition to / quantity update / removal from shopping cart). The test suite captures screenshots at the end of test case run (for logging purposes).
 
 #Tech Requirements:
  
@@ -371,3 +371,4 @@ Selenium test suite on basic e-commerce web app functionality (user account crea
 
 1.	//Test 026 -> single category single product ("Sample product 4 - English") order details validation test (as a registered user)
 2.	//Test 026a -> single category multiple products ("Sample product 3 - English") order details validation test (as a registered user)
+
