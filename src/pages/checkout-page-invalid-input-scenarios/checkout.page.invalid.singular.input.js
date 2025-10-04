@@ -35,6 +35,9 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._tooShortGuestAddressOne = "8 T"; // 3 chars
         this._tooShortGuestAddressTwo = "Bld"; // 3 chars
 
+        //invalid singular input (guest user) - too long singular input
+        this._tooLongGuestAddressFirstName = "Gsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
+
     }
 
     //invalid guest address input methods - no singular input
@@ -111,6 +114,14 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const tooShortGuestAddressTwo = this._tooShortGuestAddressTwo;
         Logger.info("Too short guest input address two (checkout page): ", tooShortGuestAddressTwo);
         await addressTwoInputField.sendKeys(tooShortGuestAddressTwo);
+    }
+
+    //invalid guest address input methods - too long singular input
+    async inputTooLongGuestFirstNameIntoFirstNameInputField(){
+        const firstNameInputField = await this.driver.findElement(this._checkoutPageFirstNameInputField);
+        const tooLongGuestFirstName = this._tooLongGuestAddressFirstName;
+        Logger.info("Too long guest input address first name (checkout page): ", tooLongGuestFirstName);
+        await firstNameInputField.sendKeys(tooLongGuestFirstName);
     }
 
 }

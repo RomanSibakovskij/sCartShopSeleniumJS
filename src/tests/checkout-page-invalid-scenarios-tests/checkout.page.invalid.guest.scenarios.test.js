@@ -152,6 +152,20 @@ describe('Invalid Checkout Page Tests', () => {
 
     });
 
+    describe("Invalid Guest Checkout Confirmation Tests - Too Long Singular Input", () => {
+
+        //Test 023m -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too long guest address first name (100 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Too Long Address First Name", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too long guest address first name
+            await testMethods.invalidProductCheckoutConfirmTooLongAddressFirstNameTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
