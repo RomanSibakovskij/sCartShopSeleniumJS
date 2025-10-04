@@ -39,6 +39,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._tooLongGuestAddressFirstName = "Gsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
         this._tooLongGuestAddressLastName = "Fsdfdgdfgfewtrythgydfggfgfjmbnjnvcvcxcsdrteytuiyioipokjghhfgdgrertrdtgdfghfjhgkjbvghgdfgfhfhujhjgfhg"; // 100 chars
         this._tooLongGuestAddressEmail = testDataGenerator.generateRandomTooLongEmailAddress(100); // 100 chars -> name, domain
+        this._tooLongGuestAddressPhone = "012345678901234"; // 15 digits
 
     }
 
@@ -136,6 +137,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const tooLongGuestEmail = this._tooLongGuestAddressEmail;
         Logger.info("Too long guest input address email (checkout page): ", tooLongGuestEmail);
         await emailInputField.sendKeys(tooLongGuestEmail);
+    }
+    async inputTooLongGuestPhoneIntoPhoneInputField(){
+        const phoneInputField = await this.driver.findElement(this._checkoutPagePhoneInputField);
+        const tooLongGuestPhone = this._tooLongGuestAddressPhone;
+        Logger.info("Too long guest input address phone (checkout page): ", tooLongGuestPhone);
+        await phoneInputField.sendKeys(tooLongGuestPhone);
     }
 
 }
