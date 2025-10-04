@@ -18,6 +18,8 @@ const { SingleCategoryDashboardPage } = require("../../pages/single.category.das
 const { WishlistPage } = require("../../pages/wishlist.page.js");
 const { CompareListPage } = require("../../pages/compare.list.page.js")
 const { CheckoutPage } = require("../../pages/checkout.page.js");
+const { OrderHistoryDashboardPage } = require("../../pages/order.history.dashboard.page.js");
+const { OrderDetailsPage } = require("../../pages/order.details.page.js");
 
 const RegisterPageInvalidSingularInput = require("../../pages/register-page-invalid-input-scenarios/register.page.invalid.singular.input.js");
 const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page-invalid-input-scenarios/change.info.page.invalid.singular.input.js");
@@ -41,6 +43,8 @@ const SingleProductPageTextElementAssert = require("../text-element-asserts/sing
 const ShoppingCartPageTextElementAssert = require("../text-element-asserts/shopping.cart.page.text.element.assert.js");
 const WishlistPageTextElementAssert = require("../text-element-asserts/wishlist.page.text.element.assert.js");
 const CheckoutPageTextElementAsserts = require("../text-element-asserts/checkout.page.text.element.asserts.js");
+const OrderHistoryDashPageTextElementAssert = require("../text-element-asserts/order.history.dash.page.text.element.assert.js");
+const OrderDetailsPageTextElementAssert = require("../text-element-asserts/order.details.page.text.element.assert.js");
 
 const HomePageDataLogger = require("../data-loggers/home.page.data.logger.js");
 const AddressListPageDataLogger = require("../data-loggers/address.list.page.data.logger.js");
@@ -50,6 +54,8 @@ const WishlistPageDataLogger = require("../data-loggers/wishlist.page.data.logge
 const CompareListPageDataLogger = require("../data-loggers/compare.list.page.data.logger.js");
 const ShoppingCartPageDataLogger = require("../data-loggers/shopping.cart.page.data.logger.js");
 const CheckoutPageDataLoggers = require("../data-loggers/checkout.page.data.loggers.js");
+const OrderHistoryDashPageDataLogger = require("../data-loggers/order.history.dash.page.data.logger.js");
+const OrderDetailsPageDataLogger = require("../data-loggers/order.details.page.data.logger.js");
 
 const assert = require("node:assert");
 const Logger = require("../../pages/utilities/logger.js");
@@ -11679,6 +11685,77 @@ class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Invalid Product(s) Checkout Confirmation Test Result (guest) - Invalid Address Two Format");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //order details validation test (only registered user has this feature)
+
+    //order details validation test method
+    async orderDetailsValidationTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const accountDashboardPage = new AccountDashboardPage(this.driver);
+        const accountDashPageTextElementAssert = new AccountDashPageTextElementAssert(this.driver);
+        const orderHistoryDashboardPage = new OrderHistoryDashboardPage(this.driver);
+        const orderHistoryDashPageTextElementAssert = new OrderHistoryDashPageTextElementAssert(this.driver);
+        const orderHistoryDashPageDataLogger = new OrderHistoryDashPageDataLogger(this.driver);
+        const orderDetailsPage = new OrderDetailsPage(this.driver);
+        const orderDetailsPageTextElementAssert = new OrderDetailsPageTextElementAssert(this.driver);
+        const orderDetailsPageDataLogger = new OrderDetailsPageDataLogger(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert (registered user side)
+        await generalPageTextElementAsserts.isGeneralPageHeaderRegUserTextElementAsExpected();
+        //click 'My account" header navbar dropdown menu
+        await generalPage.clickSetNavBarLink(4);
+        //select "My account" option
+        await generalPage.clickSetAccountDropdownMenuOption(0);
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //click "Order history" aside link
+        await accountDashboardPage.clickAccountDashboardPageAsideLink(3);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        // if the order doesn't show up on the dashboard, log the issue
+        const orderHistoryDashPageIsEmptyWarning = await orderHistoryDashboardPage.getOrderHistoryDashPageEmptyWarningText();
+        if(orderHistoryDashPageIsEmptyWarning && orderHistoryDashPageIsEmptyWarning === "No items yet"){
+            await captureScreenshot(this.driver, "Order History Dashboard Page Display - No Order Placed (registered user)");
+            throw new Error(`The order hasn't been placed into order history dashboard, test has failed`);
+        }
+        //order history dashboard page web element assert
+        await orderHistoryDashboardPage.isOrderDashboardPageWebElementDisplayed();
+        //order history dashboard page text element assert
+        await orderHistoryDashPageTextElementAssert.isOrderHistoryDashPageTextElementAsExpected();
+        //log order history dashboard page order data
+        await orderHistoryDashPageDataLogger.logOrderHistoryDashPageProductTableData();
+        //capture screenshot of the order history dashboard page display
+        await captureScreenshot(this.driver, "Order History Dashboard Page Display (registered user)");
+        //click "Order details" link
+        await orderHistoryDashboardPage.clickSetOrderDetailsLink();
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //account dashboard page (aside elements) web element assert
+        await accountDashboardPage.isAccountDashboardPageWebElementDisplayed();
+        //account dashboard page (aside elements) text element assert
+        await accountDashPageTextElementAssert.isAccountDashPageTextElementAsExpected();
+        //order details page web elements
+        await orderDetailsPage.isOrderDetailsPageWebElementDisplayed();
+        //order details page web elements
+        await orderDetailsPageTextElementAssert.isOrderDetailsPageTextElementAsExpected();
+        //log order details page data
+        await orderDetailsPageDataLogger.logOrderDetailsPageData();
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Order Details Validation Test Result");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -3,6 +3,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("./utilities/base.page.js");
+const Logger = require("./utilities/logger");
 
 class OrderHistoryDashboardPage extends BasePage{
 
@@ -27,6 +28,13 @@ class OrderHistoryDashboardPage extends BasePage{
         //singular element
         this._orderHistoryDashPageTableOrderDetailsLink = By.xpath("//table/tbody/tr/td[6]/a");
 
+    }
+
+    //click set "Link details" link method
+    async clickSetOrderDetailsLink(){
+        const orderDetailsLink = await this.driver.findElement(this._orderHistoryDashPageTableOrderDetailsLink);
+        const actions = this.driver.actions({ bridge: true });
+        await actions.move({ origin: orderDetailsLink }).click().perform();
     }
 
     //order history dashboard page order data getters
