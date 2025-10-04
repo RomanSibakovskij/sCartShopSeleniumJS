@@ -49,6 +49,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._invalidGuestAddressEmailFormat = "sdfdffakemail.com"; // missing '@'
         this._existingGuestAddressEmail = "m0@example.com"; // used beforehand in manual testing
         this._invalidGuestAddressPhoneFormat = "@#@#$#$"; // special symbols only
+        this._invalidGuestAddressOneFormat = "@$##$^"; // special symbols only
 
     }
 
@@ -196,6 +197,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const invalidGuestPhoneFormat = this._invalidGuestAddressPhoneFormat;
         Logger.info("Invalid guest input address phone format (checkout page): ", invalidGuestPhoneFormat);
         await phoneInputField.sendKeys(invalidGuestPhoneFormat);
+    }
+    async inputInvalidGuestAddressOneFormatIntoAddressOneInputField(){
+        const addressOneInputField = await this.driver.findElement(this._checkoutPageAddressOneInputField);
+        const invalidGuestAddressOneFormat = this._invalidGuestAddressOneFormat;
+        Logger.info("Invalid guest input address one format (checkout page): ", invalidGuestAddressOneFormat);
+        await addressOneInputField.sendKeys(invalidGuestAddressOneFormat);
     }
 
 }

@@ -268,6 +268,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmInvalidAddressPhoneFormatTest();
         });
 
+        //Test 023x -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address one format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Invalid Address One Format", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address one format
+            await testMethods.invalidProductCheckoutConfirmInvalidAddressOneFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
