@@ -26,6 +26,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmNoAddressFirstNameTest();
         });
 
+        //Test 023a -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - no guest address last name
+        test("Invalid Single New Product Guest Checkout Confirmation Test - No Address Last Name", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - no guest address last name
+            await testMethods.invalidProductCheckoutConfirmNoAddressLastNameTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

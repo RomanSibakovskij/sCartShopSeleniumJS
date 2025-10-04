@@ -18,6 +18,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
 
         //invalid singular input (guest user) - no singular input
         this._noGuestAddressFirstName = "";
+        this._noGuestAddressLastName = "";
 
     }
 
@@ -27,6 +28,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const noGuestFirstName = this._noGuestAddressFirstName;
         Logger.info("No guest input address first name (checkout page): ", noGuestFirstName);
         await firstNameInputField.sendKeys(noGuestFirstName);
+    }
+    async inputNoGuestLastNameIntoLastNameInputField(){
+        const lastNameInputField = await this.driver.findElement(this._checkoutPageLastNameInputField);
+        const noGuestLastName = this._noGuestAddressLastName;
+        Logger.info("No guest input address last name (checkout page): ", noGuestLastName);
+        await lastNameInputField.sendKeys(noGuestLastName);
     }
 
 }
