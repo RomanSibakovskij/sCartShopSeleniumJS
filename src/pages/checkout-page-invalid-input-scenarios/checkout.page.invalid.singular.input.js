@@ -46,6 +46,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         //invalid singular input (guest user) - invalid singular input format
         this._invalidGuestAddressFirstNameFormat = "@$@#$%#$^"; // special symbols only
         this._invalidGuestAddressLastNameFormat = "@$@#%$#^"; // special symbols only
+        this._invalidGuestAddressEmailFormat = "sdfdffakemail.com"; // missing '@'
 
     }
 
@@ -175,6 +176,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const invalidGuestLastNameFormat = this._invalidGuestAddressLastNameFormat;
         Logger.info("Invalid guest input address last name format (checkout page): ", invalidGuestLastNameFormat);
         await lastNameInputField.sendKeys(invalidGuestLastNameFormat);
+    }
+    async inputInvalidGuestEmailFormatIntoEmailInputField(){
+        const emailInputField = await this.driver.findElement(this._checkoutPageEmailInputField);
+        const invalidGuestEmailFormat = this._invalidGuestAddressEmailFormat;
+        Logger.info("Invalid guest input address email format (checkout page): ", invalidGuestEmailFormat);
+        await emailInputField.sendKeys(invalidGuestEmailFormat);
     }
 
 }

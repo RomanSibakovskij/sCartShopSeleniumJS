@@ -238,6 +238,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmInvalidAddressLastNameFormatTest();
         });
 
+        //Test 023u -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address email format (missing '@')
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Invalid Address Email Format", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address email format
+            await testMethods.invalidProductCheckoutConfirmInvalidAddressEmailFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
