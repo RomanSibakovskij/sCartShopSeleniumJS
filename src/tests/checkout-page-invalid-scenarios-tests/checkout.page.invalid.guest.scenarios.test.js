@@ -216,6 +216,20 @@ describe('Invalid Checkout Page Tests', () => {
 
     });
 
+    describe("Invalid Guest Checkout Confirmation Tests - Invalid Singular Input Format", () => {
+
+        //Test 023s -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address first name format (special symbols only) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Invalid Address First Name Format", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - invalid guest address first name format
+            await testMethods.invalidProductCheckoutConfirmInvalidAddressFirstNameFormatTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
