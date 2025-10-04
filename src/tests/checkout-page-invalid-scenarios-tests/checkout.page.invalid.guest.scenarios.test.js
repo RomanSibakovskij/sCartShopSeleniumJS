@@ -248,6 +248,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmInvalidAddressEmailFormatTest();
         });
 
+        //Test 023v -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - existing guest address email format (used beforehand in manual testing) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Existing Address Email", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - existing guest address email
+            await testMethods.invalidProductCheckoutConfirmExistingAddressEmailFormatTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
