@@ -1,6 +1,7 @@
 const {By} = require("selenium-webdriver");
 
 const BasePage = require("../utilities/base.page.js");
+const TestDataGenerator = require("../utilities/test.data.generator.js");
 const Logger = require("../utilities/logger");
 
 class CheckoutPageInvalidSingularInput extends BasePage{
@@ -16,6 +17,8 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._checkoutPageAddressOneInputField = By.xpath("//table[@class='table table-borderless table-responsive']//tr[5]//input");
         this._checkoutPageAddressTwoInputField = By.xpath("//table[@class='table table-borderless table-responsive']//tr[6]//input");
 
+        const testDataGenerator = new TestDataGenerator(this.driver);
+
         //invalid singular input (guest user) - no singular input
         this._noGuestAddressFirstName = "";
         this._noGuestAddressLastName = "";
@@ -27,6 +30,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         //invalid singular input (guest user) - too short singular input
         this._tooShortGuestAddressFirstName = "G"; // 1 char
         this._tooShortGuestAddressLastName = "F"; // 1 char
+        this._tooShortGuestAddressEmail = testDataGenerator.generateRandomTooShortEmailAddress(1); // 1 char -> name, domain
 
     }
 
@@ -80,6 +84,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const tooShortGuestLastName = this._tooShortGuestAddressLastName;
         Logger.info("Too short guest input address last name (checkout page): ", tooShortGuestLastName);
         await lastNameInputField.sendKeys(tooShortGuestLastName);
+    }
+    async inputTooShortGuestEmailIntoEmailInputField(){
+        const emailInputField = await this.driver.findElement(this._checkoutPageEmailInputField);
+        const tooShortGuestEmail = this._tooShortGuestAddressEmail;
+        Logger.info("Too short guest input address email (checkout page): ", tooShortGuestEmail);
+        await emailInputField.sendKeys(tooShortGuestEmail);
     }
 
 }
