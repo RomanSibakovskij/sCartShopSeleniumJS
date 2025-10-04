@@ -48,6 +48,25 @@ describe('Order Details Page Tests', () => {
 
     });
 
+    describe("Single/Multiple Searched Product(s) Order Details Validation Tests", () => {
+
+        //Test 025 -> single searched product ("Sample product 10 - English") order details validation test (as a registered user)
+        test("Single Searched Product Order Details Validation Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single searched product ("Sample product 10 - English") to cart test (as a registered user)
+            await testMethods.addSingleSearchedProductToCartRegUserTest();
+            //add single searched product ("Sample product 10 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+            //single searched product ("Sample product 10 - English") check out confirmation test (as a registered user)
+            await testMethods.validProductCheckoutConfirmationRegUserTest();
+            //single searched product ("Sample product 10 - English") order details validation test (as a registered user)
+            await testMethods.orderDetailsValidationTest();
+        });
+
+    });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
