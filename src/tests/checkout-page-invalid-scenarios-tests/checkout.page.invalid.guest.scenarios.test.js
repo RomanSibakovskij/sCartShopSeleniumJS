@@ -130,6 +130,16 @@ describe('Invalid Checkout Page Tests', () => {
             await testMethods.invalidProductCheckoutConfirmTooShortAddressPhoneTest();
         });
 
+        //Test 023k -> invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too short guest address one (3 chars) (the error wasn't triggered, test has failed)
+        test("Invalid Single New Product Guest Checkout Confirmation Test - Too Short Address One", async function () {
+            //add single new product ("Product bundle 1 - English") to cart test (as a guest)
+            await testMethods.addSingleHomePageNewProductToCartGuestTest();
+            //add single new product ("Product bundle 1 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //invalid single new product ("Product bundle 1 - English") guest check out confirmation test - too short guest address one
+            await testMethods.invalidProductCheckoutConfirmTooShortAddressOneTest();
+        });
+
     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
