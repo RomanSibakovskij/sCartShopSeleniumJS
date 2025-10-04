@@ -86,6 +86,26 @@ describe('Order Details Page Tests', () => {
 
     });
 
+    describe("Single Category Single/Multiple Product(s) Order Details Validation Tests", () => {
+
+        //Test 026 -> single category single product ("Sample product 4 - English") order details validation test (as a registered user)
+        test("Single Category Single Product Order Details Validation Test (as a registered user)", async function () {
+            //navigate user to register page test
+            await testMethods.navigateToRegisterPageTest();
+            //valid user account creation test
+            await testMethods.validUserAccountCreationTest();
+            //add single new product ("Sample product 4 - English") to cart test (as a registered user)
+            await testMethods.addSingleCategorySingleProductToCartRegUserTest();
+            //add single category single product ("Sample product 4 - English") to check out test (as a registered user)
+            await testMethods.addProductToCheckoutRegUserTest();
+            //single category single product ("Sample product 4 - English") check out confirmation test (as a registered user)
+            await testMethods.validProductCheckoutConfirmationRegUserTest();
+            //single category single product ("Sample product 4 - English") order details validation test (as a registered user)
+            await testMethods.orderDetailsValidationTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
