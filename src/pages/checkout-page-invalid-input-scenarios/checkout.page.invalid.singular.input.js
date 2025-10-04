@@ -26,6 +26,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
 
         //invalid singular input (guest user) - too short singular input
         this._tooShortGuestAddressFirstName = "G"; // 1 char
+        this._tooShortGuestAddressLastName = "F"; // 1 char
 
     }
 
@@ -73,6 +74,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const tooShortGuestFirstName = this._tooShortGuestAddressFirstName;
         Logger.info("Too short guest input address first name (checkout page): ", tooShortGuestFirstName);
         await firstNameInputField.sendKeys(tooShortGuestFirstName);
+    }
+    async inputTooShortGuestLastNameIntoLastNameInputField(){
+        const lastNameInputField = await this.driver.findElement(this._checkoutPageLastNameInputField);
+        const tooShortGuestLastName = this._tooShortGuestAddressLastName;
+        Logger.info("Too short guest input address last name (checkout page): ", tooShortGuestLastName);
+        await lastNameInputField.sendKeys(tooShortGuestLastName);
     }
 
 }
