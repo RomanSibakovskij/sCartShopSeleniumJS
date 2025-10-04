@@ -22,6 +22,7 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._noGuestAddressEmail = "";
         this._noGuestAddressPhone = "";
         this._noGuestAddressOne = "";
+        this._noGuestAddressTwo = "";
 
     }
 
@@ -55,6 +56,12 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         const noGuestAddressOne = this._noGuestAddressOne;
         Logger.info("No guest input address one (checkout page): ", noGuestAddressOne);
         await addressOneInputField.sendKeys(noGuestAddressOne);
+    }
+    async inputNoGuestAddressTwoIntoAddressTwoInputField(){
+        const addressTwoInputField = await this.driver.findElement(this._checkoutPageAddressTwoInputField);
+        const noGuestAddressTwo = this._noGuestAddressTwo;
+        Logger.info("No guest input address two (checkout page): ", noGuestAddressTwo);
+        await addressTwoInputField.sendKeys(noGuestAddressTwo);
     }
 
 }
