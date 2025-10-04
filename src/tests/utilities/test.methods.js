@@ -24,6 +24,7 @@ const ChangeInfoPageInvalidSingularInput = require("../../pages/change-info-page
 const ChangePasswordPageInvalidSingularInput = require("../../pages/change-password-page-invalid-input-scenarios/change.password.page.invalid.singular.input.js");
 const AddressDetailsPageInvalidSingularInput = require("../../pages/address-details-page-invalid-input-scenarios/address.details.page.invalid.singular.input.js");
 const LoginPageInvalidSingularInput = require("../../pages/login-page-invalid-input-scenarios/login.page.invalid.singular.input.js")
+const CheckoutPageInvalidSingularInput = require("../../pages/checkout-page-invalid-input-scenarios/checkout.page.invalid.singular.input.js");
 
 const CheckoutPageValidGuestInput = require("../../pages/checkout-page-guest-input/checkout.page.valid.guest.input.js");
 
@@ -9784,6 +9785,79 @@ class TestMethods extends BaseTest{
         await checkoutPageDataLoggers.logCheckoutPageOrderNumber();
         //capture screenshot of the test result
         await captureScreenshot(this.driver, "Valid Product(s) Checkout Confirmation Test Result (registered user)");
+    }
+
+    //invalid guest checkout confirmation tests (since the register user has the same output, only guest branch is being tested here to avoid redundancy)
+
+    //no singular input
+
+    //invalid guest product(s) checkout confirmation test method - no address first name
+    async invalidProductCheckoutConfirmNoAddressFirstNameTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const checkoutPage = new CheckoutPage(this.driver);
+        const checkoutPageTextElementAsserts = new CheckoutPageTextElementAsserts(this.driver);
+        const checkoutPageDataLoggers = new CheckoutPageDataLoggers(this.driver);
+        const checkoutPageInvalidSingularInput = new CheckoutPageInvalidSingularInput(this.driver);
+        const checkoutPageValidGuestInput = new CheckoutPageValidGuestInput(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //checkout page web element assert
+        await checkoutPage.isCheckoutPageWebElementDisplayed();
+        //checkout page input address web element assert
+        await checkoutPage.isCheckoutPageInputAddressWebElementDisplayed();
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageTextElementAsExpected();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page input address section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageInputAddressSectionTextElementAsExpected();
+        //log checkout page product table data
+        await checkoutPageDataLoggers.logCheckoutPageProductTableData();
+        //capture screenshot of the checkout page display before invalid data input (guest)
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display Before Invalid Data Input (guest)");
+        //don't input guest first name into first name input field
+        await checkoutPageInvalidSingularInput.inputNoGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        await checkoutPageValidGuestInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        await checkoutPageValidGuestInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        await checkoutPageValidGuestInput.inputValidGuestPhoneIntoPhoneInputField();
+        //click country dropdown menu
+        await checkoutPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await checkoutPage.selectUnitedStatesOption();
+        //input valid guest address one into address one input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressOneIntoAddressOneInputField();
+        //input valid guest address two into address two input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressTwoIntoAddressTwoInputField();
+        //input valid guest note into note text area
+        await checkoutPageValidGuestInput.inputValidGuestNoteIntoNoteTextarea();
+        //capture screenshot of the checkout page display after invalid data input (guest) - no address first name
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display After Invalid Data Input (guest) - No Address First Name");
+        //click "Checkout" button
+        await checkoutPage.clickCheckoutButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(2500);
+        //assert the user receives an expected error message
+        const noCheckoutGuestAddressFirstNameInputError = await checkoutPage.getCheckoutPageAddressSingularInputErrorMessage();
+        assert.strictEqual(noCheckoutGuestAddressFirstNameInputError, "The First name field is required.", "The missing checkout guest address first name input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Product(s) Checkout Confirmation Test Result (guest) - No Address First Name");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

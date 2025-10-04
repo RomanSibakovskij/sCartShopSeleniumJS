@@ -16,9 +16,18 @@ class CheckoutPageInvalidSingularInput extends BasePage{
         this._checkoutPageAddressOneInputField = By.xpath("//table[@class='table table-borderless table-responsive']//tr[5]//input");
         this._checkoutPageAddressTwoInputField = By.xpath("//table[@class='table table-borderless table-responsive']//tr[6]//input");
 
+        //invalid singular input (guest user) - no singular input
+        this._noGuestAddressFirstName = "";
+
     }
 
-
+    //invalid guest address input methods - no singular input
+    async inputNoGuestFirstNameIntoFirstNameInputField(){
+        const firstNameInputField = await this.driver.findElement(this._checkoutPageFirstNameInputField);
+        const noGuestFirstName = this._noGuestAddressFirstName;
+        Logger.info("No guest input address first name (checkout page): ", noGuestFirstName);
+        await firstNameInputField.sendKeys(noGuestFirstName);
+    }
 
 }
 module.exports = CheckoutPageInvalidSingularInput;
