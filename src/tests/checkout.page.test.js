@@ -126,6 +126,20 @@ describe('Valid Checkout Page Tests', () => {
 
     });
 
+    describe("Single Category Single Product Checkout Confirmation Tests", () => {
+
+        //Test 022 -> single category single product ("Product bundle 2 - English") check out confirmation test (as a guest)
+        test("Single Category Single Product Checkout Confirmation Test (as a guest)", async function () {
+            //add single category single product ("Product bundle 2 - English") to cart test (as a guest)
+            await testMethods.addSingleCategorySingleProductToCartGuestTest();
+            //add single category single product ("Product bundle 2 - English") to check out test (as a guest)
+            await testMethods.addProductToCheckoutGuestTest();
+            //single category single product ("Product bundle 2 - English") check out confirmation test (as a guest)
+            await testMethods.validProductCheckoutConfirmationTest();
+        });
+
+    });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //driver clean-up after each test run
