@@ -10865,6 +10865,80 @@ class TestMethods extends BaseTest{
         await captureScreenshot(this.driver, "Invalid Product(s) Checkout Confirmation Test Result (guest) - Too Long Address Last Name");
     }
 
+    //invalid guest product(s) checkout confirmation test method - too long address email (100 chars -> name, domain)
+    async invalidProductCheckoutConfirmTooLongAddressEmailTest(){
+        const basePage = new BasePage(this.driver);
+        const generalPage = new GeneralPage(this.driver);
+        const generalPageTextElementAsserts = new GeneralPageTextElementAsserts(this.driver);
+        const checkoutPage = new CheckoutPage(this.driver);
+        const checkoutPageTextElementAsserts = new CheckoutPageTextElementAsserts(this.driver);
+        const checkoutPageDataLoggers = new CheckoutPageDataLoggers(this.driver);
+        const checkoutPageInvalidSingularInput = new CheckoutPageInvalidSingularInput(this.driver);
+        const checkoutPageValidGuestInput = new CheckoutPageValidGuestInput(this.driver);
+        //wait for elements to load
+        await basePage.waitForElementLoad(2000);
+        //general page web element assert
+        await generalPage.isGeneralPageWebElementDisplayed();
+        //general page breadcrumb web element assert
+        await generalPage.isGeneralPageBreadcrumbWebElementDisplayed();
+        //general page header text element assert
+        await generalPageTextElementAsserts.isGeneralPageHeaderTextElementAsExpected();
+        //general page footer web element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPage.isGeneralPageFooterWebElementDisplayed();
+        //general page footer text element assert (Selenium can't find these elements with VALID selectors)
+        //await generalPageTextElementAsserts.isGeneralPageFooterTextElementAsExpected();
+        //checkout page web element assert
+        await checkoutPage.isCheckoutPageWebElementDisplayed();
+        //checkout page input address web element assert
+        await checkoutPage.isCheckoutPageInputAddressWebElementDisplayed();
+        //checkout page product table web element assert
+        await checkoutPage.isCheckoutPageProductTableWebElementDisplayed();
+        //checkout page text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageTextElementAsExpected();
+        //checkout page product table text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageProductTableTextElementAsExpected();
+        //checkout page input address section text element assert
+        await checkoutPageTextElementAsserts.isCheckoutPageInputAddressSectionTextElementAsExpected();
+        //log checkout page product table data
+        await checkoutPageDataLoggers.logCheckoutPageProductTableData();
+        //capture screenshot of the checkout page display before invalid data input (guest)
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display Before Invalid Data Input (guest)");
+        //input valid guest first name into first name input field
+        await checkoutPageValidGuestInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        await checkoutPageValidGuestInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input too long guest email into email input field (100 chars -> name, domain)
+        await checkoutPageInvalidSingularInput.inputTooLongGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        await checkoutPageValidGuestInput.inputValidGuestPhoneIntoPhoneInputField();
+        //click country dropdown menu
+        await checkoutPage.clickCountryDropdownMenu();
+        //select "United States" option
+        await checkoutPage.selectUnitedStatesOption();
+        //input valid guest address one into address one input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressOneIntoAddressOneInputField();
+        //input valid guest address two into address two input field
+        await checkoutPageValidGuestInput.inputValidGuestAddressTwoIntoAddressTwoInputField();
+        //input valid guest note into note text area
+        await checkoutPageValidGuestInput.inputValidGuestNoteIntoNoteTextarea();
+        //capture screenshot of the checkout page display after invalid data input (guest) - too long address email
+        await captureScreenshot(this.driver, "Checkout Page Input Address Section Display After Invalid Data Input (guest) - Too Long Address Email");
+        //click "Checkout" button
+        await checkoutPage.clickCheckoutButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        await basePage.waitForElementLoad(2500);
+        //assert the user receives an expected error message, throw an error otherwise
+        try {
+            const tooLongCheckoutGuestAddressEmailInputError = await checkoutPage.getCheckoutPageAddressSingularInputErrorMessage();
+            assert.strictEqual(tooLongCheckoutGuestAddressEmailInputError, "The Email field must be a valid email address.", "The too long checkout guest address email input error doesn't match expectations.");
+        } catch {
+            await captureScreenshot(this.driver, "Invalid Product(s) Checkout Confirmation Test Result (guest) - Too Long Address Email");
+            throw new Error("The too long checkout guest address email input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        await captureScreenshot(this.driver, "Invalid Product(s) Checkout Confirmation Test Result (guest) - Too Long Address Email");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
